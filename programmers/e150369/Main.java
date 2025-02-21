@@ -1,5 +1,3 @@
-package programmers.e150369;
-
 public class Main {
     static class Solution {
         public long solution(int cap, int n, int[] deliveries, int[] pickups) {

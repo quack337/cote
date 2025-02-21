@@ -1,5 +1,3 @@
-package programmers.e376573;
-
 public class Main {
 
     static class Solution1 {
@@ -35,4 +33,3 @@ public class Main {
         System.out.println(s2.solution(new int[] {-1,0,1}, new int[] {1,0,-1}));
     }
 }
-

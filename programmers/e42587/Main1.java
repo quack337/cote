@@ -1,5 +1,3 @@
-package programmers.e42587;
-
 import java.util.ArrayDeque;
 
 public class Main1 {

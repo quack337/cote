@@ -1,5 +1,3 @@
-package programmers.e118666;
-
 import java.util.HashMap;
 
 public class Main {

@@ -1,5 +1,3 @@
-package programmers.e118668;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 

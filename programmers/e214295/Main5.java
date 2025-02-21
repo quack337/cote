@@ -1,5 +1,3 @@
-package programmers.e214295;
-
 import java.util.Arrays;
 
 public class Main5 {
@@ -261,4 +259,3 @@ public class Main5 {
     }
 
 }
-

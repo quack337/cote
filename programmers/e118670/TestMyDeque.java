@@ -1,7 +1,4 @@
-package programmers.e118670;
-
 public class TestMyDeque {
-
 
     @SuppressWarnings("unchecked")
     static class MyDeque<T> {

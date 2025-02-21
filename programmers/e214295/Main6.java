@@ -1,5 +1,3 @@
-package programmers.e214295;
-
 public class Main6 {
 
     static class Solution {
@@ -154,4 +152,3 @@ public class Main6 {
     }
 
 }
-

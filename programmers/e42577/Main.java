@@ -1,5 +1,3 @@
-package programmers.e42577;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 

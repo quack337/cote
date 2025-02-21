@@ -1,5 +1,3 @@
-package programmers.e1829;
-
 import java.util.Arrays;
 
 class Main {

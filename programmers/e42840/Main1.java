@@ -1,5 +1,3 @@
-package programmers.e42840;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

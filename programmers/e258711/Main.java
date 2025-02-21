@@ -1,5 +1,3 @@
-package programmers.e258711;
-
 import java.util.Arrays;
 
 public class Main {
@@ -62,4 +60,3 @@ public class Main {
           {5, 3}, {11, 9}, {3, 8}})));
     }
 }
-

@@ -1,5 +1,3 @@
-package programmers.e4883;
-
 public class Main1 {
     static class Solution {
         public String solution(String number, int k) {

@@ -1,5 +1,3 @@
-package programmers.e258709;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -86,4 +84,3 @@ public class Main3 {
         System.out.println(Arrays.toString(new Solution().solution(e3)));
     }
 }
-

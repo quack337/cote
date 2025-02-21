@@ -1,5 +1,3 @@
-package programmers.e86971;
-
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")

@@ -1,5 +1,3 @@
-package programmers.e214295;
-
 public class Main3 {
 
     static class Solution {
@@ -58,4 +56,3 @@ public class Main3 {
     }
 
 }
-

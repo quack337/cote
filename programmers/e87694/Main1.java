@@ -1,5 +1,3 @@
-package programmers.e87694;
-
 public class Main1 {
 
 /* 실패

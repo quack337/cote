@@ -1,5 +1,3 @@
-package programmers.e118668;
-
 public class Main2b {
 
     static class Solution {

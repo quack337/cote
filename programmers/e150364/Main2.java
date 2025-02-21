@@ -1,5 +1,3 @@
-package programmers.e150364;
-
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
@@ -27,4 +25,3 @@ public class Main2 {
                     System.out.printf("%d %d %s\n", count, target, DP[count][target]);
     }
 }
-
