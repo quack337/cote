@@ -18,9 +18,9 @@ public class Main2 {
     public static void main(String[] args) {
         var sol = new Solution();
         System.out.println(sol.solution(new String[][]
-                {{"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}}));
+            {{"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}}));
         System.out.println(sol.solution(new String[][]
-                {{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}}));
+            {{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}}));
     }
 
 }

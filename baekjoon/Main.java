@@ -16,5 +16,20 @@ public class Main {
         tokenizer = new StringTokenizer(reader.readLine());
         for (int i = 0; i < N; ++i)
             A[i] = Integer.parseInt(tokenizer.nextToken());
+
+        var builder = new StringBuilder();
+        for (int i = 0; i < N; ++i) {
+            builder.append(A[i]);
+            builder.append(' ');
+        }
+        System.out.println(builder.toString());
+        /*
+        var writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        for (int i = 0; i < N; ++i) {
+            writer.write(String.valueOf(A[i]));
+            writer.write(' ');
+        }
+        writer.flush();
+        */
     }
 }
