@@ -5,7 +5,7 @@ function solution(prices) {
           if (e.price <= current.price) return;
           answer[e.index] = current.index - e.index;
           stack.pop();
-      }        
+      }
   }
   let answer = [], stack = [];
   for (let i = 0; i < prices.length; ++i) {
@@ -13,7 +13,7 @@ function solution(prices) {
       removeLarger(stack, current)
       stack.push(current);
   }
-  removeLarger(stack, { price: 999999, index: prices.length - 1 })
+  removeLarger(stack, { price: 0, index: prices.length - 1 })
   return answer;
 }
 
