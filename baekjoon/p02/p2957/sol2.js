@@ -16,21 +16,21 @@ function add(node, from, to, x) {
 }
 
 function findLP(node, from, to, x) {
-  if (!node || node.count == 0 || x <= from) return -999;
+  if (!node || node.count == 0 || x <= from) return -999_999;
   if (node.count == to - from + 1) return Math.min(x - 1, to);
   let middle = Math.max(from + 1, Math.floor((from + to) / 2));
-  let r1 = findLP(node.left, from, middle - 1, x);
-  let r2 = findLP(node.right, middle, to, x);
-  return Math.max(r1, r2);
+  let r = findLP(node.right, middle, to, x);
+  if (r != -999_999) return r;
+  return findLP(node.left, from, middle - 1, x);
 }
 
 function findRP(node, from, to, x) {
-  if (!node || node.count == 0 || x >= to) return 999_999_999;
+  if (!node || node.count == 0 || x >= to) return 999_999;
   if (node.count == to - from + 1) return Math.max(x + 1, from);
   let middle = Math.max(from + 1, Math.floor((from + to) / 2));
-  let r1 = findRP(node.left, from, middle - 1, x);
-  let r2 = findRP(node.right, middle, to, x);
-  return Math.min(r1, r2);
+  let r = findRP(node.left, from, middle - 1, x);
+  if (r != 999_999) return r;
+  return findRP(node.right, middle, to, x);
 }
 
 let seg_root = {count: 0}, map = [];
