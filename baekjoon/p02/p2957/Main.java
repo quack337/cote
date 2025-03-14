@@ -23,15 +23,15 @@ public class Main {
     static TreeMap<Integer, Node> map = new TreeMap<>();
 
     static void insert(int x) {
-        Integer a = map.floorKey(x);
+        Integer lp = map.floorKey(x);
         Node parentNode = null;
-        if (a != null && (parentNode = map.get(a)).right == null) {
+        if (lp != null && (parentNode = map.get(lp)).right == null) {
             Node node = new Node(x, parentNode.depth + 1);
             map.put(x, node);
             parentNode.right = node;
         } else {
-            Integer b = map.ceilingKey(x);
-            parentNode = map.get(b);
+            Integer rp = map.ceilingKey(x);
+            parentNode = map.get(rp);
             Node node = new Node(x, parentNode.depth + 1);
             map.put(x, node);
             parentNode.left = node;

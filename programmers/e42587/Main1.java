@@ -1,9 +1,6 @@
-import java.util.ArrayDeque;
-
 public class Main1 {
 
     static class Solution {
-
         int highCount(int[] count, int priority) {
             int result = 0;
             for (int i = priority + 1; i < count.length; ++i)
@@ -17,7 +14,7 @@ public class Main1 {
                 count[p]++;
 
             priorities[location] *= -1;
-            var queue = new ArrayDeque<Integer>();
+            var queue = new java.util.ArrayDeque<Integer>();
             for (int p : priorities)
                 queue.add(p);
             int answer = 1;
