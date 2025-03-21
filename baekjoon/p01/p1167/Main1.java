@@ -27,6 +27,7 @@ public class Main1 {
         return current;
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(reader.readLine());

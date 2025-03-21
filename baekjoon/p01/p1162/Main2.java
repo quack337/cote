@@ -31,6 +31,7 @@ public class Main2 {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
