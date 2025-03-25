@@ -15,5 +15,6 @@ public class Main {
         var sol = new Solution();
         System.out.println(sol.solution(new int[] {3,0,6,1,5}));
         System.out.println(sol.solution(new int[] {3,3}));
+        System.out.println(sol.solution(new int[] { }));
     }
 }

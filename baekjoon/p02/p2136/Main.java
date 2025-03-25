@@ -1,46 +1,42 @@
-package baekjoon.p02.p2136;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-    static class Ant {
-        int no, dir; long position;
-
-        public Ant(int no, long position) {
-            this.no = no;
-            this.dir = position < 0 ? 0 : 1;
-            this.position = Math.abs(position);
-        }
+  static class Ant { int no, dir; long position, seconds; }
+  public static void main(String[] args) throws Exception {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+    int N = Integer.parseInt(tokenizer.nextToken());
+    int L = Integer.parseInt(tokenizer.nextToken());
+    Ant[] ar = new Ant[N];
+    for (int i = 0; i < N; ++i) {
+      long p = Long.parseLong(reader.readLine());
+      Ant ant = new Ant();
+      ant.no = i + 1;
+      ant.dir = p < 0 ? -1 : 1;
+      ant.position = Math.abs(p);
+      ant.seconds = ant.dir < 0 ? ant.position : L - ant.position;
+      ar[i] = ant;
     }
-
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        int N = Integer.parseInt(tokenizer.nextToken());
-        int L = Integer.parseInt(tokenizer.nextToken());
-        Ant[] A1 = new Ant[N];
-        for (int i = 0; i < N; ++i) {
-            long position = Long.parseLong(reader.readLine());
-            A1[i] = new Ant(i + 1, position);
-        }
-        Arrays.sort(A1, (a1, a2) -> {
-            return (int)(a1.position - a2.position);
-        });
-        Ant[] A2 = Arrays.copyOf(A1, A1.length);
-        Arrays.sort(A2, (a1, a2) -> {
-            int r = a1.dir - a2.dir;
-            if (r != 0) return r;
-            return (int)(a1.position - a2.position);
-        });
-        long max_t = 0; int max_i = 0;
-        for (int i = 0; i < N; ++i) {
-            long t = A2[i].dir == 0 ? A2[i].position : L - A2[i].position;
-            if (t > max_t) { max_t = t; max_i = i; }
-        }
-        System.out.printf("%d %d\n", A1[max_i].no, max_t);
+    Ant[] ar1 = Arrays.copyOf(ar, ar.length);
+    Arrays.sort(ar1, (a, b) -> {
+      if (a.dir != b.dir) return a.dir - b.dir;
+      return a.dir == -1 ? Long.compare(a.seconds, b.seconds) :
+                           Long.compare(b.seconds, a.seconds);
+    });
+    long maxSeconds = 0; int maxIndex = 0;
+    for (int i = 0; i < ar1.length; i++) {
+      if (ar1[i].seconds > maxSeconds) {
+        maxSeconds = ar1[i].seconds;
+        maxIndex = i;
+      }
     }
+    Arrays.sort(ar, (a, b) -> Long.compare(a.position, b.position));
+    System.out.println(ar[maxIndex].no + " " + maxSeconds);
+  }
 }
