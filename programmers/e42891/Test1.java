@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2019.ex4;
+package programmers.e42891;
 
 public class Test1 {
 
@@ -25,6 +25,7 @@ public class Test1 {
 
     public static void main(String[] args) {
         System.out.println(new Solution().solution(new int[] {3,1,2}, 5));
+        System.out.println(new Solution().solution(new int[] {9,2,5,13,15}, 39));
     }
 
 }

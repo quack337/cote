@@ -8,8 +8,8 @@ public class Main {
     static int PS(String s) {
         ArrayDeque<Character> stack = new ArrayDeque<>();
         int 곱 = 1;    // 중첩된 괄호에 의해 곱해져야할 값
-        int 합계 = 0;  // 결과 값
-        char prev = 0;
+        int 결과 = 0;  // 계산 결과 값
+        char 직전문자 = 0;
         for (char c : s.toCharArray()) {
             switch (c) {
             case '(':
@@ -21,21 +21,19 @@ public class Main {
                 곱 *= 3; // 중첩된 괄호에 의해 곱해져야할 값
                 break;
             case ')':
-                if (stack.size() == 0) return 0;  // 오류
-                if (stack.pop() != '(') return 0; // 오류
-                if (prev == '(') 합계 += 곱;      // () 이면
-                곱 /= 2;  // 괄호가 한 개 닫혔으므로, 곱해져야할 값도 제거
+                if (stack.size() == 0 || stack.pop() != '(') return 0;
+                if (직전문자 == '(') 결과 += 곱;      // () 이면
+                곱 /= 2;  // 괄호가 한 개 닫혔으므로, 곱해져야할 값도 줄어든다
                 break;
             case ']':
-                if (stack.size() == 0) return 0;  // 오류
-                if (stack.pop() != '[') return 0; // 오류
-                if (prev == '[') 합계 += 곱;      // [] 이면
-                곱 /= 3;  // 괄호가 한 개 닫혔으므로, 곱해져야할 값도 제거
+                if (stack.size() == 0 || stack.pop() != '[') return 0;
+                if (직전문자 == '[') 결과 += 곱;      // [] 이면
+                곱 /= 3;  // 괄호가 한 개 닫혔으므로, 곱해져야할 값도 줄어든다
                 break;
             }
-            prev = c;
+            직전문자 = c;
         }
-        return stack.isEmpty() ? 합계 : 0;
+        return stack.isEmpty() ? 결과 : 0;
     }
 
     public static void main(String[] args) throws Exception {
