@@ -1,7 +1,9 @@
 function solution(dp) {
   for (let r = dp.length - 2; r >= 0; --r)
-    for (let c = 0; c < dp[r].length; ++c)
-      dp[r][c] += Math.max(dp[r+1][c], dp[r+1][c+1]);
+    for (let c = 0; c < dp[r].length; ++c) {
+      let a = dp[r+1][c], b = dp[r+1][c+1];
+      dp[r][c] += a > b ? a : b;
+    }
   return dp[0][0];
 }
 
