@@ -7,7 +7,7 @@ for dirpath, dirnames, filenames in os.walk('.'):
     f = open(filepath, encoding='UTF8')
     body = f.read().strip()
     f.close()
-    body = re.replace(r'^package +[a-z.0-9]+', '', body)
+    body = re.sub(r'^package +[a-z.0-9]+;\n+', '', body)
     package = 'package ' + dirpath.replace('.\\', '').replace('\\', '.') + ';\n\n'
     package = package.replace('etc.', '')
     f = open(filepath, mode='w', encoding='UTF8')
