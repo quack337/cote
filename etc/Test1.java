@@ -1,4 +1,3 @@
-package etc;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,7 +12,9 @@ public class Test1 {
     var reader = new BufferedReader(new InputStreamReader(System.in));
     String s = reader.readLine();
     var tokennizer = new StringTokenizer(s);
+    @SuppressWarnings("unused")
     int N = Integer.parseInt(tokennizer.nextToken());;
+    @SuppressWarnings("unused")
     int M = Integer.parseInt(tokennizer.nextToken());;
   }
 

@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2021.ex2;
+package programmers.e72411;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,4 +85,3 @@ public class Test3 {
             System.out.println(Arrays.toString(s.solution(a1[i], a2[i])));
     }
 }
-

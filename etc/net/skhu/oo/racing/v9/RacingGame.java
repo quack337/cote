@@ -14,6 +14,7 @@ public class RacingGame {
     static final String RESULT_TITLE = "실행결과";
     static final String WINNER_FORMAT_STRING = "%s가 최종 우승했습니다.\n";
 
+    @SuppressWarnings("unused")
     private List<Car> cars;
     private Random random = new Random();
 

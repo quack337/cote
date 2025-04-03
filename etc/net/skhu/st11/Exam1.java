@@ -1,5 +1,5 @@
-// 2020-09-29
 package net.skhu.st11;
+// 2020-09-29
 
 public class Exam1 {
 

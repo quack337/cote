@@ -1,4 +1,4 @@
-package net.skhu.nhn.e1a;
+package nhn.e1a;
 
 import java.util.ArrayList;
 import java.util.Arrays;

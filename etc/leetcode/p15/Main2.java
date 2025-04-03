@@ -43,4 +43,3 @@ public class Main2 {
         System.out.println(sol.threeSum(new int[] {0}));
     }
 }
-

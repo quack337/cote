@@ -1,4 +1,5 @@
 package baekjoon.p02.p2367;
+
 /*
 package baekjoon.p02.p2367;
 

@@ -1,4 +1,4 @@
-package programmers.e42583.list;
+package list;
 
 public class LinkedList {
     static class Node {

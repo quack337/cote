@@ -1,4 +1,4 @@
-package net.skhu.kakao.i2021.ex2;
+package programmers.e81302;
 
 import java.util.Arrays;
 

@@ -20,6 +20,7 @@ public class Main2 {
         return p;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(reader.readLine());

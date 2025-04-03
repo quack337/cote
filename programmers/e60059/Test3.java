@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2020.ex3;
+package programmers.e60059;
 
 public class Test3 {
 

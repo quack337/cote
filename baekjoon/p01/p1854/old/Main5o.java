@@ -83,6 +83,7 @@ public class Main5o {
         }
     }
 
+    @SuppressWarnings("unused")
     private static void print() {
         for (int i = 1; i <= N; ++i){
             if (dist[i].size() == K) System.out.println(dist[i].peek() * -1);

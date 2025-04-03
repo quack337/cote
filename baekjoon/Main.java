@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws IOException {
         var reader = new BufferedReader(new InputStreamReader(System.in));
         var tokenizer = new StringTokenizer(reader.readLine());

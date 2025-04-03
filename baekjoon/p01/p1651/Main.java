@@ -28,6 +28,7 @@ public class Main {
         return max;
     }
 
+    @SuppressWarnings("unused")
     static int solution() {
         for (int n = 1; n <= 150; ++n) {
             if (sameCount(n) >= 3) return n;

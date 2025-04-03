@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2021.ex2;
+package programmers.e72411;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,4 +83,3 @@ public class Test1 {
     }
 
 }
-

@@ -22,6 +22,7 @@ public class Main {
         return p;
     }
 
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         char[] A = scanner.next().toCharArray();

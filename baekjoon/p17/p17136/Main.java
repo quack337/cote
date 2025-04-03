@@ -41,6 +41,7 @@ public class Main {
         return answer;
     }
 
+    @SuppressWarnings("resource")
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         int[][] A = new int[10][10];

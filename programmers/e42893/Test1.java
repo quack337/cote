@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2019.ex6;
+package programmers.e42893;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package net.skhu.nhn.e2;
+package nhn.e2;
 
 import java.util.Scanner;
 

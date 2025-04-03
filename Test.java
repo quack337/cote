@@ -1,4 +1,3 @@
-package net.skhu.string_matching;
 
 public class Test {
 

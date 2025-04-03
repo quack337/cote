@@ -56,4 +56,3 @@ public class Main1 {
         System.out.println(distances[N-1][K]);
     }
 }
-

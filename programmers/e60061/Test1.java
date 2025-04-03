@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2020.ex5;
+package programmers.e60061;
 
 import java.util.ArrayList;
 import java.util.Arrays;

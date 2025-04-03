@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             int T = scanner.nextInt();

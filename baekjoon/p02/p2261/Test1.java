@@ -3,7 +3,8 @@ package baekjoon.p02.p2261;
 import java.util.Random;
 
 public class Test1 {
-    public static void main(String[] args) {
+  @SuppressWarnings("unused")
+  public static void main(String[] args) {
         Random random = new Random();
         int N = 3000;
         System.out.println(N);

@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2020.ex4.mine_slow;
+package programmers.e60060.mine_slow;
 
 import java.util.Arrays;
 import java.util.HashMap;

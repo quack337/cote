@@ -50,6 +50,7 @@ public class Solution2 {
         return start;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         int[] A1 = {4, 2, 2, 5, 1, 5, 8};
         int[] A2 = { 8, 4, 4, 5, 1, 2, 3, 4 };

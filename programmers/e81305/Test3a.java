@@ -1,4 +1,4 @@
-package net.skhu.kakao.i2021.ex5;
+package programmers.e81305;
 
 public class Test3a {
 
@@ -64,4 +64,3 @@ public class Test3a {
         System.out.println(answer);
     }
 }
-

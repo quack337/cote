@@ -32,6 +32,7 @@ public class Main2 {
         return DP[index][빈칸] = result;
     }
 
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         N = scanner.nextInt();

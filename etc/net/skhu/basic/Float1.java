@@ -15,4 +15,3 @@ public class Float1 {
         System.out.println(Math.ulp(b));
     }
 }
-

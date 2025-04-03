@@ -32,6 +32,7 @@ public class Main {
       findMinCosts(heights, noMap, r, c + 1, no, heights[r][c], minCosts, visited);
     }
 
+    @SuppressWarnings("unused")
     public int solution(int[][] land, int height) {
       int[][] noMap = new int[land.length][land.length];
       for (int[] row : noMap) Arrays.fill(row, -1);

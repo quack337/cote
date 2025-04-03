@@ -53,6 +53,7 @@ public class Main {
         return -1; // 탐색 실패
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             int 행 = scanner.nextInt();

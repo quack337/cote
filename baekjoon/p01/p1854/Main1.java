@@ -27,6 +27,7 @@ public class Main1 {
         return -1;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());

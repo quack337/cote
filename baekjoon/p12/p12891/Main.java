@@ -16,6 +16,7 @@ public class Main {
       ++answer;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws Exception {
         var reader = new BufferedReader(new InputStreamReader(System.in));
         String s = reader.readLine();

@@ -30,6 +30,7 @@ public class Exam3x {
         return 최소감염수(0);
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         int[][] a1 =  {{0, 1}, {0, 2}, {0, 3}, {1, 4}, {1, 5}, {2, 6}, {3, 7}, {3, 8}, {3, 9},
                 {4, 10}, {4, 11}, {5, 12}, {5, 13}, {6, 14}, {6, 15}, {6, 16}, {8, 17}, {8, 18}};

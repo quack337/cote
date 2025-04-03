@@ -30,6 +30,7 @@ public class Main1 {
         return result;
     }
 
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         N = scanner.nextInt();

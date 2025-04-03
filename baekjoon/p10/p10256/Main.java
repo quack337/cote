@@ -87,6 +87,7 @@ public class Main {
         return list.toArray(new char[list.size()][]);
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(reader.readLine());

@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2020.ex7;
+package programmers.e60063;
 
 import java.util.ArrayDeque;
 

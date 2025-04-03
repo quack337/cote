@@ -25,6 +25,7 @@ public class Main2 {
         return (b % 2 == 0) ? r * r : r * r * a;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());

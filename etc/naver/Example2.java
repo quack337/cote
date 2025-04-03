@@ -1,4 +1,4 @@
-package net.skhu.naver;
+package naver;
 
 class Solution {
     public int solution(String S) {
@@ -39,4 +39,3 @@ public class Example2 {
         System.out.println(s.solution("a b. a b c?a b c d"));
     }
 }
-

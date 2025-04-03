@@ -70,6 +70,7 @@ public class Main {
         return count;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(reader.readLine());

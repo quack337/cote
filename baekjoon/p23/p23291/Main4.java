@@ -86,6 +86,7 @@ public class Main4 {
             if (A[i] == min) ++A[i];
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         try (var scanner = new Scanner(System.in)) {
             int N = scanner.nextInt();
@@ -108,4 +109,3 @@ public class Main4 {
         }
     }
 }
-

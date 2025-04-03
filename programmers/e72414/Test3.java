@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2021.ex5;
+package programmers.e72414;
 
 public class Test3 {
 
@@ -59,4 +59,3 @@ public class Test3 {
                 new String[] {"15:36:51-38:21:49", "10:14:18-15:36:51", "38:21:49-42:51:45"}));
     }
 }
-

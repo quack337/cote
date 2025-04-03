@@ -5,6 +5,7 @@ import java.util.ArrayDeque;
 import java.util.Scanner;
 
 public class Main {
+    @SuppressWarnings("resource")
     public static void main(String[] args) throws NumberFormatException, IOException {
         var scanner = new Scanner(System.in);
         int N = scanner.nextInt();

@@ -1,4 +1,4 @@
-package net.skhu.kakao.t2020.ex6;
+package programmers.e60062;
 
 import java.io.PrintStream;
 import java.util.Arrays;

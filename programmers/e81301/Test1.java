@@ -1,4 +1,4 @@
-package net.skhu.kakao.i2021.ex1;
+package programmers.e81301;
 
 public class Test1 {
 
