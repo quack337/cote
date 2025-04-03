@@ -1,3 +1,5 @@
+package programmers.e62050;
+
 public class Main2 {
   static class Solution {
     void findGroup(int[][] heights, int HeightLimit, int row, int col, int[][] noMap, int no) {

@@ -1,3 +1,5 @@
+package programmers.e12905;
+
 import static java.lang.Math.min;
 
 public class Main4 {

@@ -1,4 +1,4 @@
-package net.skhu.codility.minAvgTwoSlice;
+package codility.minavgtwoslice;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -17,7 +17,7 @@ public class Solution2 {
         int minStart = 0;
         int minEnd = 1;
         double temp;
-        
+
         for (int i = 2; i < A.length; ++i) {
             temp = average(A, minStart, i);
             if (temp <= minAvg) {
@@ -30,12 +30,12 @@ public class Solution2 {
                         minStart = j;
                     }
                 }
-            }        
+            }
             System.out.printf("     %d: %d %d %.2f\n", i, minStart, minEnd, minAvg);
         }
         return minStart;
     }
-    
+
     public static int solution1(int[] A) {
         double minAvg = Integer.MAX_VALUE;
         int start = 0;
@@ -47,27 +47,27 @@ public class Solution2 {
                     start = i;
                 }
             }
-        return start;                
+        return start;
     }
-    
+
     public static void main(String[] args) {
         int[] A1 = {4, 2, 2, 5, 1, 5, 8};
         int[] A2 = { 8, 4, 4, 5, 1, 2, 3, 4 };
         //System.out.println(solution2(A1));
         //System.out.println(solution2(A2));
-        
+
         int value1, value2;
         int[] A;
-        
+
         /*
-        A = new int[] {1, -3, 4, -4} 
+        A = new int[] {1, -3, 4, -4}
         value1 = solution1(A);
         value2 = solution2(A);
         if (value1 != value2) {
             System.out.printf("%d %d %s\n", value1, value2, Arrays.toString(A));
         }
         */
-        
+
         Random random = new Random();
         for (int i = 0; i < 100; ++i) {
             int length = random.nextInt(3) + 2;

@@ -1,4 +1,4 @@
-package net.skhu.codility.arrayJoin;
+package codility.arrayjoin;
 
 import java.util.Arrays;
 

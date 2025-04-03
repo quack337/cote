@@ -1,4 +1,4 @@
-package net.skhu.line.e2018;
+package line.e2018;
 
 import java.math.BigInteger;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package net.skhu.line.e2018.schedule7;
+package line.e2018.schedule7;
 
 import java.util.ArrayList;
 

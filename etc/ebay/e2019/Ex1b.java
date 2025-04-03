@@ -1,4 +1,4 @@
-package net.skhu.ebay2019;
+package ebay.e2019;
 
 import java.util.Arrays;
 import java.util.Random;

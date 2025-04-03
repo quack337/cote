@@ -1,8 +1,7 @@
-package net.skhu.line.e2018.schedule7;
+package line.e2018.schedule7;
 
 import java.util.Scanner;
-
-import net.skhu.line.e2018.schedule7.Schedule.Job;
+import line.e2018.schedule7.Schedule.Job;
 
 public class MaxSchedule {
 

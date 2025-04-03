@@ -1,4 +1,4 @@
-package net.skhu.ebay2019;
+package ebay.e2019;
 
 public class Ex2a {
 

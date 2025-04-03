@@ -1,3 +1,5 @@
+package programmers.e42860;
+
 public class Main3 {
     static class Solution {
         public int solution(String name) {

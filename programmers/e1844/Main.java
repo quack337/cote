@@ -1,3 +1,5 @@
+package programmers.e1844;
+
 import java.util.ArrayDeque;
 
 public class Main {

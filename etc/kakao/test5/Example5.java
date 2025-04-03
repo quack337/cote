@@ -1,4 +1,4 @@
-package net.skhu.kakao.test5;
+package kakao.test5;
 
 import java.util.HashMap;
 import java.util.Map;

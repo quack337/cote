@@ -1,4 +1,4 @@
-package net.skhu.kakao.test3;
+package kakao.test3;
 
 public class Example2 {
 

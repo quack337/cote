@@ -1,3 +1,5 @@
+package baekjoon.p03.p3190;
+
 import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;

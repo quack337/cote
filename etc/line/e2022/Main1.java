@@ -1,4 +1,4 @@
-package net.skhu.line.e2022;
+package line.e2022;
 
 public class Main1 {
 

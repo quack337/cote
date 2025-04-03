@@ -1,4 +1,4 @@
-package net.skhu.naver.a2020;
+package naver.a2020;
 
 public class Exam3a {
 

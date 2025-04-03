@@ -1,4 +1,4 @@
-package net.skhu.naver.a2019;
+package naver.a2019;
 
 import java.util.HashSet;
 import java.util.Set;

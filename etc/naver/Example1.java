@@ -1,4 +1,4 @@
-package net.skhu.naver;
+package naver;
 
 public class Example1 {
 

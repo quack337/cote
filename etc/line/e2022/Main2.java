@@ -1,4 +1,4 @@
-package net.skhu.line.e2022;
+package line.e2022;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

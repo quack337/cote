@@ -1,3 +1,5 @@
+package programmers.e76502;
+
 import java.util.LinkedList;
 
 public class Main1 {

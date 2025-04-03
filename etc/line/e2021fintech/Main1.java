@@ -1,4 +1,4 @@
-package net.skhu.line.e2021fintech;
+package line.e2021fintech;
 
 public class Main1 {
 

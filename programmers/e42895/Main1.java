@@ -1,3 +1,5 @@
+package programmers.e42895;
+
 import java.util.HashSet;
 
 public class Main1 {

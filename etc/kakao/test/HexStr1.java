@@ -1,4 +1,4 @@
-package net.skhu.kakao.test;
+package kakao.test;
 
 public class HexStr1 {
 

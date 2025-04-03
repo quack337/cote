@@ -1,3 +1,5 @@
+package programmers.e67259;
+
 import java.util.PriorityQueue;
 
 public class Main2 {

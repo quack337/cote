@@ -1,3 +1,5 @@
+package programmers.e42577;
+
 import java.util.ArrayList;
 
 public class Main1 {

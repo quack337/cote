@@ -1,3 +1,5 @@
+package programmers.e92345;
+
 import java.util.TreeSet;
 
 public class Main1 {

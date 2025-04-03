@@ -1,3 +1,5 @@
+package programmers.e12953;
+
 public class Main {
 
     static class Solution {

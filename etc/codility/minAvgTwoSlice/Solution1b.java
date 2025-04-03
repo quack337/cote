@@ -1,17 +1,17 @@
-package net.skhu.codility.minAvgTwoSlice;
+package codility.minavgtwoslice;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class Solution1b {
-    
+
     static double average(int[] A, int start, int end) {
         double sum = 0;
         for (int i = start; i <= end; ++i)
             sum += A[i];
         return sum / (end - start + 1);
     }
-    
+
     public static int solution1(int[] A) {
         double minAvg = Integer.MAX_VALUE;
         int start = 0;
@@ -23,9 +23,9 @@ public class Solution1b {
                     start = i;
                 }
             }
-        return start;                
-    }    
-    
+        return start;
+    }
+
     public static int solution2(int[] A) {
         double minAvg = Integer.MAX_VALUE;
         int start = 0;
@@ -37,18 +37,18 @@ public class Solution1b {
                     start = i;
                 }
             }
-        return start;                
+        return start;
     }
-    
+
     static Random random = new Random();
-    
+
     static int[] createRandomIntArray(int count) {
         int[] A = new int[count];
         for (int j = 0; j < count; ++j)
             A[j] = random.nextInt(20001) - 10000;
         return A;
     }
-    
+
     public static void main(String[] args) {
         for (int i = 0; i < 1000; ++i) {
             int[] A = createRandomIntArray(20);

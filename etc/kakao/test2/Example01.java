@@ -1,4 +1,4 @@
-package net.skhu.kakao.test2;
+package kakao.test2;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

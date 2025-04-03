@@ -1,4 +1,4 @@
-package net.skhu.codility.genomicRangeQuery;
+package codility.genomicrangequery;
 
 import java.util.Arrays;
 

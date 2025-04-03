@@ -1,3 +1,5 @@
+package programmers.e42584;
+
 public class Main {
   static class Solution {
     static final int PRICE = 0, INDEX = 1;

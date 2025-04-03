@@ -1,4 +1,4 @@
-package net.skhu.codility.passingCars;
+package codility.passingcars;
 
 public class Solution1 {
 

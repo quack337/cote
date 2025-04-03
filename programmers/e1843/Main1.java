@@ -1,3 +1,5 @@
+package programmers.e1843;
+
 public class Main1 {
 
     class Solution {

@@ -1,3 +1,5 @@
+package programmers.e1835;
+
 import java.util.HashMap;
 
 public class Main2 {

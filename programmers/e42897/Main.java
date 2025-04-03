@@ -1,3 +1,5 @@
+package programmers.e42897;
+
 public class Main {
   static class Solution {
     long[] DP;

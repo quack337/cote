@@ -1,4 +1,4 @@
-package net.skhu.naver.a2019;
+package naver.a2019;
 
 public class Example1 {
 

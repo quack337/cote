@@ -1,4 +1,4 @@
-package net.skhu.line.e2019;
+package line.e2019;
 
 import java.io.IOException;
 import java.util.Scanner;

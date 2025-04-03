@@ -1,4 +1,4 @@
-package net.skhu.codility.oddOccurrencesInArray;
+package codility.oddoccurrencesInarray;
 
 import java.util.Arrays;
 
@@ -12,12 +12,12 @@ public class Solution1 {
                 if (count % 2 == 1) return prev;
                 prev = i;
                 count = 1;
-            } else 
+            } else
                 ++count;
         if (count % 2 == 1) return prev;
         return -1;
     }
-    
+
     public static void main(String[] args) {
         int[] a = { 1, 32, 535, 6875, 71234, 1, 32, 6875, 71234, 535, 32 };
         int n = solution(a);

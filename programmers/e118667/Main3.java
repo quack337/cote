@@ -1,3 +1,5 @@
+package programmers.e118667;
+
 import java.util.Arrays;
 
 public class Main3 {

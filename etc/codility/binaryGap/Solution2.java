@@ -1,4 +1,4 @@
-package net.skhu.codility.binaryGap;
+package codility.binarygap;
 
 public class Solution2 {
 

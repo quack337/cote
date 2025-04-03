@@ -1,4 +1,4 @@
-package net.skhu.line.e2019;
+package line.e2019;
 // 서종현이 메일로 보내준 코딩 테스트 문제
 // 전광판 출력하기.
 /*

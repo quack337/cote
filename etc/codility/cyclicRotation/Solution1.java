@@ -1,4 +1,4 @@
-package net.skhu.codility.cyclicRotation;
+package codility.cyclicrotation;
 
 import java.util.Arrays;
 
@@ -9,15 +9,15 @@ public class Solution1 {
         for (int i = 0; i < A.length; ++i) {
             int index = i - K;
             if (index < 0) index = index + A.length;
-            A[i] = B[index];                     
+            A[i] = B[index];
         }
         return A;
     }
-    
+
     public static void main(String[] args) {
         int[] A = {3, 8, 9, 7, 6};
         solution(A, 3);
         System.out.println(Arrays.toString(A));
     }
-    
+
 }

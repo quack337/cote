@@ -1,3 +1,5 @@
+package programmers.e62050;
+
 // 메모리 초과
 import java.util.Arrays;
 

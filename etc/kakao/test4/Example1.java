@@ -1,4 +1,4 @@
-package net.skhu.kakao.test4;
+package kakao.test4;
 
 import java.util.Arrays;
 

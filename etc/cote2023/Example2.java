@@ -1,3 +1,5 @@
+package cote2023;
+
 import java.util.Arrays;
 
 public class Example2 {

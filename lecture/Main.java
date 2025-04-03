@@ -1,3 +1,5 @@
+package lecture;
+
 public class Main {
 
   // 10진수로 표현했을 때, nth 자리를 기준으로 정렬한다.

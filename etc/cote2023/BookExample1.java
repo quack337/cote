@@ -1,3 +1,5 @@
+package cote2023;
+
 public class BookExample1 {
 
   public static void main(String[] args) {

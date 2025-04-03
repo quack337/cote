@@ -1,3 +1,4 @@
+package programmers.e1845;
 
 public class Main {
 
