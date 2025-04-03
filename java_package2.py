@@ -9,7 +9,7 @@ for dirpath, dirnames, filenames in os.walk('.'):
     f.close()
     body = re.sub(r'^package +[^;]+;\n+', '', body)
     package = 'package ' + dirpath.replace('.\\', '').replace('\\', '.') + ';\n\n'
-    package = package.replace('etc.', '')
+    package = package.replace(' etc.', ' ')
     f = open(filepath, mode='w', encoding='UTF8')
     f.write(package)
     f.write(body)
