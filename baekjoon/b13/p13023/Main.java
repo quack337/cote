@@ -22,6 +22,7 @@ static boolean DFS(int current, HashSet<Integer> visited) {
     return false;
 }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         var reader = new BufferedReader(new InputStreamReader(System.in));
         var tokenizer = new StringTokenizer(reader.readLine());

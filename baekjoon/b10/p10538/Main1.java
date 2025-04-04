@@ -22,6 +22,7 @@ public class Main1 {
         return ch == 'o' ? 0 : 1;
     }
 
+    @SuppressWarnings("unchecked")
     static void buildMatcher(char[][] words) { // 아호 코라식 알고리즘 구현
         GO = new int[W_SIZE][A_SIZE];
         FAIL = new int[W_SIZE];

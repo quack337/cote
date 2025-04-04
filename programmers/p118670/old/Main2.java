@@ -23,6 +23,7 @@ public class Main2 {
                 B[r].addLast(B[r - 1].removeLast());
         }
 
+        @SuppressWarnings("unchecked")
         public int[][] solution(int[][] A, String[] operations) {
             rows = A.length; cols = A[0].length;
             Deque<Integer>[] B = new ArrayDeque[rows];

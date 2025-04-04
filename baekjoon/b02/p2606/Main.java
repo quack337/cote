@@ -16,6 +16,7 @@ public class Main {
             DFS(b);
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();

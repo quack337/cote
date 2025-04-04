@@ -91,6 +91,7 @@ public class Main5o {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static void init() {
         dist = new PriorityQueue[N + 1];
         edge = new ArrayList[N + 1];

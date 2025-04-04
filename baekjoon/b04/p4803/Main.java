@@ -18,6 +18,7 @@ public class Main {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         for (int t = 1; true; ++t) {

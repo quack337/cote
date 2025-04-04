@@ -26,6 +26,7 @@ public class Main {
             return distances;
         }
 
+        @SuppressWarnings("unchecked")
         public int solution(int n, int[][] edge) {
             이웃목록 = new ArrayList[n];
             for (int i = 0; i < n; ++i)

@@ -36,6 +36,7 @@ public class Main2a {
      }
     //// 수정 끝
 
+    @SuppressWarnings("unchecked")
     static void 아래로이동() {
         // graph[a]는 ArrayList<Integer> 이고, a번 rectangle 보다 윗쪽에 잇는 사각형들의 목록
         ArrayList<Integer>[] children = new ArrayList[N];
@@ -106,6 +107,7 @@ public class Main2a {
      }
     //// 수정끝
 
+    @SuppressWarnings("unchecked")
     static void 왼쪽으로이동() {
         // graph[a]는 ArrayList<Integer> 이고, a번 rectangle 보다 오른쪽에 잇는 사각형들의 목록
         ArrayList<Integer>[] children = new ArrayList[N];

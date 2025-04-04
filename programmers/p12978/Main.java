@@ -35,6 +35,7 @@ public class Main {
             return distance;
         }
 
+        @SuppressWarnings("unchecked")
         public int solution(int N, int[][] road, int K) {
             edges = new ArrayList[N + 1];
             for (int i = 1; i <= N; ++i)

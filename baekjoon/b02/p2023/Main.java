@@ -17,6 +17,7 @@ public class Main {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws NumberFormatException, IOException {
         var reader = new BufferedReader(new InputStreamReader(System.in));
         var writer = new BufferedWriter(new OutputStreamWriter(System.out));

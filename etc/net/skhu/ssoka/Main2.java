@@ -25,6 +25,7 @@ public class Main2 {
         return r1[X1] >= r2[X2];
     }
 
+    @SuppressWarnings("unchecked")
     static void 아래로이동() {
         // graph[a]는 ArrayList<Integer> 이고, a번 rectangle 보다 윗쪽에 잇는 사각형들의 목록
         ArrayList<Integer>[] children = new ArrayList[N];
@@ -75,6 +76,7 @@ public class Main2 {
         //System.out.println("  " + c + " " + Arrays.toString(_rectangles[c]));
     }
 
+    @SuppressWarnings("unchecked")
     static void 왼쪽으로이동() {
         // graph[a]는 ArrayList<Integer> 이고, a번 rectangle 보다 오른쪽에 잇는 사각형들의 목록
         ArrayList<Integer>[] children = new ArrayList[N];

@@ -31,6 +31,7 @@ public class Main3 {
             System.out.println(count[i] == K ? distance[i] : -1);
     }
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());

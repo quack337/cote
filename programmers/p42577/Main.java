@@ -6,6 +6,7 @@ import java.util.HashSet;
 public class Main {
 
     static class Solution {
+        @SuppressWarnings("unchecked")
         public boolean solution(String[] phone_book) {
             ArrayList<String>[] list = new ArrayList[21];
             for (int size = 1; size <= 20; ++size)

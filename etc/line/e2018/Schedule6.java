@@ -40,6 +40,7 @@ public class Schedule6 {
     static int 최대금액 = 0;
     static Stack<Job> 최대일정;
 
+    @SuppressWarnings("unchecked")
     static void schedule(Job[] a, Stack<Job> 일정, int index) {
         if (일정불가능(일정)) return;
         if (index >= a.length) {

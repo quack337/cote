@@ -67,6 +67,7 @@ class MyList3<V extends Comparable<V>> {
        map.put(value, dummy.next);
     }
 
+    @SuppressWarnings("unchecked")
     V remove() {
        if (map.size() == 0)
           throw new IllegalStateException();

@@ -33,6 +33,7 @@ public class Main2 {
             return Integer.MAX_VALUE;
         }
 
+        @SuppressWarnings("unchecked")
         public int[] solution(int n, int[][] paths, int[] gates, int[] summits) {
             edges = new ArrayList[n + 1];
             for (int i = 0; i < edges.length; ++i)
