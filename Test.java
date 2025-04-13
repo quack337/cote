@@ -1,39 +1,27 @@
-
 public class Test {
-
-    static int[] preprocessing(String P) {
-        int[] pi = new int[P.length() + 1];
-        int j = 0, k = -1;
-        pi[0] = -1;
-        while (j < P.length()) {
-            if (k == -1 || P.charAt(j) == P.charAt(k)) {
-                ++j; ++k;
-                pi[j] = k;
-            } else
-                k = pi[k];
-        }
-        return pi;
+  static int 최대공약수(int a, int b){
+    while (b != 0) {
+        int t = a % b;
+        a = b;
+        b = t;
     }
-
-    // s 문자열에서 p 부분 문자열을 찾아서 인덱스를 리턴한다.
-    static int findIndex(String A, String P) {
-      int n = A.length(), m = P.length();
-      int[] pi = preprocessing(P);
-      int i = 0, j = 0;
-      while (i < n) {
-          if (j == -1 || A.charAt(i) == P.charAt(j)) {
-              ++i; ++j;
-          } else
-              j = pi[j];
-          if (j == m)
-              return i - m; // 매칭 발견
-      }
-      return -1; // 일치하는 문자열을 찾지 못한 경우에 -1을 리턴
+    return a;
   }
 
-    public static void main(String[] args) {
-        String s = "abcabababcaababcdabcababcfabababcabab";
-        String p = "ababc";
-        System.out.println(findIndex(s, p));
-    }
+  static int 최소공배수(int a, int b) {
+    return a * b / 최대공약수(a, b);
+  }
+
+  static int 최소공배수(int[] a) {
+    int result = a[0];
+    for (int i = 1; i < a.length; ++i)
+        result = 최소공배수(result, a[i]);
+    return result;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(최소공배수(new int[] {2, 3}));  // 6
+    System.out.println(최소공배수(new int[] {3, 4, 5})); // 60
+    System.out.println(최소공배수(new int[] {4, 5, 6, 7})); // 420
+  }
 }
