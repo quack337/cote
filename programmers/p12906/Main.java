@@ -1,5 +1,4 @@
 package programmers.p12906;
-
 public class Main {
   static class Solution {
     public int[] solution(int[] arr) {

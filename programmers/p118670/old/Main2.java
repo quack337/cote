@@ -1,5 +1,4 @@
 package programmers.p118670.old;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;

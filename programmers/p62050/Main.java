@@ -1,5 +1,4 @@
 package programmers.p62050;
-
 // 메모리 초과
 import java.util.Arrays;
 

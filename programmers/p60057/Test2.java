@@ -1,5 +1,4 @@
 package programmers.p60057;
-
 public class Test2 {
 
     static String compress(String s, int n) {

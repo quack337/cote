@@ -1,5 +1,4 @@
 package programmers.p92341;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;

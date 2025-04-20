@@ -1,5 +1,4 @@
 package programmers.p1843;
-
 public class Main1 {
 
     class Solution {

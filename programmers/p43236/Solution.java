@@ -1,5 +1,4 @@
 package programmers.p43236;
-
 import java.util.TreeSet;
 
 class Solution {

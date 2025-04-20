@@ -1,5 +1,4 @@
 package programmers.p42626;
-
 import java.util.PriorityQueue;
 
 public class Main {

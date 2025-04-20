@@ -1,5 +1,4 @@
 package programmers.p60063;
-
 import java.util.ArrayDeque;
 import java.util.HashSet;
 

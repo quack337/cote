@@ -1,5 +1,4 @@
 package programmers.p60059;
-
 public class Test2 {
 
     static int get(int[][] a, int 회전, int 행이동, int 열이동, int 행, int 열) {

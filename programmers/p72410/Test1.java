@@ -1,5 +1,4 @@
 package programmers.p72410;
-
 public class Test1 {
 
     static class Solution {

@@ -1,5 +1,4 @@
 package programmers.p60058;
-
 public class Test2 {
 
     static boolean wellFormed(String s) {

@@ -1,5 +1,4 @@
 package programmers.p42747;
-
 public class Main1 {
   static class Solution {
     public int solution(int[] citations) {

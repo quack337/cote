@@ -1,5 +1,4 @@
 package baekjoon.test;
-
 import java.io.IOException;
 
 public interface MainMethod {

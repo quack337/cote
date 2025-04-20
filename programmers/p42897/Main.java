@@ -1,5 +1,4 @@
 package programmers.p42897;
-
 public class Main {
   static class Solution {
     int[] DP;

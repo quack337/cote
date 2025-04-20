@@ -1,5 +1,4 @@
 package programmers.p72411;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

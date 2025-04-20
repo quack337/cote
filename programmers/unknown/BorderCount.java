@@ -1,5 +1,4 @@
 package programmers.unknown;
-
 public class BorderCount {
 
     // 경계선 찾기 재귀호출

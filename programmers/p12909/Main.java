@@ -1,5 +1,4 @@
 package programmers.p12909;
-
 public class Main {
   static class Solution {
     public boolean solution(String s) {

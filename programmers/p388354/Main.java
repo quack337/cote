@@ -1,5 +1,4 @@
 package programmers.p388354;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

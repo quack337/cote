@@ -1,5 +1,4 @@
 package programmers.p150364;
-
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")

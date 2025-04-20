@@ -1,5 +1,4 @@
 package programmers.p1835;
-
 import java.util.HashMap;
 
 public class Main2 {

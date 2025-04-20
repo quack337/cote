@@ -1,5 +1,4 @@
 package programmers.p42578;
-
 import java.util.HashMap;
 
 public class Main2 {

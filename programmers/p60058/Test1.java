@@ -1,5 +1,4 @@
 package programmers.p60058;
-
 public class Test1 {
 
     static boolean balanced(String s) {

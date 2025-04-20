@@ -1,5 +1,4 @@
 package programmers.p258707;
-
 import java.util.HashSet;
 import java.util.Set;
 

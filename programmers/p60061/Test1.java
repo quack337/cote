@@ -1,5 +1,4 @@
 package programmers.p60061;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

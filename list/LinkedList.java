@@ -1,5 +1,4 @@
 package list;
-
 public class LinkedList {
     static class Node {
         int data;

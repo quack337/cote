@@ -1,1 +1,3 @@
 java 코드를 javascript 언어로 변환해 주세요
+
+javascript 코드를 java 언어로 변환해 주세요

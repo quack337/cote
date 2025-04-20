@@ -1,5 +1,4 @@
 package programmers.p60060;
-
 public class Test3b {
 
     static class Node {

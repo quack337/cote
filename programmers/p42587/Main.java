@@ -1,5 +1,4 @@
 package programmers.p42587;
-
 public class Main {
   static class Solution {
     public int higherCount(java.util.ArrayDeque<Integer> queue, int priority) {

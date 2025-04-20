@@ -1,5 +1,4 @@
 package programmers.p118670;
-
 public class TestMyDeque {
 
     @SuppressWarnings("unchecked")

@@ -1,5 +1,4 @@
 package programmers.p4883;
-
 public class Main2 {
     static class Solution {
         public String solution(String number, int k) {

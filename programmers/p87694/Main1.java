@@ -1,5 +1,4 @@
 package programmers.p87694;
-
 public class Main1 {
 
 /* 실패

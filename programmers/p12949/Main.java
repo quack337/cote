@@ -1,5 +1,4 @@
 package programmers.p12949;
-
 import java.util.Arrays;
 
 public class Main {

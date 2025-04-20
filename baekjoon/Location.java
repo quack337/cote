@@ -1,5 +1,4 @@
 package baekjoon;
-
 import java.util.Objects;
 
 public class Location {

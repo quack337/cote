@@ -1,5 +1,4 @@
 package programmers.p43105;
-
 public class Main2 {
   static class Solution {
     public int solution(int[][] dp) {

@@ -1,5 +1,4 @@
 package programmers.p76502;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;

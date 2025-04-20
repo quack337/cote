@@ -1,5 +1,4 @@
 package programmers.p42895;
-
 import java.util.HashSet;
 
 @SuppressWarnings("unchecked")

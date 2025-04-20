@@ -1,5 +1,4 @@
 package programmers.p60062;
-
 import java.io.PrintStream;
 import java.util.Arrays;
 

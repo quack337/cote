@@ -1,5 +1,4 @@
 package programmers.p42890;
-
 import java.util.ArrayList;
 
 public class Test2 {

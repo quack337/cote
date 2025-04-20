@@ -1,5 +1,4 @@
 package programmers.p60060.mine_slow;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

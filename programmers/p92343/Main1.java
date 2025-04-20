@@ -1,5 +1,4 @@
 package programmers.p92343;
-
 import java.util.ArrayList;
 
 public class Main1 {

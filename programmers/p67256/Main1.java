@@ -1,5 +1,4 @@
 package programmers.p67256;
-
 public class Main1 {
 
     static class Solution {

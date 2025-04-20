@@ -1,5 +1,4 @@
 package programmers.p76502;
-
 import java.util.LinkedList;
 
 public class Main1 {

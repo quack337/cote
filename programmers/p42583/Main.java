@@ -1,5 +1,4 @@
 package programmers.p42583;
-
 import java.util.ArrayDeque;
 
 public class Main {

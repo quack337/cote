@@ -1,5 +1,4 @@
 package programmers.p60060;
-
 import java.util.Arrays;
 
 public class Test4 {

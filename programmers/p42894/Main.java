@@ -1,5 +1,4 @@
 package programmers.p42894;
-
 public class Main {
   static class Solution {
     public int solution(int rowCount, int colCount, int[][] puddles) {

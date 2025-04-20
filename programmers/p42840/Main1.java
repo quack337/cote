@@ -1,5 +1,4 @@
 package programmers.p42840;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
