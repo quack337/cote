@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Main2 {
     static class AbsoluteMinHeap {
         int[] a;
         int count = 0;

@@ -1,14 +1,14 @@
-package baekjoon.b11279;
+package baekjoon.b1927;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-    static class MaxHeap {
+public class Main1 {
+    static class MinHeap {
         int[] a;
         int count = 0;
 
-        public MaxHeap(int size) {
+        public MinHeap(int size) {
             a = new int[size];
         }
 
@@ -29,21 +29,21 @@ public class Main {
         private void heapifyUp(int i) {
             if (i == 0) return;
             int parent = parent(i);
-            if (a[parent] < a[i])
+            if (a[parent] > a[i])
                 swap(i, parent);
             heapifyUp(parent);
         }
 
         public void heapifyDown(int i) {
             int left = left(i), right = right(i);
-            int larger;
+            int smaller;
             if (right < count)
-                larger = (a[left] > a[right]) ? left : right;
-            else if (left < count) larger = left;
+                smaller = (a[left] < a[right]) ? left : right;
+            else if (left < count) smaller = left;
             else return;
-            if (a[larger] > a[i]) {
-                swap(larger, i);
-                heapifyDown(larger);
+            if (a[smaller] < a[i]) {
+                swap(smaller, i);
+                heapifyDown(smaller);
             }
         }
 
@@ -70,7 +70,7 @@ public class Main {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(reader.readLine());
-        MaxHeap heap = new MaxHeap(N);
+        MinHeap heap = new MinHeap(N);
         for (int i = 0; i < N; ++i) {
             int a = Integer.parseInt(reader.readLine());
             if (a > 0) heap.add(a);
