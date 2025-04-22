@@ -1,17 +1,12 @@
-class AbsoluteMinHeap {
-  constructor() {
+class PriorityQueue {
+  constructor(compare) {
     this.heap = [];
+    this.compare = compare;
   }
 
   insert(value) {
     this.heap.push(value);
     this.heapifyUp(this.heap.length - 1);
-  }
-
-  compare(a, b) {
-    let r = Math.abs(a) - Math.abs(b);
-    if (r != 0) return r;
-    return a - b;
   }
 
   heapifyUp(index) {
@@ -56,10 +51,15 @@ class AbsoluteMinHeap {
 const fs = require('fs');
 const input = fs.readFileSync(0).toString().split(/[ \n\r]+/);
 const N = parseInt(input[0]);
-const heap = new AbsoluteMinHeap();
+const heap = new PriorityQueue((a, b) => {
+  let r = Math.abs(a) - Math.abs(b);
+  if (r != 0) return r;
+  return a - b;
+});
 for (let i = 0; i < N; ++i) {
     let a = parseInt(input[i + 1]);
     if (a != 0) heap.insert(a);
     else
         console.log(heap.size() > 0 ? heap.remove() : 0);
 }
+
