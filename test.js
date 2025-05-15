@@ -1,59 +1,65 @@
-class MinHeap {
-  constructor() {
-    this.heap = [];
-  }
-
-  insert(value) {
-    this.heap.push(value);
-    this.heapifyUp(this.heap.length - 1);
-  }
-
-  heapifyUp(index) {
-    while (index > 0) {
-      const parentIndex = (index - 1) >> 1;
-      if (this.heap[parentIndex] <= this.heap[index]) break;
-      [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
-      index = parentIndex;
+function binary_search_leftmost(arr, value) {
+  let left = 0, right = arr.length - 1, answer = -1;
+  while (left <= right) {
+    let middle = Math.floor((right + left) / 2);
+    if (arr[middle] < value)
+      left = middle + 1;
+    else if (arr[middle] > value)
+      right = middle - 1;
+    else {
+      answer = middle;
+      right = middle - 1;
     }
   }
-
-  remove() {
-    const min = this.heap[0];
-    const end = this.heap.pop();
-    if (this.heap.length > 0) {
-      this.heap[0] = end;
-      this.heapifyDown(0);
-    }
-    return min;
-  }
-
-  heapifyDown(index) {
-    while (index < this.heap.length) {
-      const left = (index << 1) + 1;
-      const right = (index << 1) + 2;
-      let smallest = index;
-      if (left < this.heap.length && this.heap[left] < this.heap[smallest])
-        smallest = left;
-      if (right < this.heap.length && this.heap[right] < this.heap[smallest])
-        smallest = right;
-      if (smallest === index) break;
-      [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
-      index = smallest;
-    }
-  }
-
-  isEmpty() {
-    return this.heap.length === 0;
-  }
+  return answer >= 0 ? answer : [left, right];
 }
 
-
-let heap = new MinHeap();
-for (let i = 0; i < 50; i++) {
-  const randomValue = Math.floor(Math.random() * 100);
-  heap.insert(randomValue);
+function search(arr, value) {
+  for (let i = 0; i < arr.length; ++i)
+    if (arr[i] == value)
+      return i;
+    else if (arr[i] > value)
+      return [i];
+  return [arr.length];
 }
-let result = []
-while (heap.isEmpty() == false)
-  result.push(heap.remove());
-console.log(result);
+
+let list = [
+  [1, 3, 5, 7, 9, 11, 12],
+  [1, 1, 1, 3, 3, 5, 7, 7, 7, 7, 9, 9, 11, 11, 11, 12],
+  [1], [1,1], [1,1,2], [1,1,2,2], [1,2,2], [1,1,2,2,2,3]
+];
+for (let arr of list)
+  test(arr);
+console.log("ok");
+
+for (let t = 0; t < 100000; ++t) {
+  let arr = [], N = Math.floor(Math.random() * 40 + 40);
+  for (let i = 1; i < N; ++i) {
+    let value = Math.floor(Math.random() * 10) + 1;
+    arr.push(value);
+  }
+  arr.sort((a, b) => a - b);
+  test(arr);
+}
+console.log("ok");
+
+function test(arr) {
+  for (let i = arr[0]-1; i <= arr[arr.length-1]+1; ++i) {
+    let ok = true;
+    let r1 = binary_search_leftmost(arr, i);
+    let r2 = search(arr, i);
+    if (typeof r1 == "number") {
+      if (r1 != r2) {
+        ok = false;
+        console.log("a", r1 == r2, i, r1, r2, arr);
+      }
+    }
+    else {
+      if (r1[0] != r2[0]) {
+        ok = false;
+        console.log("b", r1[0] == r2[0], i, r1, r2, arr.join(','));
+      }
+    }
+    if (!ok) throw "error";
+  }
+}
