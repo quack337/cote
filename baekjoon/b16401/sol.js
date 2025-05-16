@@ -1,19 +1,21 @@
+// 16401 1654 같은 문제
+// 3079 유사한 문제
 let fs = require('fs');
 let input = fs.readFileSync(0).toString().split(/[ \n\r]+/);
-let N = parseInt(input[0]);
-let M = parseInt(input[1]);
+let index = 0;
+let M = parseInt(input[index++]);
+let N = parseInt(input[index++]);
 let A = [];
 for (let i = 0; i < N; ++i)
-  A[i] = parseInt(input[i + 2]);
+  A[i] = parseInt(input[index++]);
 
-console.log(파라매트릭서치_최대값(0, 1_000_000_000));
+console.log(파라매트릭서치_최대값(1, 1_000_000_000));
 
-function compare(height) {
-  let sum = 0;
-  for (let tree of A)
-    if (tree > height)
-      sum += tree - height;
-  return M - sum;
+function compare(length) {
+  let count = 0;
+  for (let i of A)
+    count += Math.floor(i / length)
+  return M - count;
 }
 
 function 파라매트릭서치_최대값(left, right) {

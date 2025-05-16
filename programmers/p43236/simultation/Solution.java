@@ -1,4 +1,4 @@
-package programmers.p43236;
+package programmers.p43236.simultation;
 import java.util.TreeSet;
 
 class Solution {
@@ -44,7 +44,6 @@ class Solution {
     }
     addNode(distance - rocks[rocks.length - 1], rocks.length);
     tree.add(dummy.prev);
-    print();
     for (int i = 0; i < n; ++i) {
       var a = tree.first();
       var b = a.prev.value < a.next.value ? a.prev : a.next;
@@ -53,33 +52,10 @@ class Solution {
       b.value += a.value;
       tree.add(b);
       removeNode(a);
-      print();
     }
     while (tree.first().value == 0)
       tree.remove(tree.first());
     return tree.first().value;
   }
 
-  public static void main(String[] args) {
-    var sol = new Solution();
-    var o = System.out;
-    //var distance = 1234; var rocks = new int[] {1,2,3};
-    //var distance = 34; var rocks = new int[] {5,9,18};
-    //var distance = 1; var rocks = new int[] {1};
-    //var distance = 34; var rocks = new int[] {5,19,28};
-    //var distance = 7; var rocks = new int[] {1,2,3,4,5,6};
-    //var distance = 7; var rocks = new int[] {1,1,1};
-    //var distance = 4; var rocks = new int[] {1,2,3};
-    //var distance = 48; var rocks = new int[] {12,25,38,43};
-    //var distance = 5; var rocks = new int[] {3};
-    var distance = 25; var rocks = new int[] {2,14,11,21,17};
-    //var distance = 16; var rocks = new int[] {4,8,11};
-    System.out.println(java.util.Arrays.toString(rocks) + " " + distance);
-    for (int n = 0; n <= rocks.length; ++n)
-      o.println(sol.solution(distance, rocks, n));
-    // o.println(sol.solution(16, new int[] {4,8,11}, 0)); // 8
-    // o.println(sol.solution(16, new int[] {4,8,11}, 1)); // 8
-    // o.println(sol.solution(16, new int[] {4,8,11}, 2)); // 8
-    // o.println(sol.solution(16, new int[] {4,8,11}, 3)); // 8
-  }
 }
