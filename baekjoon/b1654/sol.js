@@ -9,12 +9,12 @@ let A = [];
 for (let i = 0; i < K; ++i)
   A[i] = parseInt(input[index++]);
 
-console.log(파라매트릭서치_최대값(1, 3_000_000_000));
+console.log(파라매트릭서치_최대값(1, Math.pow(2, 31) - 1));
 
-function compare(length) {
+function compare(middle) {
   let count = 0;
   for (let lan of A)
-    count += Math.floor(lan / length)
+    count += Math.floor(lan / middle)
   return N - count;
 }
 

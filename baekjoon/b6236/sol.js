@@ -11,14 +11,14 @@ for (let i = 0; i < N; ++i) {
 }
 console.log(파라매트릭서치_최소값(max, 1_000_000_000));
 
-function compare(인출금액) {
-  let count = 1, 남은금액 = 인출금액;
+function compare(middle) {
+  let count = 1, 남은금액 = middle;
   for (let 지출 of A) {
     if (지출 > 남은금액) {
       ++count;
-      남은금액 = 인출금액 - 지출;
-    } else
-      남은금액 -= 지출;
+      남은금액 = middle;
+    }
+    남은금액 -= 지출;
   }
   return M - count;
 }
