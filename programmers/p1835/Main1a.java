@@ -1,5 +1,6 @@
 package programmers.p1835;
-public class Main1 {
+// 완전탐색만 구현
+public class Main1a {
 
     static class Solution {
         static final String 프렌즈목록 = "ACFJMNRT";

@@ -3,7 +3,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+// 답
+public class Main1b {
 
     static int[] 경우의수(int max) {
         int[] DP = new int[max+1];

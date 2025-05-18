@@ -3,7 +3,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main1 {
+// 점화식
+public class Main1a {
 
     static int 경우의수(int n) {
         if (n == 1) return 1;

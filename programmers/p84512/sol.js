@@ -15,9 +15,7 @@ function solution(word) {
       }
     }
   }
-  for (let i = 0; i < dic.length; ++i)
-    if (dic[i] == word)
-      return i + 1;
+  return dic.indexOf(word) + 1;
 }
 
 console.log(solution("AAAAE"));

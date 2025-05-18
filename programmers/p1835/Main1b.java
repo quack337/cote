@@ -1,7 +1,7 @@
 package programmers.p1835;
 import java.util.HashMap;
-
-public class Main2 {
+// 답
+public class Main1b {
 
     static class Solution {
         static final String 프렌즈목록 = "ACFJMNRT";
