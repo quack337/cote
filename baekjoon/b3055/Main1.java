@@ -1,11 +1,13 @@
 package baekjoon.b3055;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 
-public class Main {
+// 정답이었으나 오답됨
+public class Main1 {
     static int R, C;
     static char[][] map;
 
