@@ -1,41 +1,52 @@
 package baekjoon.b18352;
-// 비슷한 코드 붙여넣기만 함
 
 import java.io.*;
 import java.util.*;
 
 public class Main {
+  static int N, M, K, X; // 도시 수, 도로 수, 목표거리, 출발
+  static ArrayList<Integer>[] neighbors;
 
-  static int ROW, COL;
-  static char[][] A;
-
-  static int BFS() {
-    var visited = new boolean[ROW][COL];
+  static List<Integer> BFS() {
+    var result = new ArrayList<Integer>();
+    var visited = new boolean[N+1];
     var queue = new ArrayDeque<int[]>();
-    queue.add(new int[] {0, 0, 1});
+    queue.add(new int[] {X, 0});
     while (queue.size() > 0) {
       var u = queue.remove();
-      int r = u[0], c = u[1], distance = u[2];
-      if (r == ROW - 1 && c == COL - 1) return distance;
-      if (A[r][c] == '0') continue; // 벽
-      if (visited[r][c]) continue;
-      visited[r][c] = true;
-      if (r > 0) queue.add(new int[] {r-1, c, distance+1});
-      if (c > 0) queue.add(new int[] {r, c-1, distance+1});
-      if (r < ROW-1) queue.add(new int[] {r+1, c, distance+1});
-      if (c < COL-1) queue.add(new int[] {r, c+1, distance+1});
+      int node = u[0], distance = u[1];
+      if (visited[node]) continue;
+      visited[node] = true;
+      if (distance == K) result.add(node); // visited 보다 먼저 하면 안됨. data1 예제에서 오류
+      else if (distance > K) break;
+      for (int neighbor : neighbors[node])
+        queue.add(new int[] {neighbor, distance+1});
     }
-    return -1;
+    return result;
   }
 
+  @SuppressWarnings("unchecked")
   public static void main(String[] args) {
     var scanner = new Scanner(new BufferedInputStream(System.in));
-    ROW = scanner.nextInt();
-    COL = scanner.nextInt();
-    A = new char[ROW][];
-    for (int r = 0; r < ROW; ++r)
-      A[r] = scanner.next().toCharArray();
+    N = scanner.nextInt();
+    M = scanner.nextInt();
+    K = scanner.nextInt();
+    X = scanner.nextInt();
+    neighbors = new ArrayList[N+1];
+    for (int i = 1; i <= N; ++i)
+      neighbors[i] = new ArrayList<>();
+    for (int i = 0; i < M; ++i) {
+      int a = scanner.nextInt();
+      int b = scanner.nextInt();
+      neighbors[a].add(b);
+    }
     scanner.close();
-    System.out.println(BFS());
+    var result = BFS();
+    if (result.size() == 0)
+      System.out.println(-1);
+    else {
+      Collections.sort(result);
+      System.out.println(result.toString().replaceAll("[^0-9 ]","").replaceAll(" ", "\n"));
+    }
   }
 }
