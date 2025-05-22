@@ -1,7 +1,6 @@
 import subprocess
 
-command = "node sol.js"
-#command = "java Main.java"
+command = "java Main1a.java"
 run = 1
 
 def testFS(inputFile, outputString):
@@ -23,9 +22,9 @@ def testSS(inputString, outputString):
     print(tag, True)
   else: print(tag, False, result);
 
-testFS("data1", "3")
-
-testSS("2 2\n1 3", "2")
-testSS("2 2\n1 4", "3")
-testSS("3 2\n1 2 3", "2")
-testSS("3 3\n1 2 3", "1")
+testSS("2 162", "5")
+testSS("4 42", "-1")
+testSS("100 40021", "5")
+testSS("999999999 1000000000", "-1")
+testSS("1 2", "2");
+testSS("1 11", "2");
