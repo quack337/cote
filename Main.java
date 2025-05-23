@@ -1,39 +1,48 @@
 import java.util.*;
 
 public class Main {
-  static int ROW, COL;
-  static char[][] A;
+  static int N;
+  static ArrayList<Integer>[] children;
 
-  static int BFS() {
-    var visited = new boolean[ROW][COL];
+  static int[] BFS(int start) {
+    var distances = new int[N+1];
+    Arrays.fill(distances, -1);
     var queue = new ArrayDeque<int[]>();
-    queue.add(new int[] {0, 0, 0});
+    queue.add(new int[] {start, 0});
     while (queue.size() > 0) {
       int[] u = queue.remove();
-      int r = u[0], c = u[1], distance = u[2];
-      if (A[r][c] == '#') continue;
-      if (visited[r][c]) continue;
-      visited[r][c] = true;
-      if (r == ROW-1 && c == COL-1) return distance;
-      if (r > 0) queue.add(new int[] {r-1, c, distance+1});
-      if (c > 0) queue.add(new int[] {r, c-1, distance+1});
-      if (r < ROW-1) queue.add(new int[] {r+1, c, distance+1});
-      if (c < COL-1) queue.add(new int[] {r, c+1, distance+1});
+      int node = u[0], distance = u[1];
+      distances[node] = distance;
+      for (int child : children[node])
+        queue.add(new int[] {child, distance+1});
     }
-    return -1;
+    return distances;
   }
 
+  void t() {
+int ROW = 5, COL = 9;
+int[][] A = {
+  {0,1,0,0,0,1,0,0,0},
+  {0,1,0,1,0,0,0,1,0},
+  {0,0,0,1,0,1,0,1,0},
+  {1,1,0,1,0,1,0,1,0},
+  {0,0,0,0,0,1,0,0,0}};
+
+  }
+
+  @SuppressWarnings("unchecked")
   public static void main(String[] args) {
-    ROW = 5; COL = 9;
-    String[] input = {
-      ".#...#...",
-      ".#.#...#.",
-      "...#.#.#.",
-      "##.#.#.#.",
-      ".....#..."};
-    A = new char[ROW][];
-    for (int r = 0; r < ROW; ++r)
-      A[r] = input[r].toCharArray();
-    System.out.println(BFS());
+    N = 7;
+    children = new ArrayList[N + 1];
+    for (int i = 1; i <= N; ++i)
+      children[i] = new ArrayList<Integer>();
+    int[][] edges = {{1, 2}, {1, 3}, {2, 4}, {2, 5}, {3, 6}, {5, 7}};
+    for (int[] edge : edges) {
+      int a = edge[0], b = edge[1];
+      children[a].add(b);
+    }
+    int[] distances = BFS(2);
+    for (int node = 1; node <= N; ++node)
+      System.out.printf("%d: %d\n", node, distances[node]);
   }
 }
