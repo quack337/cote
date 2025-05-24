@@ -1,17 +1,17 @@
-function solution(n, times) {
-  n = BigInt(n);
+function solution(N, times) {
+  N = BigInt(N);
   return 파라매트릭서치_최소값(1n, 1_000_000_000_000_000_000n);
 
-  function compare(시간) {
-    let count = 0n;
-    for (let i of times) {
-      i = BigInt(i);
-      let temp = 시간 / i;
-      if (temp >= n) return 1;
-      count += (시간 / i)
-      if (count >= n) return 1;
+  function compare(middle) {
+    let sum = 0n;
+    for (let time of times) {
+      time = BigInt(time);
+      let temp = middle / time;
+      if (temp >= N) return 1;
+      sum += temp;
+      if (sum > N) return 1;
     }
-    return count - n;
+    return sum - N;
   }
 
   function 파라매트릭서치_최소값(left, right) {
