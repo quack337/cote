@@ -5,11 +5,13 @@ let input = fs.readFileSync(0).toString().split(/[ \n\r]+/);
 let index = 0;
 let M = parseInt(input[index++]);
 let N = parseInt(input[index++]);
-let A = [];
-for (let i = 0; i < N; ++i)
+let A = [], max = 0;
+for (let i = 0; i < N; ++i) {
   A[i] = parseInt(input[index++]);
+  if (A[i] > max) max = A[i];
+}
 
-console.log(파라매트릭서치_최대값(1, 1_000_000_000));
+console.log(파라매트릭서치_최대값(1, max));
 
 function compare(length) {
   let count = 0;

@@ -1,5 +1,5 @@
 // 2343 6236 같은 문제
-// let fs = require('fs');
+let fs = require('fs');
 let input = fs.readFileSync(0).toString().split(/[ \n\r]+/);
 let index = 0;
 let N = parseInt(input[index++]);
@@ -11,15 +11,15 @@ for (let i = 0; i < N; ++i) {
 }
 console.log(파라매트릭서치_최소값(max, 1_000_000_000));
 
-function compare(블루레이크기) {
-  let count = 1, 남은용량 = 블루레이크기;
-  for (let 영상 of A) {
-    if (영상 > 남은용량) {
-      ++count;
-      남은용량 = 블루레이크기 - 영상;
-    } else
-      남은용량 -= 영상;
-  }
+function compare(middle) {
+  let count = 1, 남은용량 = middle;
+  for (let 영상 of A)
+    if (영상 <= 남은용량)
+       남은용량 -= 영상;
+    else  {
+       ++count;
+       남은용량 = middle - 영상;
+    }
   return M - count;
 }
 
