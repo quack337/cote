@@ -1,18 +1,18 @@
-function solution(distance, rocks, n) {
+function solution(distance, rocks, N) {
   rocks.push(distance);
   rocks.sort((a, b) => a - b);
+  return 파라매트릭서치_최대값(1, distance);
 
-  return 파라매트릭서치_최대값(1, 1_000_000_000);
-
-  function compare(거리) {
+  function compare(middle) {
     let count = 0, prev = 0;
-    for (let i = 0; i < rocks.length; ++i) {
-      let 구간 = rocks[i] - prev;
-      if (구간 < 거리) ++count;
-      else prev = rocks[i];
+    for (let rock of rocks) {
+      let 구간간격 = rock - prev;
+      if (구간간격 < middle)
+        ++count;
+      else
+        prev = rock;
     }
-    //console.log(거리, count);
-    return count - n;
+    return count - N;
   }
 
   function 파라매트릭서치_최대값(left, right) {
@@ -23,7 +23,6 @@ function solution(distance, rocks, n) {
         left = middle + 1;
       else
         right = middle - 1;
-
     }
     return right;
   }
