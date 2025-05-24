@@ -13,10 +13,10 @@ for (let i = 0; i < N; ++i) {
 
 console.log(파라매트릭서치_최대값(1, max));
 
-function compare(length) {
+function compare(middle) {
   let count = 0;
-  for (let i of A)
-    count += Math.floor(i / length)
+  for (let 과자 of A)
+    count += Math.floor(과자 / middle)
   return M - count;
 }
 
