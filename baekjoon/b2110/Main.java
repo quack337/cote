@@ -1,45 +1,43 @@
 package baekjoon.b2110;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    static int 공유기설치(int[] A, int 간격) {
-        int previous = A[0], count = 1;
-        for (int i = 1; i < A.length; ++i) {
-            if (A[i] - previous >= 간격) {
-                previous = A[i];
-                ++count;
-            }
-        }
-        return count;
-    }
+  static int N, C;
+  static int[] A;
 
-    static int 파라매트릭서치(int[] A, int start, int end, int C) {
-        int answer = 0;
-        while (start <= end) {
-            int middle = (start + end) / 2;
-            int count = 공유기설치(A, middle);
-            if (count >= C) {
-                start = middle + 1;
-                answer = middle;
-            } else
-                end = middle - 1;
-        }
-        return answer;
-    }
+  static int compare(int middle) {
+    int count = 1, prev = A[0];
+    for (int i = 1; i < A.length; ++i)
+      if (A[i] - prev >= middle) {
+        ++count;
+        prev = A[i];
+      }
+    return C - count;
+  }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        int N = Integer.parseInt(tokenizer.nextToken());
-        int C = Integer.parseInt(tokenizer.nextToken());
-        int[] A = new int[N];
-        for (int i = 0; i < N; ++i)
-            A[i] = Integer.parseInt(reader.readLine());
-        Arrays.sort(A);
-        System.out.println(파라매트릭서치(A, 1, A[N-1] - A[0], C));
+  static int 파라매트릭서치_최대값(int left, int right) {
+    while (left <= right) {
+      int middle = (left + right) / 2;
+      int r = compare(middle);
+      if (r <= 0)
+        left = middle + 1;
+      else
+        right = middle - 1;
     }
+    return right;
+  }
+
+
+  public static void main(String[] args) throws Exception {
+    var scanner = new Scanner(new BufferedInputStream(System.in));
+    N = scanner.nextInt();
+    C = scanner.nextInt();
+    A = new int[N];
+    for (int i = 0; i < N; ++i)
+      A[i] = scanner.nextInt();
+    scanner.close();
+    Arrays.sort(A);
+    System.out.println(파라매트릭서치_최대값(1, A[N - 1] - A[0]));
+  }
 }

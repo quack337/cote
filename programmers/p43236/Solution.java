@@ -1,61 +1,48 @@
 package programmers.p43236;
-import java.util.TreeSet;
+import java.util.*;
 
-class Solution {
-  class Node { int value, index; Node next, prev; }
-  Node dummy;
-  TreeSet<Node> tree;
+public class Solution {
+  int N;
+  int[] rocks;
 
-  void init() {
-    dummy = new Node();
-    dummy.value = Integer.MAX_VALUE;
-    dummy.prev = dummy.next = dummy;
-    tree = new TreeSet<>((a, b) -> a.value != b.value ? a.value - b.value : a.index - b.index);
+  int compare(int middle) {
+    int count = 0, prev = 0;
+    for (int rock : rocks) {
+      int 구간간격 = rock - prev;
+      if (구간간격 < middle)
+        ++count;
+      else
+        prev = rock;
+    }
+    return count - N;
   }
 
-  void addNode(int value, int index) {
-    var node = new Node();
-    node.value = value;
-    node.index = index;
-    node.prev = dummy.prev;
-    node.next = dummy;
-    dummy.prev = node.prev.next = node;
-  }
-
-  void removeNode(Node node) {
-    Node a = node.prev, b = node.next;
-    a.next = b;
-    b.prev = a;
-  }
-
-  void print() {
-    System.out.print(" ");
-    for (Node n = dummy.next; n != dummy; n = n.next)
-      System.out.print(n.value + " ");
-    System.out.println();
+  int 파라매트릭서치_최대값(int left, int right) {
+    while (left <= right) {
+      int middle = (left + right) / 2;
+      int r = compare(middle);
+      if (r <= 0)
+        left = middle + 1;
+      else
+        right = middle - 1;
+    }
+    return right;
   }
 
   public int solution(int distance, int[] rocks, int n) {
-    init();
-    java.util.Arrays.sort(rocks);
-    for (int i = 0; i < rocks.length; ++i) {
-      addNode(rocks[i] - (i == 0 ? 0 : rocks[i - 1]), i);
-      tree.add(dummy.prev);
-    }
-    addNode(distance - rocks[rocks.length - 1], rocks.length);
-    tree.add(dummy.prev);
-    for (int i = 0; i < n; ++i) {
-      var a = tree.first();
-      var b = a.prev.value < a.next.value ? a.prev : a.next;
-      tree.remove(a);
-      tree.remove(b);
-      b.value += a.value;
-      tree.add(b);
-      removeNode(a);
-    }
-    while (tree.first().value == 0)
-      tree.remove(tree.first());
-    return tree.first().value;
+    this.N = n;
+    this.rocks = Arrays.copyOf(rocks, rocks.length + 1);
+    this.rocks[this.rocks.length - 1] = distance;
+    Arrays.sort(this.rocks);
+    return 파라매트릭서치_최대값(1, distance);
   }
 
+  public static void main(String[] args) {
+    var s = new Solution();
+    var o = System.out;
+    o.println(s.solution(4, new int[] {1,2,3}, 1)); // 1
+    o.println(s.solution(4, new int[] {1,2,3}, 2)); // 2
+    o.println(s.solution(4, new int[] {1,2,3}, 3)); // 4
+    o.println(s.solution(25, new int[] {2,14,11,21,17}, 2)); // 4
+  }
 }

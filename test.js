@@ -1,59 +1,25 @@
-class MinHeap {
-  constructor() {
-    this.heap = [];
-  }
-
-  insert(value) {
-    this.heap.push(value);
-    this.heapifyUp(this.heap.length - 1);
-  }
-
-  heapifyUp(index) {
-    while (index > 0) {
-      const parentIndex = (index - 1) >> 1;
-      if (this.heap[parentIndex] <= this.heap[index]) break;
-      [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
-      index = parentIndex;
+function binarySearch_rightmost(arr, value) {
+  let left = 0, right = arr.length - 1, answer = -1;
+  while (left <= right) {
+    let middle = left + Math.floor((right - left) / 2);
+    if (arr[middle] < value)
+      left = middle + 1;
+    else if (arr[middle] > value)
+      right = middle - 1;
+    else {
+      answer = middle;
+      left = middle + 1;
     }
   }
-
-  remove() {
-    const min = this.heap[0];
-    const end = this.heap.pop();
-    if (this.heap.length > 0) {
-      this.heap[0] = end;
-      this.heapifyDown(0);
-    }
-    return min;
-  }
-
-  heapifyDown(index) {
-    while (index < this.heap.length) {
-      const left = (index << 1) + 1;
-      const right = (index << 1) + 2;
-      let smallest = index;
-      if (left < this.heap.length && this.heap[left] < this.heap[smallest])
-        smallest = left;
-      if (right < this.heap.length && this.heap[right] < this.heap[smallest])
-        smallest = right;
-      if (smallest === index) break;
-      [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
-      index = smallest;
-    }
-  }
-
-  isEmpty() {
-    return this.heap.length === 0;
-  }
+  return answer >= 0 ? answer : -left - 1;
 }
 
-
-let heap = new MinHeap();
-for (let i = 0; i < 50; i++) {
-  const randomValue = Math.floor(Math.random() * 100);
-  heap.insert(randomValue);
+let ar = [1, 1, 3, 3, 3, 5, 7, 7, 9];
+for (let i = 1; i <= 9; i += 2) {
+  let index = binarySearch_rightmost(ar, i);
+  console.log("%d: %d", i, index);
 }
-let result = []
-while (heap.isEmpty() == false)
-  result.push(heap.remove());
-console.log(result);
+for (let i = 0; i <= 10; i += 2) {
+  let index = binarySearch_rightmost(ar, i);
+  console.log("%d: %d, %d", i, index, -index - 1);
+}

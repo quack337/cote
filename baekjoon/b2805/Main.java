@@ -1,40 +1,42 @@
 package baekjoon.b2805;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    static long 절단(long[] trees, long height) {
-        long sum = 0;
-        for (long tree : trees)
-            if (tree > height) sum += tree - height;
-        return sum;
-    }
+  static int N, M;
+  static int[] A;
 
-    static long binarySearch(long[] trees, long M) {
-        long start = 0, end = 1000000000, answer = 0;
-        while (start <= end) {
-            long middle = (start + end) / 2;
-            long value = 절단(trees, middle);
-            if (value >= M) {
-                start = middle + 1;
-                answer = middle;
-            }
-            else end = middle - 1;
-        }
-        return answer;
-    }
+  static long compare(int middle) {
+    long sum = 0;
+    for (int tree : A)
+      if (tree > middle)
+        sum += tree - middle;
+    return M - sum;
+  }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        int N = Integer.parseInt(tokenizer.nextToken());
-        long M = Integer.parseInt(tokenizer.nextToken());
-        long[] trees = new long[N];
-        tokenizer = new StringTokenizer(reader.readLine());
-        for (int i = 0; i < N; ++i)
-            trees[i] = Long.parseLong(tokenizer.nextToken());
-        System.out.println(binarySearch(trees, M));
+  static int 파라매트릭서치_최대값(int left, int right) {
+    while (left <= right) {
+      int middle = (left + right) / 2;
+      long r = compare(middle);
+      if (r <= 0)
+        left = middle + 1;
+      else
+        right = middle - 1;
     }
+    return right;
+  }
+
+  public static void main(String[] args) throws IOException {
+    var scanner = new Scanner(new BufferedInputStream(System.in));
+    N = scanner.nextInt();
+    M = scanner.nextInt();
+    A = new int[N];
+    int max = 0;
+    for (int i = 0; i < N; ++i) {
+      A[i] = scanner.nextInt();
+      if (A[i] > max) max = A[i];
+    }
+    scanner.close();
+    System.out.println(파라매트릭서치_최대값(0, max));
+  }
 }
