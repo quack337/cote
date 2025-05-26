@@ -3,13 +3,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-    static class MinHeap {
+public class Main1 {
+    static class PriorityQueue {
         int[] a;
         int count = 0;
+        Comparator<Integer> comparator;
 
-        public MinHeap(int size) {
-            a = new int[size];
+        public MinPriorityQueueHeap(int size, Comparator<Integer> comparator) {
+            this.a = new int[size];
+            this.comparator = comparator;
         }
 
         private int parent(int index) {
