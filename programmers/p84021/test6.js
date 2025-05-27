@@ -52,51 +52,23 @@ function equals(a, b) {
   return true;
 }
 
-function rotate(a) {
-  let A_ROW = a.length, A_COL = a[0].length;
-  let b = Array(A_COL).fill().map(() => Array(A_ROW));
-  for (let r = 0; r < b.length; ++r)
-    for (let c = 0; c < b[0].length; ++c)
-      b[r][c] = a[A_ROW-1-c][r];
-  return b;
-}
-
-function compare(piece, space) {
-  for (let i = 0; i < 4; ++i) {
-    if (equals(piece, space))
-      return true;
-    piece = rotate(piece);
-  }
-  return false;
-}
-
-function size(piece) {
-  let result = 0;
-  for (let r = 0; r < piece.length; ++r)
-    for (let c = 0; c < piece[0].length; ++c)
-        result += piece[r][c];
-  return result;
+function print(a) {
+  for (let r = 0; r < a.length; ++r)
+    console.log(a[r]);
+  console.log()
 }
 
 function solution(game_board, table) {
-  let answer = 0;
   convert(game_board);
   let spaces = findUnit(game_board);
   let pieces = findUnit(table);
   for (let piece of pieces)
     for (let space of spaces)
-      if (compare(piece, space)) {
-        answer += size(piece);
-        space[0][0] = -1;
-        break;
-      }
-  return answer;
+      if (equals(piece, space))
+        print(piece);
 }
 
 let game_board = [[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]];
 let table = [[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]];
-console.log(solution(game_board, table));
+solution(game_board, table);
 
-game_board = [[0,0,0],[1,1,0],[1,1,1]];
-table = 	[[1,1,1],[1,0,0],[0,0,0]];
-console.log(solution(game_board, table));

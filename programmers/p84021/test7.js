@@ -61,6 +61,12 @@ function rotate(a) {
   return b;
 }
 
+function print(a) {
+  for (let r = 0; r < a.length; ++r)
+    console.log(a[r]);
+  console.log()
+}
+
 function compare(piece, space) {
   for (let i = 0; i < 4; ++i) {
     if (equals(piece, space))
@@ -70,33 +76,18 @@ function compare(piece, space) {
   return false;
 }
 
-function size(piece) {
-  let result = 0;
-  for (let r = 0; r < piece.length; ++r)
-    for (let c = 0; c < piece[0].length; ++c)
-        result += piece[r][c];
-  return result;
-}
-
 function solution(game_board, table) {
-  let answer = 0;
   convert(game_board);
   let spaces = findUnit(game_board);
   let pieces = findUnit(table);
   for (let piece of pieces)
     for (let space of spaces)
       if (compare(piece, space)) {
-        answer += size(piece);
-        space[0][0] = -1;
+        print(piece);
         break;
       }
-  return answer;
 }
 
 let game_board = [[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]];
 let table = [[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]];
-console.log(solution(game_board, table));
-
-game_board = [[0,0,0],[1,1,0],[1,1,1]];
-table = 	[[1,1,1],[1,0,0],[0,0,0]];
-console.log(solution(game_board, table));
+solution(game_board, table);

@@ -43,60 +43,29 @@ function convert(board) {
       board[r][c] = (board[r][c] ? 0 : 1);
 }
 
-function equals(a, b) {
-  if (a.length != b.length) return false;
-  if (a[0].length != b[0].length) return false;
+function print(a) {
   for (let r = 0; r < a.length; ++r)
-    for (let c = 0; c < a[0].length; ++c)
-      if (a[r][c] != b[r][c]) return false;
-  return true;
+    console.log(a[r]);
+  console.log()
 }
 
-function rotate(a) {
-  let A_ROW = a.length, A_COL = a[0].length;
-  let b = Array(A_COL).fill().map(() => Array(A_ROW));
-  for (let r = 0; r < b.length; ++r)
-    for (let c = 0; c < b[0].length; ++c)
-      b[r][c] = a[A_ROW-1-c][r];
-  return b;
-}
-
-function compare(piece, space) {
-  for (let i = 0; i < 4; ++i) {
-    if (equals(piece, space))
-      return true;
-    piece = rotate(piece);
-  }
-  return false;
-}
-
-function size(piece) {
-  let result = 0;
-  for (let r = 0; r < piece.length; ++r)
-    for (let c = 0; c < piece[0].length; ++c)
-        result += piece[r][c];
-  return result;
+function print1(pieces) {
+  for (let piece of pieces)
+    print(piece);
 }
 
 function solution(game_board, table) {
-  let answer = 0;
   convert(game_board);
   let spaces = findUnit(game_board);
   let pieces = findUnit(table);
-  for (let piece of pieces)
-    for (let space of spaces)
-      if (compare(piece, space)) {
-        answer += size(piece);
-        space[0][0] = -1;
-        break;
-      }
-  return answer;
+  print1(spaces);
+  console.log("===============");
+  print1(pieces);
 }
 
 let game_board = [[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]];
 let table = [[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]];
 console.log(solution(game_board, table));
 
-game_board = [[0,0,0],[1,1,0],[1,1,1]];
-table = 	[[1,1,1],[1,0,0],[0,0,0]];
-console.log(solution(game_board, table));
+
+
