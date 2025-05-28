@@ -4,56 +4,48 @@ import java.util.*;
 
 public class Main {
   static int V, E;
-  static ArrayList<int[]>[] links;
+  static ArrayList<float[]>[] links;
 
-  static int[] prim(int start) {
-    int costSum = 0, costMax = 0;
+  static float prim(int start) {
+    float costSum = 0;
     var visited = new boolean[V+1];
-    var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
-    queue.add(new int[] {start, 0});
+    var queue = new PriorityQueue<float[]>((a, b) -> Float.compare(a[1], b[1]));
+    queue.add(new float[] {start, 0});
     while (queue.size() > 0) {
-      int[] u = queue.remove();
-      int node = u[0], cost = u[1];
+      float[] u = queue.remove();
+      int node = (int)u[0]; float cost = u[1];
       if (visited[node]) continue;
       visited[node] = true;
       costSum += cost;
-      if (cost > costMax) costMax = cost;
-      for (int[] link : links[node])
+      for (float[] link : links[node])
         queue.add(link);
     }
-    return new int[] {costSum, costMax};
+    return costSum;
   }
 
   @SuppressWarnings("unchecked")
   public static void main(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
     V = scanner.nextInt();
-    var stars = new double[V][0];
+    var stars = new float[V][2];
     for (int i = 0; i < V; ++i) {
-      stars[i][0] = scanner.nextDouble();
-      stars[i][1] = scanner.nextDouble();
+      stars[i][0] = scanner.nextFloat();
+      stars[i][1] = scanner.nextFloat();
     }
     links = new ArrayList[V+1];
-    for (int i = 0; i < V-1; ++i)
-      for (int j = i+1; j < V; ++j) {
-        double dx = stars[i][0] - stars[j][0];
-        double dy = stars[i][1] - stars[j][1];
-        double distance = Math.sqrt(dx*dx + dy*dy);
-        
+    for (int a = 0; a < V; ++a)
+      links[a] = new ArrayList<>();
+    float min = Float.MAX_VALUE; int minNode = 0;
+    for (int a = 0; a < V-1; ++a)
+      for (int b = a+1; b < V; ++b) {
+        float dx = stars[a][0] - stars[b][0];
+        float dy = stars[a][1] - stars[b][1];
+        float cost = (float)Math.sqrt(dx*dx + dy*dy);
+        links[a].add(new float[] {b, cost});
+        links[b].add(new float[] {a, cost});
+        if (cost < min) { min = cost; minNode = a; }
       }
-
-      links[i] = new ArrayList<>();
-    int min = Integer.MAX_VALUE, minNode = 0;
-    for (int i = 0; i < E; ++i) {
-      int a = scanner.nextInt();
-      int b = scanner.nextInt();
-      int cost = scanner.nextInt();
-      links[a].add(new int[] {b, cost});
-      links[b].add(new int[] {a, cost});
-      if (cost < min) { min = cost; minNode = a; }
-    }
-    int[] result = prim(minNode);
-    System.out.println(result[0] - result[1]);
+    System.out.println(prim(minNode));
     scanner.close();
   }
 }
