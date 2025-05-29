@@ -6,11 +6,11 @@ public class Main {
   static int N, E, START;
   static ArrayList<int[]>[] edges;
 
-  static int[] dijkstra(int start) {
+  static int[] dijkstra() {
     var distances = new int[N+1];
     Arrays.fill(distances, -1);
     var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
-    queue.add(new int[] {start, 0});
+    queue.add(new int[] {START, 0});
     while (queue.size() > 0) {
       int[] u = queue.remove();
       int node = u[0], distance = u[1];
@@ -40,7 +40,7 @@ public class Main {
       edges[a].add(new int[] {b, cost});
     }
     scanner.close();
-    int[] distances = dijkstra(START);
+    int[] distances = dijkstra();
     var builder = new StringBuilder();
     for (int i = 1; i <= N; ++i)
       builder.append(distances[i] == -1 ? "INF\n" : distances[i] + "\n");
