@@ -4,13 +4,14 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-  static final int NO=0, X=1, Y=2, Z=3;
-  static int V;
+  static final int X=0, Y=1, Z=2, NO=3;
+  static int N;
+  static int[][] A, B;
   static int minCost = Integer.MAX_VALUE, minNode = 0;
 
   static int prim(int start) {
     int costSum = 0;
-    var visited = new boolean[V+1];
+    var visited = new boolean[N+1];
     var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
     queue.add(new int[] {start, 0});
     while (queue.size() > 0) {
@@ -22,50 +23,38 @@ public class Main {
       System.out.printf(" PRIM %d %d %d\n", node, cost, links[node].size());
 
       costSum += cost;
-      for (int[] link : links[node]) {
-        System.out.printf(" PRIM LOOP %d %d %s\n", link[0], link[1], visited[link[0]]);
-        if (!visited[link[0]])
-          queue.add(link);
+      for (int i = X; i <= Z; ++i) {
+        A[node]
       }
     }
     return costSum;
   }
 
-  static void addLinks(int[][] stars) {
-    for (int i = 0; i < V-1; ++i) {
-      int dx = Math.abs(stars[i][X] - stars[i+1][X]);
-      int dy = Math.abs(stars[i][Y] - stars[i+1][Y]);
-      int dz = Math.abs(stars[i][Z] - stars[i+1][Z]);
-      int cost = Math.min(Math.min(dx, dy), dz);
-      int a = stars[i][NO], b = stars[i+1][NO];
-      System.out.printf(" %d %d %d\n", a, b, cost);
-      links[a].add(new int[] {a, cost});
-      links[b].add(new int[] {b, cost});
-      if (cost < minCost) { minCost = cost; minNode = i; }
-    }
-  }
-
-  static void print(int[][] stars) {
-    System.out.println(Arrays.deepToString(stars));
+  static void sort(int index) {
+    Arrays.sort(A, (a, b) -> a[index] - b[index]);
+    for (int i = 0; i < N; ++i)
+      B[i][index] = A[i][NO];
+    for (int i = 0; i < N-1; ++i)
+      if (minCost > Math.abs(A[i][index] - A[i+1][index])) {
+        minCost = Math.abs(A[i][index] - A[i+1][index];
+        minNode = A[i][NO];
+      }
   }
 
   @SuppressWarnings("unchecked")
   public static void main(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
-    V = scanner.nextInt();
-    var stars = new int[V][4];
-    for (int i = 0; i < V; ++i) {
-      stars[i][NO] = i;
-      stars[i][X] = scanner.nextInt();
-      stars[i][Y] = scanner.nextInt();
-      stars[i][Z] = scanner.nextInt();
+    N = scanner.nextInt();
+    A = new int[N][4];
+    for (int i = 0; i < N; ++i) {
+      A[i][X] = scanner.nextInt();
+      A[i][Y] = scanner.nextInt();
+      A[i][Z] = scanner.nextInt();
+      A[i][NO] = i;
     }
-    links = new ArrayList[V+1];
-    for (int a = 0; a < V; ++a)
-      links[a] = new ArrayList<>();
-    Arrays.sort(stars, (a, b) -> a[X]-b[X]); addLinks(stars);
-    Arrays.sort(stars, (a, b) -> a[Y]-b[Y]); addLinks(stars);
-    Arrays.sort(stars, (a, b) -> a[Z]-b[Z]); addLinks(stars);
+    B = new int[N][3];
+    sort(X); sort(Y); sort(Z);
+    Arrays.sort(A, (a, b) -> a[NO] - b[NO]);
     System.out.println(prim(minNode));
     scanner.close();
   }
