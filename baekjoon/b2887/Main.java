@@ -3,13 +3,14 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-  static int V, E;
-  static ArrayList<int[]>[] links;
+  static final int X=0, Y=1, Z=2, NO=3;
+  static int N;
+  static int[][] A, B;
   static int minCost = Integer.MAX_VALUE, minNode = 0;
 
   static int prim(int start) {
     int costSum = 0;
-    var visited = new boolean[V+1];
+    var visited = new boolean[N+1];
     var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
     queue.add(new int[] {start, 0});
     while (queue.size() > 0) {
@@ -18,55 +19,38 @@ public class Main {
       if (visited[node]) continue;
       visited[node] = true;
       costSum += cost;
-      for (int[] link : links[node])
-        if (!visited[link[0]])
-          queue.add(link);
+      for (int i = X; i <= Z; ++i) {
+        A[node]
+      }
     }
     return costSum;
   }
 
-  static void addLinks(int[][] stars) {
-    for (int a = 0; a < V-1; ++a) {
-      int b = a + 1;
-      int dx = Math.abs(stars[a][0] - stars[b][0]);
-      int dy = Math.abs(stars[a][1] - stars[b][1]);
-      int dz = Math.abs(stars[a][2] - stars[b][2]);
-      int cost = Math.min(Math.min(dx, dy), dz);
-      links[a].add(new int[] {b, cost});
-      links[b].add(new int[] {a, cost});
-      if (cost < minCost) { minCost = cost; minNode = a; }
-    }    
+  static void sort(int index) {
+    Arrays.sort(A, (a, b) -> a[index] - b[index]);
+    for (int i = 0; i < N; ++i)
+      B[i][index] = A[i][NO];
+    for (int i = 0; i < N-1; ++i)
+      if (minCost > Math.abs(A[i][index] - A[i+1][index])) {
+        minCost = Math.abs(A[i][index] - A[i+1][index];
+        minNode = A[i][NO];
+      }
   }
 
   @SuppressWarnings("unchecked")
   public static void main(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
-    V = scanner.nextInt();
-    var stars = new int[V][3];
-    for (int i = 0; i < V; ++i) {
-      stars[i][0] = scanner.nextInt();
-      stars[i][1] = scanner.nextInt();
-      stars[i][2] = scanner.nextInt();
+    N = scanner.nextInt();
+    A = new int[N][4];
+    for (int i = 0; i < N; ++i) {
+      A[i][X] = scanner.nextInt();
+      A[i][Y] = scanner.nextInt();
+      A[i][Z] = scanner.nextInt();
+      A[i][NO] = i;
     }
-    links = new ArrayList[V+1];
-    for (int a = 0; a < V; ++a)
-      links[a] = new ArrayList<>();
-    int min = Integer.MAX_VALUE; int minNode = 0;
-    for (int i = 0; i < 3; ++i) {
-      final int ii = i;
-      Arrays.sort(stars, (a, b) -> a[ii] - b[ii]);
-      addLinks(stars);
-    }
-    for (int a = 0; a < V-1; ++a)
-      for (int b = a+1; b < V; ++b) {
-        int dx = Math.abs(stars[a][0] - stars[b][0]);
-        int dy = Math.abs(stars[a][1] - stars[b][1]);
-        int dz = Math.abs(stars[a][2] - stars[b][2]);
-        int cost = Math.min(Math.min(dx, dy), dz);
-        links[a].add(new int[] {b, cost});
-        links[b].add(new int[] {a, cost});
-        if (cost < min) { min = cost; minNode = a; }
-      }
+    B = new int[N][3];
+    sort(X); sort(Y); sort(Z);
+    Arrays.sort(A, (a, b) -> a[NO] - b[NO]);
     System.out.println(prim(minNode));
     scanner.close();
   }
