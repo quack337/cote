@@ -9,14 +9,12 @@ public class Main {
   static int[] dijkstra(int start) {
     var distances = new int[N+1];
     Arrays.fill(distances, -1);
-    var visited = new boolean[N+1];
     var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
     queue.add(new int[] {start, 0});
     while (queue.size() > 0) {
       int[] u = queue.remove();
       int node = u[0], distance = u[1];
-      if (visited[node]) continue;
-      visited[node] = true;
+      if (distances[node] > -1) continue;
       distances[node] = distance;
       for (int[] edge : edges[node]) {
         int neighbor = edge[0], cost = edge[1];
