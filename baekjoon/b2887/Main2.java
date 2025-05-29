@@ -1,11 +1,12 @@
 package baekjoon.b2887;
-
+// 중단
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main2 {
   static final int NO=0, X=1, Y=2, Z=3;
-  static int V;
+  static int V, E;
+  static ArrayList<int[]>[] links;
   static int minCost = Integer.MAX_VALUE, minNode = 0;
 
   static int prim(int start) {
