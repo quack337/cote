@@ -3,7 +3,7 @@ package baekjoon.b1368;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main2 {
   static int N;
   static int[] well;
   static int[][] costs;
@@ -36,24 +36,7 @@ public class Main {
     return costSum;
   }
 
-  static void updateWell() {
-    while (true) {
-      boolean updated = false;
-      for (int a = 0; a < N-1; ++a)
-        for (int b = a + 1; b < N; ++b)
-          if (well[a] > well[b] + costs[b][a]) {
-            well[a] = well[b] + costs[b][a];
-            updated = true;
-          } else if (well[b] > well[a] + costs[a][b]) {
-            well[b] = well[a] + costs[a][b];
-            updated = true;
-          }
-      if (!updated) break;
-    }
-  }
-
   static long solution() {
-    updateWell();
     long answer = 0;
     while (true) {
       int start = findStart();
