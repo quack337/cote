@@ -16,7 +16,6 @@ public class Main {
       int node = u[0], cost = u[1];
       if (visited[node]) continue;
       visited[node] = true;
-      System.out.printf(" %d %d\n", node, cost);
       ++visitedCount;
       costSum += cost;
       for (int neighbor = 0; neighbor < N; ++neighbor) {
@@ -37,10 +36,10 @@ public class Main {
     int min = Integer.MAX_VALUE, minNode = 0, sum = 0;
     for (int i = 0; i < N; ++i) {
       String s = scanner.next();
-      for (int j = 0; j <N; ++j) {
+      for (int j = 0; j < N; ++j) {
         char ch = s.charAt(j);
         if (ch == '0') A[i][j] = 0;
-        else if (ch <= 'z') A[i][j] = ch - 'a' + 1;
+        else if ('a' <= ch && ch <= 'z') A[i][j] = ch - 'a' + 1;
         else A[i][j] = ch - 'A' + 27;
         if (A[i][j] > 0 && A[i][j] < min) { min = A[i][j]; minNode = i; }
         sum += A[i][j]; 
@@ -49,5 +48,7 @@ public class Main {
     scanner.close();
     int r = prim(minNode);
     System.out.println(r == -1 ? -1 : sum - r);
+    //System.out.println(sum);
+    //System.out.println(Arrays.deepToString(A));
   }
 }
