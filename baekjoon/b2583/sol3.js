@@ -37,7 +37,7 @@ function DFS(rStart, cStart) {
     if (r > 0) stack.push([r-1, c]);
     if (c > 0) stack.push([r, c-1]);
     if (r < ROW-1) stack.push([r+1, c]);
-    if (c < ROW-1) stack.push([r, c+1]);
+    if (c < COL-1) stack.push([r, c+1]);
   }
   return size;
 }

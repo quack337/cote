@@ -29,7 +29,7 @@ public class Main1 {
       if (r > 0) stack.push(new int[] {r-1, c});
       if (c > 0) stack.push(new int[] {r, c-1});
       if (r < ROW-1) stack.push(new int[] {r+1, c});
-      if (c < ROW-1) stack.push(new int[] {r, c+1});
+      if (c < COL-1) stack.push(new int[] {r, c+1});
     }
     return size;
   }
