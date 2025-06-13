@@ -1,4 +1,4 @@
-package baekjoon.b7562;
+package baekjoon.b7562.old;
 // 답
 import java.io.BufferedReader;
 import java.io.IOException;

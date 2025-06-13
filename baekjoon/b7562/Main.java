@@ -1,9 +1,8 @@
 package baekjoon.b7562;
-
 import java.io.*;
 import java.util.*;
 
-public class Main2 {
+public class Main {
   static int BFS(int N, int rStart, int cStart, int rGoal, int cGoal) {
     final int[][] MV = {{-1,-2},{-2,-1},{-1,2},{1,-2},{1,2},{-2,-1},
                         {-2,-1},{-1,-2},{2,-1},{-2,1},{2,1},{-1,-2}};
