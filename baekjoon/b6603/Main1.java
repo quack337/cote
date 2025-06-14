@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Main1 {
 
     static void 선택하기(int[] S, int index, int count, List<Integer> selected) {
         if (count == 0) {

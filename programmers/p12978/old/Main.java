@@ -1,4 +1,4 @@
-package programmers.p12978;
+package programmers.p12978.old;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;

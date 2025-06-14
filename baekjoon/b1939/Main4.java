@@ -4,7 +4,7 @@ package baekjoon.b1939;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main4 {
   static int N, E, START, GOAL;
   static ArrayList<int[]>[] edges;
   static boolean[] visited;

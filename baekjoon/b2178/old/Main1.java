@@ -1,4 +1,4 @@
-package baekjoon.b2178;
+package baekjoon.b2178.old;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;

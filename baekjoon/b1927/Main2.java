@@ -1,9 +1,6 @@
 package baekjoon.b1927;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class Main2 {
   static class MinHeap {
@@ -70,7 +67,7 @@ public class Main2 {
   public static void main(String[] args) throws NumberFormatException, IOException {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       int N = Integer.parseInt(reader.readLine());
-      MinHeap heap = new MinHeap();
+      MinHeap heap = new MinHeap((a, b) -> a - b);
       for (int i = 0; i < N; ++i) {
           int a = Integer.parseInt(reader.readLine());
           if (a > 0) heap.insert(a);

@@ -1,5 +1,4 @@
 package baekjoon.b2887;
-
 import java.io.*;
 import java.util.*;
 
@@ -12,7 +11,7 @@ public class Main {
   static int prim(int start) {
     int costSum = 0;
     var visited = new boolean[N+1];
-    var queue = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
+    PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> a[1] - b[1]);
     queue.add(new int[] {start, 0});
     while (queue.size() > 0) {
       int[] u = queue.remove();
@@ -20,11 +19,10 @@ public class Main {
       if (visited[node]) continue;
       visited[node] = true;
 
-      System.out.printf(" PRIM %d %d %d\n", node, cost, links[node].size());
+      //System.out.printf(" PRIM %d %d %d\n", node, cost, links[node].size());
 
       costSum += cost;
       for (int i = X; i <= Z; ++i) {
-        A[node]
       }
     }
     return costSum;
@@ -36,12 +34,11 @@ public class Main {
       B[i][index] = A[i][NO];
     for (int i = 0; i < N-1; ++i)
       if (minCost > Math.abs(A[i][index] - A[i+1][index])) {
-        minCost = Math.abs(A[i][index] - A[i+1][index];
+        minCost = Math.abs(A[i][index] - A[i+1][index]);
         minNode = A[i][NO];
       }
   }
 
-  @SuppressWarnings("unchecked")
   public static void main(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
     N = scanner.nextInt();

@@ -1,3 +1,4 @@
+
 public class Solution {
   int solution(int n, int prev) {
     if (n == 0) return 1;

@@ -3,7 +3,7 @@ package baekjoon.b1368;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main3 {
   static int N;
   static int[] well;
   static int[][] costs;

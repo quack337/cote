@@ -29,7 +29,7 @@ public class Main {
     var scanner = new Scanner(new BufferedInputStream(System.in));
     int N = scanner.nextInt();;
     int M = scanner.nextInt();;
-    int[] A = new int[N];
+    //int[] A = new int[N];
     var jumpMap = new HashMap<Integer, Integer>();
     for (int i = 0; i < N + M; ++i) {
       int a = scanner.nextInt();

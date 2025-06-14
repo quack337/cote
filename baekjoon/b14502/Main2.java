@@ -3,7 +3,7 @@ package baekjoon.b14502;
 import java.io.*;
 import java.util.*;
 
-public class Main1 {
+public class Main2 {
   static int ROW, COL;
   static int[][] A;
 

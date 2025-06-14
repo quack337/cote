@@ -1,4 +1,4 @@
-package baekjoon.b1753;
+package baekjoon.b1753.old;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;

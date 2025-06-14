@@ -5,7 +5,7 @@ package baekjoon.b1939;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main2 {
   static int N, E, START, GOAL, minWeight, maxWeight = 0;
   static ArrayList<int[]>[] edges;
   static boolean[] visited;
