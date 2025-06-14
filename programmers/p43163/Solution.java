@@ -26,6 +26,7 @@ class Solution {
       String current = node.word;
       int distance = node.distance;
       if (current.equals(target)) return distance;
+      if (visited.contains(current)) continue;
       visited.add(current);
       for (String next : words)
         if (!visited.contains(next) && diff(current, next) == 1)
@@ -35,9 +36,9 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    System.out.println(solution("hit", "cog", 
+    System.out.println(solution("hit", "cog",
                     new String[]{"hot", "dot", "dog", "lot", "log", "cog"}));
-    System.out.println(solution("hit", "cog", 
+    System.out.println(solution("hit", "cog",
                     new String[]{"hot", "dot", "dog", "lot", "log"}));
   }
 }

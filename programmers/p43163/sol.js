@@ -12,6 +12,7 @@ function solution(begin, target, words) {
   while (queue.length > 0) {
     let [current, distance] = queue.shift();
     if (current == target) return distance;
+    if (visited[current]) continue;
     visited[current] = true;
     for (let next of words)
       if (!visited[next] && diff(current, next) == 1)
