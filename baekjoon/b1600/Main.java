@@ -1,5 +1,4 @@
 package baekjoon.b1600;
-
 import java.io.*;
 import java.util.*;
 
@@ -9,8 +8,7 @@ public class Main {
 
   static int BFS() {
     final int[][] MV = {{0,-1},{0,1},{-1,0},{1,0},
-      {-1,-2},{-2,-1},{-1,2},{1,-2},{1,2},{-2,-1},
-      {-2,-1},{-1,-2},{2,-1},{-2,1},{2,1},{-1,-2}};
+      {-2,-1},{-2,1},{-1,2},{1,2},{2,1},{2,-1},{1,-2},{-1,-2}};
     var visited = new boolean[ROW][COL][K+1];
     var queue = new ArrayDeque<int[]>();
     queue.add(new int[] {0, 0, 0, K});
@@ -21,7 +19,6 @@ public class Main {
       visited[r][c][magic] = true;
       if (r == ROW-1 && c == COL-1) return distance;
       if (A[r][c] == 1) continue;
-      //if (distance == 4) System.out.printf(" %d %d %d\n", r, c, distance);
       for (int i = 0; i < MV.length; ++i) {
         if (i >= 4 && magic == 0) break;
         int rr = r + MV[i][0], cc = c + MV[i][1];
