@@ -1,45 +1,45 @@
 package baekjoon.b9466;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+// 시간초과
+import java.io.*;
+import java.util.*;
 
 public class Main1 {
-    static int[] A;
-    static int N;
+  static int N, selectedCount;
+  static int[] A;
+  static boolean[] selected;
 
-    static boolean DFS(int start) {
-        boolean[] visited = new boolean[N];
-        visited[start] = true;
-        int index = A[start];
-        while (true) {
-            //System.out.println(index);
-            if (index == start) return true;
-            if (visited[index]) return false;
-            visited[index] = true;
-            index = A[index];
-        }
+  static void DFS(int start) {
+    var visited = new boolean[N+1];
+    visited[start] = true;
+    int node = A[start];
+    while (true) {
+      if (node == start) break;
+      if (selected[node] || visited[node]) return;
+      visited[node] = true;
+      node = A[node];
     }
+    for (int i = 1; i <= N; ++i)
+      if (visited[i]) { 
+        selected[i] = true; 
+        ++selectedCount;
+      }
+  }
 
-    static int solution() {
-        int count = 0;
-        for (int i = 0; i < N; ++i) {
-            //System.out.println(DFS(i));
-            if (DFS(i) == false) ++count;
-        }
-        return count;
+  public static void main(String[] args) throws IOException {
+    var scanner = new Scanner(new BufferedInputStream(System.in));
+    int T = scanner.nextInt();
+    for (int t = 0; t < T; ++t) {
+      N = scanner.nextInt();;
+      A = new int[N+1];
+      for (int i = 1; i <= N; ++i)
+        A[i] = scanner.nextInt();
+      selected = new boolean[N+1];
+      selectedCount = 0;
+      for (int i = 1; i <= N; ++i)
+        if (!selected[i])
+          DFS(i);
+      System.out.println(N - selectedCount);
     }
-
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(reader.readLine());
-        for (int test = 0; test < T; ++test) {
-            N = Integer.parseInt(reader.readLine());
-            A = new int[N];
-            StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-            for (int i = 0; i < N; ++i)
-                A[i] = Integer.parseInt(tokenizer.nextToken()) - 1;
-            System.out.println(solution());
-        }
-    }
+    scanner.close();
+  }
 }
