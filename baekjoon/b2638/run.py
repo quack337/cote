@@ -1,7 +1,7 @@
 import subprocess
 
 #command = "node sol.js"
-command = "java Main.java"
+command = "java Main2.java"
 run = 1
 
 def testFS(inputFile, outputString):

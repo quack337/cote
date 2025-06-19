@@ -1,9 +1,9 @@
 package baekjoon.b2638;
-
+// 정답 DFS 시뮬레이션
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main1 {
   static int ROW, COL;
   static int[][] A;
 
