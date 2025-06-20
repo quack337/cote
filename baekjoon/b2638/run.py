@@ -23,9 +23,28 @@ def testSS(inputString, outputString):
     print(tag, True)
   else: print(tag, False, result);
 
-testFS("data1", "3\n5")
-testFS("data2", "0\n0")
-testFS("data3", "1\n1")
-testFS("data4", "1\n4")
-testFS("data5", "1\n8")
-testFS("data6", "2\n1")
+testFS("data1", "4")
+
+testSS("1 1\n0", "0")
+testSS("2 2\n0 0\n0 1", "1")
+testSS("4 4\n0 0 0 0\n0 1 1 0\n0 1 1 0\n0 0 0 0", "1")
+testSS("""5 5
+0 0 0 0 0
+0 1 0 1 0
+0 1 0 1 0
+0 1 1 1 0
+0 0 0 0 0""", "1")
+testSS("""5 5
+0 0 0 0 0
+0 1 1 1 0
+0 1 0 1 0
+0 1 1 1 0
+0 0 0 0 0""", "2")
+testSS("""5 5
+0 0 0 0 0
+0 1 1 1 0
+0 1 1 1 0
+0 1 1 1 0
+0 0 0 0 0""", "3")
+
+
