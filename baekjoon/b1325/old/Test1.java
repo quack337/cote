@@ -1,4 +1,4 @@
-package baekjoon.b1325;
+package baekjoon.b1325.old;
 import java.util.Random;
 
 public class Test1 {

@@ -1,7 +1,7 @@
 import subprocess
 
-#command = "node sol.js"
-command = "java Main3.java"
+command = "node sol.js"
+#command = "java Main3.java"
 run = 1
 
 def testFS(inputFile, outputString):
@@ -26,7 +26,7 @@ def testSS(inputString, outputString):
 testFS("data1", "3\n0")
 
 testSS("1\n1\n1", "0")   # 1명 자신
-testSS("1\n2\n1 2", "0") # 2명 자신  
+testSS("1\n2\n1 2", "0") # 2명 자신
 testSS("1\n2\n2 1", "0") # 2명 사이클
 testSS("1\n3\n2 1 3", "0") # 2명 사이클, 1명 자신
 testSS("1\n3\n2 1 1", "1") # 2명 사이클, 1명 다른 팀

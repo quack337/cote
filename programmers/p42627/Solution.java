@@ -14,7 +14,7 @@ public class Solution {
         var job = queue.remove();
         end = t + job[2];
         answer += end - job[1];
-        //System.out.printf(" %d [%d %d] %d\n", end, job[1], job[2], answer);  
+        //System.out.printf(" %d [%d %d] %d\n", end, job[1], job[2], answer);
       }
     }
     return answer / jobs.length;

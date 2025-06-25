@@ -3,13 +3,27 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
+/*
+  static int ROW, COL;
+  static char[][] A;
+
+  public static void main1(String[] args) throws IOException {
+    var scanner = new Scanner(new BufferedInputStream(System.in));
+    ROW = scanner.nextInt();
+    COL = scanner.nextInt();
+    A = new char[ROW][];
+    for (int r = 0; r < ROW; ++r)
+      A[r] = scanner.next().toCharArray();
+    scanner.close();
+  }
+
   static int N, E;
   static int[] A;
   static boolean[] visited;
   static List<Integer>[] neighbors;
 
-  @SuppressWarnings("unchecked")
-  public static void main1(String[] args) throws IOException {
+  public static void main2(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
     N = scanner.nextInt();
     E = scanner.nextInt();
@@ -26,6 +40,9 @@ public class Main {
     scanner.close();
   }
 
+  static int N;
+  static int[] A;
+
   public static void main(String[] args) throws IOException {
     var scanner = new Scanner(new BufferedInputStream(System.in));
     N = scanner.nextInt();
@@ -34,4 +51,5 @@ public class Main {
       A[i] = scanner.nextInt();
     scanner.close();
   }
+*/
 }

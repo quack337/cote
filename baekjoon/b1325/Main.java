@@ -1,75 +1,75 @@
 package baekjoon.b1325;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+  static IntArray[] neighbors;
+  static boolean[] visited;
+  static IntArray stack = new IntArray(8192);
 
-    static class IntArray {
-        int[] a = new int[32];  // 최초 크기는 32
-        int count = 0;          // a 배열의 데이터 수
+  static class IntArray {
+    int[] a;
+    int count = 0;
 
-        public void add(int value) {
-            if (count == a.length) // a 배열이 꽉 찼으면
-                a = Arrays.copyOf(a, a.length * 2); // 크기를 두 배 확장한다.
-            a[count++] = value;
-        }
-
-        public int get(int i) {
-            return a[i];
-        }
-
-        public int size() {
-            return count;
-        }
+    public IntArray(int size) { a = new int[size]; }
+    public void add(int value) {
+      if (count == a.length)
+        a = Arrays.copyOf(a, a.length * 2);
+      a[count++] = value;
     }
 
-    static IntArray[] 링크;
-    static boolean[] 방문한노드;
-    static int[] 신뢰수;
-    static int N, M;
+    public void push(int value) { add(value); }
+    public int pop() { return a[--count]; }
+    public int get(int i) { return a[i]; }
+    public int size() { return count; }
+  }
 
-    static int DFS(int node) {
-        방문한노드[node] = true;
-        if (링크[node] == null) return 1;
-        int 노드수 = 1;
-        int size = 링크[node].size();
-        for (int i = 0; i < size; ++i) {
-            int c = 링크[node].get(i);
-            if (방문한노드[c]) continue;
-            노드수 += DFS(c);
+  static int 그래프크기(int start) {
+    stack.count = 0;
+    stack.push(start);
+    int size = 0;
+    while (stack.size() > 0) {
+      int node = stack.pop();
+      if (visited[node]) continue;
+      visited[node] = true;
+      ++size;
+      if (neighbors[node] != null) {
+        int end = neighbors[node].size();
+        for (int i = 0; i < end; ++i) {
+          int neighbor = neighbors[node].get(i);
+          if (!visited[neighbor]) stack.push(neighbor);
         }
-        return 노드수;
+      }
     }
+    return size;
+  }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        N = Integer.parseInt(tokenizer.nextToken());
-        M = Integer.parseInt(tokenizer.nextToken());
-        링크 = new IntArray[N];
-        신뢰수 = new int[N];
-        방문한노드 = new boolean[N];
-        for (int i = 0; i < M; ++i) {
-            tokenizer = new StringTokenizer(reader.readLine());
-            int a = Integer.parseInt(tokenizer.nextToken()) - 1;
-            int b = Integer.parseInt(tokenizer.nextToken()) - 1;
-            if (링크[b] == null) 링크[b] = new IntArray();
-            링크[b].add(a);
-        }
-        reader.close();
-
-        int 최대값 = 0;
-        for (int i = 0; i < N; ++i) {
-            Arrays.fill(방문한노드, false);
-            신뢰수[i] = DFS(i);
-            if (신뢰수[i] > 최대값) 최대값 = 신뢰수[i];
-        }
-        var result = new StringBuilder();
-        for (int i = 0; i < N; ++i)
-            if (신뢰수[i] == 최대값) result.append(i + 1).append(' ');
-        System.out.println(result);
+  public static void main(String[] args) throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+    int N = Integer.parseInt(tokenizer.nextToken());
+    int E = Integer.parseInt(tokenizer.nextToken());
+    neighbors = new IntArray[N+1];
+    for (int i = 0; i < E; ++i) {
+        tokenizer = new StringTokenizer(reader.readLine());
+        int a = Integer.parseInt(tokenizer.nextToken());
+        int b = Integer.parseInt(tokenizer.nextToken());
+        if (neighbors[b] == null) neighbors[b] = new IntArray(8);
+        neighbors[b].add(a);
     }
+    reader.close();
+    int maxSize = 0;
+    int[] sizes = new int[N+1];
+    visited = new boolean[N+1];
+    for (int node = 1; node <= N; ++node) {
+      Arrays.fill(visited, false);
+      sizes[node] = 그래프크기(node);
+      if (sizes[node] > maxSize) maxSize = sizes[node];
+    }
+    var builder = new StringBuilder();
+    for (int node = 1; node <= N; ++node)
+      if (sizes[node] == maxSize)
+        builder.append(node).append(' ');
+    System.out.println(builder.toString());
+  }
 }

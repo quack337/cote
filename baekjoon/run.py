@@ -21,7 +21,9 @@ def testSS(inputString, outputString):
   run = run + 1
   if result.strip() == outputString:
     print(tag, True)
-  else: print(tag, False, result);
+  else:
+    print(tag, False, result)
+    exit()
 
 testFS("data1", "3")
 
