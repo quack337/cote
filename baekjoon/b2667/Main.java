@@ -1,41 +1,48 @@
 package baekjoon.b2667;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+  static int ROW, COL, 집 = '1', size;
+  static char[][] A;
+  static boolean[][] visited;
 
-    static char[][] map;
+  static void DFS(int r, int c) {
+    if (visited[r][c] || A[r][c] != 집) return;
+    visited[r][c] = true;
+    ++size;
+    if (r > 0) DFS(r-1, c);
+    if (c > 0) DFS(r, c-1);
+    if (r < ROW-1) DFS(r+1, c);
+    if (c < COL-1) DFS(r, c+1);
+  }
 
-    static int DFS(int r, int c, char no) {
-        if (r < 0 || r >= map.length) return 0;
-        if (c < 0 || c >= map[0].length) return 0;
-        if (map[r][c] != '1') return 0;
-        map[r][c] = no;
-        int count = 1;
-        count += DFS(r - 1, c, no);
-        count += DFS(r + 1, c, no);
-        count += DFS(r, c - 1, no);
-        count += DFS(r, c + 1, no);
-        return count;
-    }
+  static List<Integer> 연결그래프크기() {
+    visited = new boolean[ROW][COL];
+    var sizes = new ArrayList<Integer>();
+    for (int r = 0; r < ROW; ++r)
+      for (int c = 0; c < COL; ++c)
+        if (A[r][c] == 집 && !visited[r][c]) {
+          size = 0;
+          DFS(r, c);
+          sizes.add(size);
+        }
+    return sizes;
+  }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        map = new char[N][];
-        for (int r = 0; r < N; ++r)
-            map[r] = scanner.next().toCharArray();
-        ArrayList<Integer> result = new ArrayList<>();
-        char no = '2';
-        for (int r = 0; r < N; ++r)
-            for (int c = 0; c < N; ++c)
-                if (map[r][c] == '1')
-                    result.add(DFS(r, c, no++));
-        Collections.sort(result);
-        System.out.println(result.size());
-        for (int i : result)
-            System.out.println(i);
-        scanner.close();
-    }
+  public static void main(String[] args) throws IOException {
+    var reader = new BufferedReader(new InputStreamReader(System.in));
+    var tokenizer = new StringTokenizer(reader.readLine());
+    ROW = Integer.parseInt(tokenizer.nextToken()); COL = ROW;
+    A = new char[ROW][];
+    for (int r = 0; r < ROW; ++r)
+      A[r] = reader.readLine().toCharArray();
+    List<Integer> sizes = 연결그래프크기();
+    Collections.sort(sizes);
+    var builder = new StringBuilder();
+    builder.append(sizes.size()).append('\n');
+    for (int size : sizes)
+      builder.append(size).append('\n');
+    System.out.println(builder.toString());
+  }
 }
