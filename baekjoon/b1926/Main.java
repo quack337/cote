@@ -1,21 +1,20 @@
 package baekjoon.b1926;
-
 import java.io.*;
 import java.util.*;
 
 public class Main {
-  static int ROW, COL;
+  static int ROW, COL, size, 색 = 1;
   static int[][] A;
+  static boolean[][] visited;
 
-  static int DFS(int r, int c) {
-    if (A[r][c] != 1) return 0;
-    A[r][c] = -1;
-    int count = 1;
-    if (r > 0) count += DFS(r - 1, c);
-    if (c > 0) count += DFS(r, c - 1);
-    if (r < ROW-1) count += DFS(r + 1, c);
-    if (c < COL-1) count += DFS(r, c + 1);
-    return count;
+  static void DFS(int r, int c) {
+    if (visited[r][c] || A[r][c] != 색) return;
+    visited[r][c] = true;
+    ++size;
+    if (r > 0) DFS(r-1, c);
+    if (c > 0) DFS(r, c-1);
+    if (r < ROW-1) DFS(r+1, c);
+    if (c < COL-1) DFS(r, c+1);
   }
 
   public static void main(String[] args) {
@@ -28,14 +27,16 @@ public class Main {
         A[r][c]= scanner.nextInt();
     scanner.close();
 
-    int answer1 = 0, answer2 = 0;
+    int count = 0, maxSize = 0;
+    visited = new boolean[ROW][COL];
     for (int r = 0; r < ROW; ++r)
       for (int c = 0; c < COL; ++c)
-        if (A[r][c] == 1) {
-          ++answer1;
-          int count = DFS(r, c);
-          if (count > answer2) answer2 = count;
+        if (!visited[r][c] && A[r][c] == 색) {
+          ++count;
+          size = 0;
+          DFS(r, c);
+          if (size > maxSize) maxSize = size;
         }
-    System.out.println(answer1 +"\n" + answer2);
+    System.out.println(count +"\n" + maxSize);
   }
 }
