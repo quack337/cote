@@ -1,34 +1,29 @@
 package baekjoon.b15652;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    static int N, M;
+  static int N, M;
+  static List<Integer> selected = new ArrayList<>();
 
-    static void DFS(BufferedWriter writer, int[] result, int index) throws IOException {
-        if (index >= M) {
-            for (int i : result) writer.write(i + " ");
-            writer.write("\n");
-            return;
-        }
-        int start = index == 0 ? 1 : result[index - 1];
-        for (int i = start; i <= N; ++i) {
-            result[index] = i;
-            DFS(writer, result, index + 1);
-        }
+  static void DFS() {
+    if (selected.size() == M) {
+      System.out.println(selected.toString().replaceAll("[^0-9 ]", ""));
+      return;
     }
+    int start = selected.size() == 0 ? 1 : selected.get(selected.size() - 1);
+    for (int i = start; i <= N; ++i) {
+      selected.add(i);
+      DFS();
+      selected.remove(selected.size() - 1);
+    }
+  }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        N = Integer.parseInt(tokenizer.nextToken());
-        M = Integer.parseInt(tokenizer.nextToken());
-        DFS(writer, new int[M], 0);
-        writer.close();
-    }
+  public static void main(String[] args) throws NumberFormatException, IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+    N = Integer.parseInt(tokenizer.nextToken());
+    M = Integer.parseInt(tokenizer.nextToken());
+    DFS();
+  }
 }
