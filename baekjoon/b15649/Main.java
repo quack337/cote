@@ -1,16 +1,12 @@
 package baekjoon.b15649;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
   static int N, M;
+  static List<Integer> selected = new ArrayList<>();
 
-  static void DFS(List<Integer> selected) {
+  static void DFS() {
     if (selected.size() == M) {
       System.out.println(selected.toString().replaceAll("[^0-9 ]", ""));
       return;
@@ -18,7 +14,7 @@ public class Main {
     for (int i = 1; i <= N; ++i)
       if (!selected.contains(i)) {
         selected.add(i);
-        DFS(selected);
+        DFS();
         selected.remove(selected.size() - 1);
       }
   }
@@ -28,6 +24,6 @@ public class Main {
     StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
     N = Integer.parseInt(tokenizer.nextToken());
     M = Integer.parseInt(tokenizer.nextToken());
-    DFS(new ArrayList<Integer>());
+    DFS();
   }
 }
