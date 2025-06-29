@@ -1,22 +1,22 @@
-package baekjoon.b15650;
+package baekjoon.b15650.old;
+
 import java.io.*;
 import java.util.*;
 
 public class Main {
   static int N, M;
-  static List<Integer> selected = new ArrayList<>();
 
-  static void DFS() {
+  static void DFS(List<Integer> selected) {
     if (selected.size() == M) {
       System.out.println(selected.toString().replaceAll("[^0-9 ]", ""));
       return;
     }
-    int start = selected.size() == 0 ? 1 : selected.get(selected.size() - 1) + 1;
-    for (int i = start; i <= N; ++i) {
-      selected.add(i);
-      DFS();
-      selected.remove(selected.size() - 1);
-    }
+    for (int i = 1; i <= N; ++i)
+      if (!selected.contains(i)) {
+        selected.add(i);
+        DFS(selected);
+        selected.remove(selected.size() - 1);
+      }
   }
 
   public static void main(String[] args) throws NumberFormatException, IOException {
@@ -24,6 +24,6 @@ public class Main {
     StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
     N = Integer.parseInt(tokenizer.nextToken());
     M = Integer.parseInt(tokenizer.nextToken());
-    DFS();
+    DFS(new ArrayList<Integer>());
   }
 }
