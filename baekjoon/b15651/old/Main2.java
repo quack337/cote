@@ -1,23 +1,25 @@
-package baekjoon.b15651;
+package baekjoon.b15651.old;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 
-public class Main3 {
+public class Main2 {
     static int N, M;
 
-    static void DFS(BufferedWriter writer, int[] result, int index) throws IOException {
-        if (index >= M) {
+    static void DFS(BufferedWriter writer, ArrayDeque<Integer> result) throws IOException {
+        if (result.size() == M) {
             for (int i : result) writer.write(i + " ");
             writer.write("\n");
             return;
         }
         for (int i = 1; i <= N; ++i) {
-            result[index] = i;
-            DFS(writer, result, index + 1);
+            result.add(i);
+            DFS(writer, result);
+            result.removeLast();
         }
     }
 
@@ -27,7 +29,7 @@ public class Main3 {
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
         N = Integer.parseInt(tokenizer.nextToken());
         M = Integer.parseInt(tokenizer.nextToken());
-        DFS(writer, new int[M], 0);
+        DFS(writer, new ArrayDeque<Integer>());
         writer.close();
     }
 }
