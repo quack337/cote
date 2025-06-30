@@ -6,24 +6,27 @@ public class Main {
   static int N, M;
   static List<Integer> selected = new ArrayList<>();
 
-  static void DFS() {
+  static void DFS(Writer writer) throws IOException {
     if (selected.size() == M) {
-      System.out.println(selected.toString().replaceAll("[^0-9 ]", ""));
+      for (int i : selected) writer.write(i + " ");
+      writer.write("\n");
       return;
     }
     for (int i = 1; i <= N; ++i)
       if (!selected.contains(i)) {
         selected.add(i);
-        DFS();
+        DFS(writer);
         selected.remove(selected.size() - 1);
       }
   }
 
   public static void main(String[] args) throws NumberFormatException, IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
     StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
     N = Integer.parseInt(tokenizer.nextToken());
     M = Integer.parseInt(tokenizer.nextToken());
-    DFS();
+    DFS(writer);
+    writer.close();
   }
 }
