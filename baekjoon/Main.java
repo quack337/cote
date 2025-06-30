@@ -3,53 +3,49 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-
-/*
   static int ROW, COL;
-  static char[][] A;
+  static int[][] A;
 
   public static void main1(String[] args) throws IOException {
-    var scanner = new Scanner(new BufferedInputStream(System.in));
-    ROW = scanner.nextInt();
-    COL = scanner.nextInt();
-    A = new char[ROW][];
+   var wr = new BufferedWriter(new OutputStreamWriter(System.out));
+   var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+    tk.nextToken(); ROW = COL = (int)tk.nval;
+    A = new int[ROW][COL];
     for (int r = 0; r < ROW; ++r)
-      A[r] = scanner.next().toCharArray();
-    scanner.close();
+      for (int c = 0; c < COL; ++c) {
+        tk.nextToken(); A[r][c] = (int)tk.nval;
+      }
+    wr.close();
   }
 
-  static int N, E;
-  static int[] A;
-  static boolean[] visited;
-  static List<Integer>[] neighbors;
-
-  public static void main2(String[] args) throws IOException {
-    var scanner = new Scanner(new BufferedInputStream(System.in));
-    N = scanner.nextInt();
-    E = scanner.nextInt();
-    visited = new boolean[N+1];
-    neighbors = new ArrayList[N+1];
-    for (int i = 1; i <= N; ++i)
-      neighbors[i] = new ArrayList<>();
-    for (int i = 0; i < E; ++i) {
-      int a = scanner.nextInt();
-      int b = scanner.nextInt();
-      neighbors[a].add(b);
-      neighbors[b].add(a);
-    }
-    scanner.close();
-  }
-
+  /*
   static int N;
   static int[] A;
 
   public static void main(String[] args) throws IOException {
-    var scanner = new Scanner(new BufferedInputStream(System.in));
-    N = scanner.nextInt();
+   var wr = new BufferedWriter(new OutputStreamWriter(System.out));
+   var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+    tk.nextToken(); N = (int)tk.nval;
     A = new int[N];
-    for (int i = 0; i < N; ++i)
-      A[i] = scanner.nextInt();
-    scanner.close();
+    for (int i = 0; i < N; ++i) {
+      tk.nextToken(); A[i] = (int)tk.nval;
+    }
+    wr.close();
+  }
+
+  static int ROW, COL;
+  static char[][] A;
+
+  public static void main1(String[] args) throws IOException {
+   var wr = new BufferedWriter(new OutputStreamWriter(System.out));
+   var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+    tk.nextToken(); ROW = (int)tk.nval;
+    tk.nextToken(); COL = (int)tk.nval;
+    A = new char[ROW][];
+    for (int r = 0; r < ROW; ++r) {
+      tk.nextToken(); A[r] = tk.sval.toCharArray();
+    }
+    wr.close();
   }
 */
 }
