@@ -9,7 +9,8 @@ public class Main {
 
   static void DFS(int from, int to) throws IOException {
     if (selected.size() == R) {
-      for (int i : selected) wr.write(i + " ");
+      for (int i : selected)
+        wr.write(i + " ");
       wr.write("\n");
       return;
     }
