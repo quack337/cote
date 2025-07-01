@@ -1,45 +1,45 @@
 package baekjoon.b1759;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    static int 암호길이, C;
-    static char[] A;
 
-    static void print(String 암호) {
-        int 자음수 = 0, 모음수 = 0;
-        for (char c : 암호.toCharArray())
-            if (c=='a' || c=='e' || c=='i' || c=='o' || c=='u') ++모음수;
-            else ++자음수;
-        if (모음수 >= 1 && 자음수 >= 2)
-            System.out.println(암호);
-    }
+  static int L, N, selectCount = 0;
+  static char[] A, selected;
+  static Writer wr = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    static void 경우의수(int index, StringBuilder 선택) {
-        if (선택.length() == 암호길이) {
-            print(선택.toString());
-            return;
-        }
-        if (index >= A.length) return;
-        if (선택.length() == 0 || A[index]  > 선택.charAt(선택.length()-1)) {
-            선택.append(A[index]);
-            경우의수(index + 1, 선택);
-            선택.deleteCharAt(선택.length()-1);
-        }
-        if (암호길이 - 선택.length() < A.length - index)
-            경우의수(index + 1, 선택);
+  static void DFS(int from, int to) throws IOException {
+    if (selectCount == L) {
+      int 모음 = 0, 자음 = 0;
+      for (char ch : selected)
+        if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u') ++모음;
+        else ++자음;
+      if (모음 < 1 || 자음 < 2) return;
+      for (char ch : selected) wr.write(ch);
+      wr.write('\n');
+      return;
     }
+    for (int i = from; i <= to; ++i) {
+      selected[selectCount] = A[i];
+      ++selectCount;
+      DFS(i + 1, to + 1);
+      --selectCount;
+    }
+  }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-        암호길이 = Integer.parseInt(tokenizer.nextToken());
-        C = Integer.parseInt(tokenizer.nextToken());
-        A = reader.readLine().replaceAll(" ", "").toCharArray();
-        Arrays.sort(A);
-        경우의수(0, new StringBuilder());
-    }
+  public static void main(String[] args) throws IOException {
+    var reader = new BufferedReader(new InputStreamReader(System.in));
+    var tk = new StringTokenizer(reader.readLine());
+    L = Integer.parseInt(tk.nextToken());
+    N = Integer.parseInt(tk.nextToken());
+    selected = new char[L];
+    A = new char[N];
+    tk = new StringTokenizer(reader.readLine());
+    for (int i = 0; i < N; ++i)
+      A[i] = tk.nextToken().charAt(0);
+    Arrays.sort(A);
+    reader.close();
+    DFS(0, N-L);
+    wr.close();
+  }
 }
