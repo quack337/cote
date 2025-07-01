@@ -1,38 +1,38 @@
 package baekjoon.b6603;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.io.*;
 
 public class Main {
-  static int[] S;
+  static int N, R = 6, selectCount = 0;
+  static int[] A, selected = new int[R];
+  static Writer wr = new BufferedWriter(new OutputStreamWriter(System.out));
 
-  static void DFS(int index, List<Integer> selected) {
-    if (selected.size() == 6) {
-      System.out.println(selected.toString().replaceAll("[^0-9 ]", ""));
+  static void DFS(int from, int to) throws IOException {
+    if (selectCount == R) {
+      for (int i : selected) wr.write(i + " ");
+      wr.write('\n');
       return;
     }
-    if (selected.size() + S.length - index < 6) return;
-    selected.add(S[index]);
-    DFS(index + 1, selected);
-    selected.remove(selected.size() - 1);
-    DFS(index + 1, selected);
+    for (int i = from; i <= to; ++i) {
+      selected[selectCount] = A[i];
+      ++selectCount;
+      DFS(i + 1, to + 1);
+      --selectCount;
+    }
   }
 
-  public static void main(String[] args) throws NumberFormatException, IOException {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+  public static void main(String[] args) throws IOException {
+    var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
     while (true) {
-      StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-      int K = Integer.parseInt(tokenizer.nextToken());
-      if (K == 0) break;
-      S = new int[K];
-      for (int i = 0; i < K; ++i)
-        S[i] = Integer.parseInt(tokenizer.nextToken());
-      DFS(0, new ArrayList<Integer>());
-      System.out.println();
+      tk.nextToken(); N = (int)tk.nval;
+      if (N == 0) break;
+      A = new int[N];
+      for (int i = 0; i < N; ++i) {
+        tk.nextToken();
+        A[i] = (int)tk.nval;
+      }
+      DFS(0, N - R);
+      wr.write('\n');
     }
+    wr.close();
   }
 }

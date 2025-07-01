@@ -1,71 +1,50 @@
 package baekjoon.b2580;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.io.*;
 
 public class Main {
-    static final int N = 9;
-    static int[][] A;
+  static int[][] A = new int[9][9];
+  static Writer wr = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    static class Point { // 빈칸 좌표
-        int row, col;
-
-        public Point(int row, int col) {
-            this.row = row;
-            this.col = col;
+  static boolean DFS(int row, int col) throws IOException {
+    if (col == 9) { col = 0; ++row; }
+    if (row == 9) {
+      for (int r = 0; r < 9; ++r) {
+        for (int c = 0; c < 9; ++c)
+          wr.write(A[r][c] + " ");
+        wr.write('\n');
+      }
+      return true;
+    }
+    if (A[row][col] > 0) {
+      return DFS(row, col + 1);
+    } else {
+      var used = new boolean[10];
+      for (int r = 0; r < 9; ++r) 
+        used[A[r][col]] = true;
+      for (int c = 0; c < 9; ++c) 
+        used[A[row][c]] = true;
+      int row0 = row / 3 * 3, col0 = col / 3 * 3;
+      for (int r = 0; r < 3; ++r)
+        for (int c = 0; c < 3; ++c)
+          used[A[row0 + r][col0 + c]] = true;
+      for (int i = 1; i <= 9; ++i)
+        if (!used[i]) {
+          A[row][col] = i;
+          if (DFS(row, col + 1)) return true;
+          A[row][col] = 0;
         }
     }
+    return false;
+  }
 
-    private static ArrayList<Integer> createNumbers() { // 1~9 숫자 목록 생성
-        ArrayList<Integer> numbers = new ArrayList<>();
-        for (int i = 1; i <= 9; ++i)
-            numbers.add(i);
-        return numbers;
-    }
-
-    static boolean 채우기(ArrayList<Point> zeros, int index) {
-        if (index >= zeros.size()) return true;
-        Point p = zeros.get(index);
-        ArrayList<Integer> numbers = createNumbers();
-        경우의수_줄이기(p.row, p.col, numbers);
-        for (int i : numbers) {
-            A[p.row][p.col] = i;
-            if (채우기(zeros, index + 1)) return true;
-        }
-        A[p.row][p.col] = 0;
-        return false;
-    }
-
-    static void 경우의수_줄이기(int row, int col, ArrayList<Integer> numbers) {
-        for (int i = 0; i < N; ++i) {
-            numbers.remove((Integer)A[row][i]);
-            numbers.remove((Integer)A[i][col]);
-        }
-        int row0 = row/3 * 3, col0 = col/3 * 3;
-        for (int r = 0; r < 3; ++r)
-            for (int c = 0; c < 3; ++c)
-                numbers.remove((Integer)A[row0 + r][col0 + c]);
-    }
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        A = new int[N][N];
-        ArrayList<Point> zeros = new ArrayList<Point>();
-        for (int r = 0; r < N; ++r) {
-            StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
-            for (int c = 0; c < N; ++c) {
-                A[r][c] = Integer.parseInt(tokenizer.nextToken());
-                if (A[r][c] == 0) zeros.add(new Point(r, c));
-            }
-        }
-        채우기(zeros, 0);
-        StringBuilder builder = new StringBuilder();
-        for (int r = 0; r < N; ++r) {
-            for (int c = 0; c < N; ++c)
-                builder.append(A[r][c]).append(' ');
-            builder.append('\n');
-        }
-        System.out.println(builder.toString());
-    }
+  public static void main(String[] args) throws IOException {
+    var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+    for (int r = 0; r < 9; ++r)
+      for (int c = 0; c < 9; ++c) {
+        tk.nextToken();
+        A[r][c] = (int)tk.nval;
+      }
+    DFS(0, 0);
+    wr.close();
+  }
 }
