@@ -13,7 +13,7 @@ function DFS() {
   }
   for (let i = 1; i <= N; ++i) {
       selected.push(i);
-      DFS(i);
+      DFS();
       selected.pop();
     }
 }
