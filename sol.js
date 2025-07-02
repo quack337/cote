@@ -1,24 +1,16 @@
-function solution(list, r) {
-  let result = [], selected = [], N = list.length;
-  DFS();
-  return result;
+let N = 4, R = 3;
+let A = ['A', 'B', 'C', 'D'];
+let selected = [];
+DFS(0, N-R);
 
-  function DFS() {
-    if (selected.length == r) { // r개의 항목을 선택했으면
-      let a = [];
-      for (let i = 0; i < N; ++i)
-        if (selected[i]) a.push(list[i]);
-      result.push(a.join('')); // 선택한 조합을 result에 추가하고 리턴
-      return;
-    }
-    for (let i = 0; i < N; ++i) // 주어진 알파벳 각각에 대해서 반복
-      if (!selected[i]) { // i 위치의 알파벳을 아직 선택하지 않았다면
-        selected[i] = true;  // 이 알파벳을 선택하고
-        DFS();               // 재귀호출
-        selected[i] = false; // 선택했던 것 취소
-      }
+function DFS(from, to) {
+  if (selected.length == R) {
+    process.stdout.write(selected.join('') + ' ');
+    return;
+  }
+  for (let i = from; i <= to; ++i) {
+    selected.push(A[i]);
+    DFS(i+1, to+1);
+    selected.pop();
   }
 }
-
-let result = solution(["A","B","C","D"], 3);
-console.log(result.join(' '));
