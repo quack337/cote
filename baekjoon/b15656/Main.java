@@ -10,13 +10,13 @@ public class Main {
 
   static void DFS() throws IOException {
     if (selected.size() == R) {
-      for (int val : selected)
-        wr.write(val + " ");
+      for (int i : selected)
+        wr.write(A[i] + " ");
       wr.write("\n");
       return;
     }
     for (int i = 0; i < N; ++i) {
-      selected.add(A[i]);
+      selected.add(i);
       DFS();
       selected.remove(selected.size() - 1);
     }
