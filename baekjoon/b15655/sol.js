@@ -15,10 +15,9 @@ function DFS(from, to) {
     answer.push(selected.join(' '));
     return;
   }
-  for (let i = from; i < N; ++i)
-    if (!selected.includes(A[i])) {
-      selected.push(A[i]);
-      DFS(i + 1, to + 1);
-      selected.pop();
-    }
+  for (let i = from; i < N; ++i) {
+    selected.push(A[i]);
+    DFS(i + 1, to + 1);
+    selected.pop();
+  }
 }

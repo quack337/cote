@@ -15,12 +15,11 @@ public class Main {
       wr.write("\n");
       return;
     }
-    for (int i = from; i < N; ++i)
-      if (!selected.contains(A[i])) {
-        selected.add(A[i]);
-        DFS(i + 1);
-        selected.remove(selected.size() - 1);
-      }
+    for (int i = from; i < N; ++i) {
+      selected.add(A[i]);
+      DFS(i + 1);
+      selected.remove(selected.size() - 1);
+    }
   }
 
   public static void main(String[] args) throws NumberFormatException, IOException {
