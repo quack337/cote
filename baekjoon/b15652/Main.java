@@ -3,12 +3,12 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-  static int N, M;
+  static int N, R;
   static List<Integer> selected = new ArrayList<>();
   static Writer wr = new BufferedWriter(new OutputStreamWriter(System.out));
 
   static void DFS(int from) throws IOException {
-    if (selected.size() == M) {
+    if (selected.size() == R) {
       for (int i : selected)
         wr.write(i + " ");
       wr.write("\n");
@@ -24,7 +24,7 @@ public class Main {
   public static void main(String[] args) throws NumberFormatException, IOException {
     var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
     tk.nextToken(); N = (int)tk.nval;
-    tk.nextToken(); M = (int)tk.nval;
+    tk.nextToken(); R = (int)tk.nval;
     DFS(1);
     wr.close();
   }
