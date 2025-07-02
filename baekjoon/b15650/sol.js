@@ -11,10 +11,9 @@ function DFS(from, to) {
     answer.push(selected.join(' '));
     return;
   }
-  for (let i = from; i <= to; ++i)
-    if (!selected.includes(i)) {
-      selected.push(i);
-      DFS(i+1, to+1);
-      selected.pop();
-    }
+  for (let i = from; i <= to; ++i) {
+    selected.push(i);
+    DFS(i+1, to+1);
+    selected.pop();
+  }
 }
