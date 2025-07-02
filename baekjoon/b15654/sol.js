@@ -12,12 +12,12 @@ console.log(answer.join('\n'));
 
 function DFS() {
   if (selected.length == R) {
-    answer.push(selected.join(' '));
+    answer.push(selected.map(i => A[i]).join(' '));
     return;
   }
   for (let i = 0; i < N; ++i)
-    if (!selected.includes(A[i])) {
-      selected.push(A[i]);
+    if (!selected.includes(i)) {
+      selected.push(i);
       DFS();
       selected.pop();
     }
