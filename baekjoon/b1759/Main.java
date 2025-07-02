@@ -8,15 +8,20 @@ public class Main {
   static char[] A, selected;
   static Writer wr = new BufferedWriter(new OutputStreamWriter(System.out));
 
+  static boolean isValidPasswd() {
+    int 모음 = 0, 자음 = 0;
+    for (char ch : selected)
+      if ("aeiou".indexOf(ch) >= 0) ++모음;
+      else ++자음;
+    return 모음 >= 1 & 자음 >= 2;
+  }
+
   static void DFS(int from, int to) throws IOException {
     if (selectCount == L) {
-      int 모음 = 0, 자음 = 0;
-      for (char ch : selected)
-        if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u') ++모음;
-        else ++자음;
-      if (모음 < 1 || 자음 < 2) return;
-      for (char ch : selected) wr.write(ch);
-      wr.write('\n');
+      if (isValidPasswd()) {
+        for (char ch : selected) wr.write(ch);
+        wr.write('\n');
+      }
       return;
     }
     for (int i = from; i <= to; ++i) {
