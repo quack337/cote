@@ -12,11 +12,11 @@ console.log(answer.join('\n'));
 
 function DFS(from) {
   if (selected.length == R) {
-    answer.push(selected.join(' '));
+    answer.push(selected.map(i => A[i]).join(' '));
     return;
   }
   for (let i = from; i < N; ++i) {
-      selected.push(A[i]);
+      selected.push(i);
       DFS(i);
       selected.pop();
     }
