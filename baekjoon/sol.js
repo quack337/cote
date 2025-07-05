@@ -1,6 +1,6 @@
 let fs = require('fs');
-let input = fs.readFileSync(0).toString().split(/[ \n\r]+/), input_idx = 0;
-let getStr = () => input[input_idx++], getInt = () => parseInt(getStr());
+let data = fs.readFileSync(0).toString().split(/[ \n\r]+/), idx = 0;
+let getStr = () => data[idx++], getInt = () => +data[idx++];
 let N = getInt();
 let A = [];
 for (let i = 0; i < N; ++i)
