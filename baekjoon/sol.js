@@ -4,7 +4,7 @@ let getStr = () => data[idx++], getInt = () => +data[idx++];
 let N = getInt();
 let A = [];
 for (let i = 0; i < N; ++i)
-  A[i] = getStr().split('');
+  A[i] = getInt();
 
 let ROW = getInt(), COL = getInt();
 let A = Array(ROW).fill().map(() => []);
