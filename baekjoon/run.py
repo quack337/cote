@@ -25,6 +25,20 @@ def testSS(inputString, outputString):
     print(tag, False, result)
     exit()
 
+def testSF(inputString, output):
+  global run
+  with open("data_temp", "w") as f:
+    f.write(inputString)
+  cmd = command + " < data_temp"
+  result = subprocess.check_output(cmd, shell=True, text=True)
+  tag = "input" + str(run)
+  run = run + 1
+  if float(result.strip()) == output:
+    print(tag, True)
+  else:
+    print(tag, False, result)
+    exit()
+
 testFS("data1", "3")
 
 testSS("2 2\n1 3", "2")
