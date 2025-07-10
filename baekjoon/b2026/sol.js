@@ -1,3 +1,5 @@
+// readline 으로 구현해도 런타임 에러(TypeError) 흠...
+// 그리고 Java로 통과하면서 보니, 이 JS 구현에는 로직 오류가 있다.
 let rd=require('readline').createInterface({input:process.stdin});
 let IN=[],K,N,F,A=[];
 rd.on('line', s=>IN.push(s)).on('close', ()=>{

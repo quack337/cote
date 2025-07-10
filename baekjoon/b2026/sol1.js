@@ -1,4 +1,5 @@
 // 또 런타임 에러 (TypeError) 원인이 뭐냐??
+// 그리고 Java로 통과하면서 보니, 이 JS 구현에는 로직 오류가 있다.
 let IN=require('fs').readFileSync(0).toString().trim().split(/[\r\n]+/),
 [K,N,F] = IN[0].split(' ').map(e=>+e), A=[], V=[];
 
