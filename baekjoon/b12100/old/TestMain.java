@@ -1,4 +1,4 @@
-package baekjoon.b12100;
+package baekjoon.b12100.old;
 import java.util.Arrays;
 
 import org.junit.Assert;

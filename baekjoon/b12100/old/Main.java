@@ -1,4 +1,4 @@
-package baekjoon.b12100;
+package baekjoon.b12100.old;
 import java.io.InputStream;
 import java.util.ArrayDeque;
 import java.util.Arrays;
