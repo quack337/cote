@@ -1,36 +1,14 @@
-let IN = require('fs').readFileSync(0).toString().split('\n'),
-A=IN.slice(1).map(s=>s.split(' ').map(e=>+e)), ANS=0, memo1=new Map(),
-NN=0, EE=1, SS=2, WW=3;
-DFS(0,A);
-console.log(ANS);
+// 이동 구현
+// 이동 결과 배열은 모두 동쪽 이동 방형으로 회전되어 있다.
+// 최대값만 중요하니까 배열 회전 여부는 어차피 상관없다.
+let A=[[0,2,0,1],[0,0,2,0],[0,0,3,3],[0,4,0,4]];
+let N=0, E=1, S=2, W=3;
+print(A);
+print(move(A, S));
 
-function DFS(n, A) {
-  if (n < 9) {
-    let s = JSON.stringify(A);
-    if (memo1.has(s)) {
-      let nn = memo1.get(s);
-      if (nn <= n) return;
-    } else
-      memo1.set(s, n);
-  }
-  let val = value(A);
-  if (val > ANS) ANS = val;
-  else if ((val << (10-n)) <= ANS) return;
-  if (n == 10) return;
-  if (!check(A)) return;
-  DFS(n+1, move(A,NN));
-  DFS(n+1, move(A,EE));
-  DFS(n+1, move(A,SS));
-  DFS(n+1, move(A,WW));
-}
-
-function value(A) {
-  let max=0;
-  for (let row of A)
-    for (let val of row)
-      if (val>max) max=val;
-  return max;
-}
+A =  [[1,2,1,1],[4,2,0,2],[0,3,0,3],[4,0,0,4]];
+print(A);
+print(move(A, S));
 
 function move(A, dir) {
   let B = [], size = 0, row1;
@@ -106,11 +84,7 @@ function moveW(row) {
   return stack;
 }
 
-function check(A) {
-  let set = 0;
-  for (let r=0; r<A.length; ++r)
-    for (let c=0; c<A[0].length; ++c)
-      if ((set & A[r][c]) != 0) return true;
-      else set |= A[r][c];
-  return false;
+function print(A) {
+  for (let r of A) console.log(r.map(e=>e==0?'.':''+e).join(' '));
+  console.log();
 }
