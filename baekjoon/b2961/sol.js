@@ -1,26 +1,16 @@
-let fs = require('fs');
-let input = fs.readFileSync(0).toString().split(/[ \n\r]+/), input_idx = 0;
-let getStr = () => input[input_idx++], getInt = () => parseInt(getStr());
-let N = getInt();
-let A = [];
-for (let i = 0; i < N; ++i)
-  A[i] = [getInt(), getInt()];
-let selected = [], answer = Number.MAX_VALUE;
-DFS(0);
-console.log(answer);
+let IN=require('fs').readFileSync(0).toString().split('\n'),
+N=+IN[0], A=IN.slice(1).map(s=>s.split(' ').map(e=>+e)), S=[], X=Infinity;
+DFS(0)
+console.log(X)
 
-
-function DFS(index) {
-  if (index == N) {
-    if (selected.length > 0) {
-      let 신맛 = selected.map(i => A[i]).reduce((r, e) => e[0] * r, 1);
-      let 쓴맛 = selected.map(i => A[i]).reduce((r, e) => e[1] + r, 0);
-      answer = Math.min(answer, Math.abs(신맛 - 쓴맛));
+function DFS(n) {
+  if (n==N) {
+    if (S.length) {
+      let 신=S.reduce((r,e)=>e[0]*r, 1)
+      let 쓴=S.reduce((r,e)=>e[1]+r, 0)
+      X = Math.min(X, Math.abs(신-쓴))
     }
-    return;
+    return
   }
-  selected.push(index);
-  DFS(index + 1);
-  selected.pop(index);
-  DFS(index + 1);
+  S.push(A[n]); DFS(n+1); S.pop(); DFS(n+1)
 }
