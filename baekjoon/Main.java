@@ -6,7 +6,7 @@ public class Main {
   static int ROW, COL;
   static int[][] A;
 
-  public static void main1(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
    var wr = new BufferedWriter(new OutputStreamWriter(System.out));
    var tk = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
     tk.nextToken(); ROW = COL = (int)tk.nval;
