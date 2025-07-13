@@ -1,6 +1,4 @@
 node_modules/
 *.class
 *.exe
-test.js
-Test.java
-/Main.java
+Test/
