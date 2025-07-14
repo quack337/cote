@@ -7,10 +7,10 @@ public class Main {
   static int[][] A;
   static Set<Integer> selected = new HashSet<>();
 
-  static int skill(Set<Integer> list) {
+  static int skill(Set<Integer> team) {
     int val = 0;
-    for (int a : list)
-      for (int b : list)
+    for (int a : team)
+      for (int b : team)
         if (a != b) val += A[a][b];
     return val;
   }
