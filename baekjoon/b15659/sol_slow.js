@@ -1,7 +1,7 @@
 let AD=0, MI=1, MU=2, DI=3,
 IN = require('fs').readFileSync(0).toString().split('\n'),
 N=+IN[0], A=IN[1].split(' ').map(e=>+e), 
-V=IN[2].split(' ').map(e=>+e), S=[], 
+OP=IN[2].split(' ').map((e,i)=>Array(+e).fill(i)).flat(), V=[], S=[], 
 MAX=-Infinity, MIN=Infinity
 DFS()
 console.log(MAX + '\n' + MIN)
@@ -13,11 +13,11 @@ function DFS() {
     if (val < MIN) MIN=val
     return
   }
-  for (let i=0; i < 4; ++i) 
-    if (V[i] > 0) {
-      S.push(i); V[i]--
+  for (let i=0; i < N-1; ++i) 
+    if (!V[i]) {
+      S.push(OP[i]); V[i]=1
       DFS()
-      S.pop(); V[i]++
+      S.pop(); V[i]=0
     }
 }
 
