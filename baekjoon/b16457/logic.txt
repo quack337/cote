@@ -1,0 +1,12 @@
+keyN=N questN=M skillN_perQuest=K
+quest0 skill list (skill_perQuest개)
+
+
+가능한 skill 수는 keyN*2 개
+
+array Q => [퀘스트 스킬 조합 bit]
+
+2nCn 스킬 조합 각각에 대해서
+  S = 선택된 스킬 조합 bit
+  Q 배열의 원소 각각에 대해서 S와 and 결과가 S와 같으면 ++cnt
+cnt 최대값 찾기
