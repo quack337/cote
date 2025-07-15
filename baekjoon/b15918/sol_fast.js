@@ -5,8 +5,8 @@ DFS(0)
 console.log(CNT)
 
 function DFS(n) {
+  while (S[n]) ++n
   if (n==2*N) { ++CNT; return }
-  if (S[n]) { DFS(n+1); return }
   for (let i=1; i<=N; ++i)
     if (!V[i] && !S[n] && !S[n+i+1]) {
       S[n]=S[n+i+1]=i; V[i]=1
