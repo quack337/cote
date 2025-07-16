@@ -52,11 +52,46 @@ await testSS(
 0 0 1`, "W");
 
 await testSS(
-`0 0 0
-0 0 0
-0 0 0`, "W");
-
-await testSS(
 `1 1 2
 2 2 1
 1 0 0`, "D");
+
+await testSS(
+`0 0 0
+0 0 0
+0 0 0`, "D");
+
+await testSS(
+`0 0 0
+0 1 0
+0 0 0`, "D");
+
+await testSS(
+`0 0 0
+0 1 0
+2 0 0`, "D");
+
+await testSS(
+`0 0 0
+0 1 0
+2 0 0`, "D");
+
+await testSS(
+`0 0 0
+0 1 0
+2 0 1`, "D");
+
+await testSS(
+`2 0 0
+0 1 0
+2 0 1`, "D");
+
+await testSS(
+`2 0 0
+1 1 0
+2 0 1`, "D");
+
+await testSS(
+`2 0 0
+1 1 2
+2 0 1`, "D");

@@ -1,0 +1,108 @@
+ DFS2
+ 2: 0 1
+   DFS1
+   1: 0 2
+     DFS2
+     2: 1 2
+       DFS1
+       1: 2 1
+         DFS2
+         return 0
+       return 0
+     2: 2 1
+       DFS1
+       1: 1 2
+       w1:1
+     return 0
+   1: 1 2
+   w1:1
+ 2: 0 2
+   DFS1
+   1: 0 1
+     DFS2
+     2: 1 2
+       DFS1
+       1: 2 1
+       w1:1
+     2: 2 1
+       DFS1
+       1: 1 2
+       w1:1
+     return 1
+   1: 1 2
+   w1:1
+ 2: 1 2
+   DFS1
+   1: 0 1
+     DFS2
+     2: 0 2
+       DFS1
+       1: 2 1
+       w1:1
+     2: 2 1
+       DFS1
+       1: 0 2
+         DFS2
+         return 0
+       return 0
+     return 0
+   1: 0 2
+     DFS2
+     2: 0 1
+       DFS1
+       1: 2 1
+         DFS2
+         return 0
+       return 0
+     2: 2 1
+       DFS1
+       1: 0 1
+         DFS2
+         return 0
+       return 0
+     return 0
+   1: 2 1
+     DFS2
+     2: 0 1
+       DFS1
+       1: 0 2
+         DFS2
+         return 0
+       return 0
+     2: 0 2
+       DFS1
+       1: 0 1
+       w1:1
+     return 0
+   return 0
+ 2: 2 1
+   DFS1
+   1: 0 1
+     DFS2
+     2: 0 2
+       DFS1
+       1: 1 2
+       w1:1
+     2: 1 2
+       DFS1
+       1: 0 2
+         DFS2
+         return 0
+       return 0
+     return 0
+   1: 0 2
+     DFS2
+     2: 0 1
+       DFS1
+       1: 1 2
+       w1:1
+     2: 1 2
+       DFS1
+       1: 0 1
+         DFS2
+         return 0
+       return 0
+     return 0
+   1: 1 2
+   w1:1
+ return 0

@@ -6,31 +6,37 @@ for (let r=0; r<3; ++r)
     else if (A[r][c]==2) ++n2
     else B.push([r,c])
 
-let s = n1>n2 ? -1 : 1, r = s==-1 ? DFS2() : DFS1()
+let s = n1>n2 ? -1 : 1, r = s==-1 ? DFS2(0) : DFS1(0)
 console.log(s==r ? 'W' : s+r==0 ? 'L' : 'D')
 
-function DFS1() {
+function DFS1(depth) {
+  print(depth, "DFS1")
   let mx = -9
   for (let [r,c] of B)
     if (!A[r][c]) {
+      print(depth, "1:", r, c)
       A[r][c]=1
-      if (win(r,c)) { A[r][c]=0; return 1 }
-      mx = Math.max(mx, DFS2())
+      if (win(r,c)) { A[r][c]=0; print(depth, "w1:1"); return 1 }
+      mx = Math.max(mx, DFS2(depth+1))
       A[r][c]=0
     }
-  return mx==-9 ? 0 : mx
+  print(depth, "return", mx==-9 ? 0 : mx);
+  return mx==-9 ? 0 : mx;
 }
 
-function DFS2() {
+function DFS2(depth) {
+  print(depth, "DFS2")
   let mn = 9
   for (let [r,c] of B)
     if (!A[r][c]) {
+      print(depth, "2:", r, c)
       A[r][c]=2
-      if (win(r,c)) { A[r][c]=0; return -1 }
-      mn = Math.min(mn, DFS1())
+      if (win(r,c)) { A[r][c]=0; print(depth, "w2:-1"); return -1 }
+      mn = Math.min(mn, DFS1(depth+1))
       A[r][c]=0
     }
-  return mn==9 ? 0 : mn
+  print(depth, "return", mn==9 ? 0 : mn);
+  return mn==9 ? 0 : mn;
 }
 
 function win(r,c) {
@@ -43,4 +49,8 @@ function win(r,c) {
   if (r==c && A[0][0]==x && A[1][1]==x && A[2][2]==x) return 1
   if (r+c==2 && A[0][2]==x && A[1][1]==x && A[2][0]==x) return 1
   return 0
+}
+
+function print(d, ...p) {
+  console.error(Array(d*2).fill(' ').join(''), ...p)
 }
