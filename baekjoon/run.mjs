@@ -24,6 +24,5 @@ async function testSS(inputString, outputString) {
   await testFS("data_temp", outputString);
 }
 
-await testFS("data1", "4 1 11 10 9 8 7 6 5 3 2")
-await testSS("1", "1");
-await testSS("12", "1 2");
+await testFS('data1', '5')
+await testSS('1', '1');
