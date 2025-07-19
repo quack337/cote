@@ -7,7 +7,7 @@ public class Main {
   static char[][] A;
   static char[][] S;
   static boolean[] V;
-  static StringBuilder bd = new StringBuilder();
+  static String X = "NONE";
 
   static boolean valid() {
     for (int i=1; i<L; ++i)
@@ -19,8 +19,10 @@ public class Main {
   static boolean DFS(int n) {
     if (n==L) {
       if (!valid()) return false;
+      var bd = new StringBuilder();
       for (var s : S)
         bd.append(new String(s)).append('\n');
+      X=bd.toString();
       return true;
     }
     for (int i=0; i<N; ++i)
@@ -47,7 +49,6 @@ public class Main {
     S = new char[L][];
     V = new boolean[N];
     DFS(0);
-    var s = bd.toString();
-    System.out.println(s.length()>0 ? s : "NONE");
+    System.out.println(X);
   }
 }
