@@ -1,34 +1,42 @@
 package baekjoon.b5568;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    static int N, K;
-    static HashSet<Integer> set = new HashSet<>();
-
-    static void 완전탐색(int[] A, int selectCount, boolean[] selected, String sum) {
-        if (selectCount == K) {
-            set.add(Integer.valueOf(sum));
-            return;
-        }
-        for (int i = 0; i < A.length; ++i) {
-            if (selected[i] == false) {
-                selected[i] = true;
-                완전탐색(A, selectCount + 1, selected, sum + String.valueOf(A[i]));
-                selected[i] = false;
-            }
-        }
+  static int N, R;
+  static String[] A;  // 입력으로 주어진 수 목록
+  static boolean[] V; // 인덱스 i 위치의 수를 선택했는지 표시하기 위한 배열. 중복 선택을 막기 위함.
+  static ArrayList<String> S = new ArrayList<>(); // 지금까지 선택한 수 목록
+  static Set<Integer> answer = new HashSet<>(); // 수를 선택해서 만든 정수를 담을 HashSet 객체.
+                                                // 중복된 값이 자동으로 걸러진다
+  static void DFS(int depth) {
+    if (S.size() == R) {  // R개를 선택했다면
+      // 선택한 수들을 연결하여 문자열을 만들고, 정수로 변환한다
+      var sb = new StringBuilder();
+      for (String s : S) sb.append(s);
+      answer.add(Integer.parseInt(sb.toString()));
+      return;
     }
-
-    public static void main(String[] args) {
-        var scanner = new Scanner(System.in);
-        N = scanner.nextInt();
-        K = scanner.nextInt();
-        int[] A = new int[N];
-        for (int i = 0; i < N; ++i)
-            A[i] = scanner.nextInt();
-        완전탐색(A, 0, new boolean[N], "");
-        scanner.close();
-        System.out.println(set.size());
+    for (int i = 0; i < N; i++) {
+      if (!V[i]) {
+        V[i] = true;
+        S.add(A[i]);
+        DFS(depth + 1);
+        V[i] = false;
+        S.remove(S.size() - 1);
+      }
     }
+  }
+
+  public static void main(String[] args) throws IOException {
+    var br = new BufferedReader(new InputStreamReader(System.in));
+    N = Integer.parseInt(br.readLine());
+    R = Integer.parseInt(br.readLine());
+    A = new String[N];
+    V = new boolean[N];
+    for (int i = 0; i < N; i++)
+      A[i] = br.readLine(); // 선택한 수들을 문자열 연결할 거라고 정수로 변환하지 않는다
+    DFS(0);
+    System.out.println(answer.size()); // Set 객체 담긴 정수의 갯수를 출력한다
+  }
 }
