@@ -1,4 +1,4 @@
-package baekjoon.b1463;
+package baekjoon.b1463.old;
 public class Main3 {
 
     static int solution1(int x) {

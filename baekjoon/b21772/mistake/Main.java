@@ -1,4 +1,4 @@
-package baekjoon.b21772;
+package baekjoon.b21772.mistake;
 import java.io.*;
 import java.util.*;
 

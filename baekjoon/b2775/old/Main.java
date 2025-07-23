@@ -1,13 +1,7 @@
-package baekjoon.b2775;
+package baekjoon.b2775.old;
 import java.util.Scanner;
 
-public class Main1 {
-    static int sum(int[][] a, int K, int N) {
-        int s = 0;
-        for (int n = 1; n <= N; ++n)
-            s += a[K][n];
-        return s;
-    }
+public class Main {
 
     static int solution(int K, int N) {
         int[][] a = new int[K + 1][N + 1];
@@ -15,7 +9,7 @@ public class Main1 {
             a[0][n] = n;
         for (int k = 1; k <= K; ++k)
             for (int n = 1; n <= N; ++n)
-                a[k][n] = sum(a, k - 1, n);
+                a[k][n] = a[k][n - 1] + a[k - 1][n];
         return a[K][N];
     }
 

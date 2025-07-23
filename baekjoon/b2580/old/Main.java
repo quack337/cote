@@ -1,4 +1,4 @@
-package baekjoon.b2580;
+package baekjoon.b2580.old;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;

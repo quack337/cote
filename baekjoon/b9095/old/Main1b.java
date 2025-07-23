@@ -1,24 +1,28 @@
-package baekjoon.b9095;
+package baekjoon.b9095.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// 점화식
-public class Main1a {
+// 답
+public class Main1b {
 
-    static int 경우의수(int n) {
-        if (n == 1) return 1;
-        if (n == 2) return 2;
-        if (n == 3) return 4;
-        return 경우의수(n - 3) + 경우의수(n - 2) + 경우의수(n - 1);
+    static int[] 경우의수(int max) {
+        int[] DP = new int[max+1];
+        DP[1] = 1;
+        DP[2] = 2;
+        DP[3] = 4;
+        for (int i = 4; i <= max; ++i)
+            DP[i] = DP[i - 3] + DP[i - 2] + DP[i - 1];
+        return DP;
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(reader.readLine());
+        int[] DP = 경우의수(11);
         for (int t = 0; t < T; ++t) {
             int n = Integer.parseInt(reader.readLine());
-            System.out.println(경우의수(n));
+            System.out.println(DP[n]);
         }
     }
 }

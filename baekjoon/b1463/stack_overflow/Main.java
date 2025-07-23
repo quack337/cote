@@ -1,4 +1,4 @@
-package baekjoon.b1463;
+package baekjoon.b1463.stack_overflow;
 import java.io.*;
 
 public class Main {
