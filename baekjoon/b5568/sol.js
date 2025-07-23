@@ -19,11 +19,11 @@ function DFS() {
     return;
   }
   for (let i = 0; i < N; ++i)
-    if (!V[i]) {
-      V[i] = true;
-      S.push(A[i]);
-      DFS();
-      V[i] = false;
+    if (!V[i]) { // 인덱스 i 위치의 값을 아직 선택하지 않았다면
+      V[i] = true; // i 위치의 값을 선택했다고 표시
+      S.push(A[i]); // 선택한 수 목록에 A[i] 추가
+      DFS();         // 재귀호출
+      V[i] = false; // 재귀호출에서 리턴하자 마자 A[i] 선택을 취소한다
       S.pop();
     }
 }
