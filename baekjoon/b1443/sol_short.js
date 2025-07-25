@@ -1,3 +1,4 @@
+// 답
 [D,N]=(''+require('fs').readFileSync(0)).split(' ').map(e=>+e)
 M=Math.pow(10,D)
 X=-1
