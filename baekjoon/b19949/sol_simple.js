@@ -16,14 +16,11 @@ function DFS(count, 점수) { // count: 지금까지 선택한 객관식 답 갯
     return;
   }
   for (let i=1; i<=5; ++i) { // 5지 선다식 각각을 선택 시도
-
     // 앞의 두 문제와 또 같은 답을 선택할 수는 없다
     if (count >= 2 && S[count-1]==i && S[count-2]==i) continue;
-
     S[count] = i; // count 번 문제의 답을 S 목록에 추가
-
     DFS(count+1, 점수 + (A[count]==i ? 1 : 0)); // 재귀호출
-        // i가 count 번 문제의 정답과 일치하면 점수 +1
+                 // i가 count 번 문제의 정답과 일치하면 점수 +1
 
       // 선택한 갯수가 count 변수로 유지되기 때문에 S.pop() 할 필요 없다.
       //   재귀호출될 때 count 값이 count+1 되지만
