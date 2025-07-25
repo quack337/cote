@@ -25,6 +25,6 @@ function DFS(from,to,count) { // count: 지금까지 선택한 재료 갯수
     DFS(i+1,to+1,count+1); // 재귀호출
             // 선택한 갯수가 count 변수로 유지되기 때문에 S.pop() 할 필요 없다.
             //   재귀호출될 때 count 값이 count+1 되지만
-            //   재귀호출에서 리턴하면 count 값은 재귀호출 전의 count 값 그대로 이다
+            //   재귀호출에서 리턴하면 count 값은 재귀호출 전의 count 값 그대로이다
   }
 }
