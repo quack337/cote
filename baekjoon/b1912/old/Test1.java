@@ -1,4 +1,4 @@
-package baekjoon.b1912;
+package baekjoon.b1912.old;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

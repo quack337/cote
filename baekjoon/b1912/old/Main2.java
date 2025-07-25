@@ -1,10 +1,10 @@
-package baekjoon.b1912;
+package baekjoon.b1912.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(reader.readLine());
@@ -15,13 +15,12 @@ public class Main {
         reader.close();;
 
         int[] 합 = new int[N];
-        int 최대 = A[0];
-        합[0] = A[0];
-        for (int i = 1; i < N; ++i) {
-            if (A[i] > 최대) 최대 = A[i];
-            합[i] = Math.max(A[i-1] + A[i], 합[i-1] + A[i]);
-            if (합[i] > 최대) 최대 = 합[i];
-        }
+        int 최대 = Integer.MIN_VALUE;
+        for (int d = 0; d < N; ++d)
+            for (int i = 0; i < N-d; ++i) {
+                합[i+d] += A[i];
+                if (합[i+d] > 최대) 최대 = 합[i+d];
+            }
         System.out.println(최대);
     }
 }
