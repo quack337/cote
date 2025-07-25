@@ -1,0 +1,11 @@
+A=(require('fs').readFileSync(0)+'').split('\n').map(e=>+e)
+X=[]
+for(;;){
+ N=A.shift()
+ if(!N)break
+ P=Q=A[0]
+ for(i=1;i<N;++i)Q=Math.max(Q,P=(P>0?P:0)+A[i])
+ X.push(Q)
+ A.splice(0,N)
+}
+console.log(X.join('\n'))
