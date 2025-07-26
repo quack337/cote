@@ -1,11 +1,13 @@
-package baekjoon.b2193;
+package baekjoon.b2193.old;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class Main2 {
+public class Main {
 
-    static int[][] DP = new int[91][2];
+    static long[][] DP = new long[91][2];
 
-    static int DFS(int n, int previous) {
+    static long DFS(int n, int previous) {
         if (n == 0) return 1;
         if (previous == -1) return DFS(n-1, 1);
         if (DP[n][previous] > 0) return DP[n][previous];
@@ -14,7 +16,8 @@ public class Main2 {
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
-        for (int N = 1; N <= 90; ++N)
-            System.out.printf("%d %d\n", N, DFS(N, -1));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(reader.readLine());
+        System.out.println(DFS(N, -1));
     }
 }
