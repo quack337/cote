@@ -1,0 +1,8 @@
+BT(i1, i2)
+  i1, i2 부터 뒤까지 LCS를 안다면?
+  흠... 이것을 이용해서 풀 수 있겠지.
+
+  let r = (S[i1] == S[i2]) ? 1 : 0
+  let a = BT(i1, i2+1)
+  let b = BT(i1+1, i2)
+  return Math.max(a, b) + r
