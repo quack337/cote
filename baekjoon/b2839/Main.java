@@ -1,25 +1,22 @@
 package baekjoon.b2839;
 import java.io.*;
-import java.util.*;
 
 public class Main {
-  static final int INF = 9000;
-  static int[] DP = new int[5001];
+  static int[] memo;
 
-  static int 완전탐색(int n) {
-    if (DP[n] > 0) return DP[n];
-    if (n == 5 || n == 3) return DP[n] = 1;
-    int r1 = INF, r2 = INF;
-    if (n > 5) r1 = 완전탐색(n - 5) + 1;
-    if (n > 3) r2 = 완전탐색(n - 3) + 1;
-    return DP[n] = (r1 < r2 ? r1 : r2);
+  static int DFS(int n) {
+    if (n < 0) return Integer.MAX_VALUE;
+    if (n == 0) return 0;
+    if (memo[n] > 0) return memo[n];
+    int r = Math.min(DFS(n-5), DFS(n-3));
+    return memo[n] = (r==Integer.MAX_VALUE ? r : r + 1);
   }
 
   public static void main(String[] args) throws IOException {
-    var scanner = new Scanner(new BufferedInputStream(System.in));
-    int n = scanner.nextInt();;
-    scanner.close();
-    int r = 완전탐색(n);
-    System.out.println(r >= INF ? -1 : r);
+    var rd = new BufferedReader(new InputStreamReader(System.in));
+    int N = Integer.parseInt(rd.readLine());
+    memo = new int[N + 1];
+    int x = DFS(N);
+    System.out.println(x == Integer.MAX_VALUE ? -1 : x);
   }
 }
