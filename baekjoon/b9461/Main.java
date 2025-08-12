@@ -1,29 +1,21 @@
 package baekjoon.b9461;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
-    static long 파도반수열(int N) {
-        long[] A = new long[Math.max(N, 5)];
-        A[0] = 1;
-        A[1] = 1;
-        A[2] = 1;
-        A[3] = 2;
-        A[4] = 2;
-        for (int i = 5; i < N; ++i)
-            A[i] = A[i-1] + A[i-5];
-        return A[N-1];
-    }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder builder = new StringBuilder();
-        int T = Integer.parseInt(reader.readLine());
-        for (int t = 0; t < T; ++t) {
-            int N = Integer.parseInt(reader.readLine());
-            builder.append(파도반수열(N)).append('\n');
-        }
-        System.out.println(builder.toString());
+  public static void main(String[] args) throws NumberFormatException, IOException {
+    var P = new long[101];
+    P[1] = P[2] = P[3] = 1;
+    P[4] = P[5] = 2;
+    for (int i = 6; i <= 100; ++i)
+      P[i] = P[i-1] + P[i-5];
+    var rd = new BufferedReader(new InputStreamReader(System.in));
+    var sb = new StringBuilder();
+    int T = Integer.parseInt(rd.readLine());
+    for (int t = 0; t < T; ++t) {
+      int N = Integer.parseInt(rd.readLine());
+      sb.append(P[N]).append('\n');
     }
+    System.out.println(sb);
+  }
 }

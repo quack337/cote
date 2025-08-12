@@ -1,0 +1,17 @@
+쿼리 구간: qStart ~ qEnd
+
+(1)
+qEnd 지점까지 연속구간합계 최대값Q의 시작인덱스SQ 보다
+qStart가 작거나 같다면 답은 Q 이다.
+
+(2)
+qEnd 지점까지 qEnd지점을 포함한 연속구간합계 최대값P의 시작인덱스SP 보다
+sStart가 작거나 같드면 답은 Q .... 아니다.
+반례:
+qStart     qEnd
+20   -100  10
+  qEnd 지점의 P는 10이고 SP는 qEnd 이다
+  qStart ~ qEnd 연속구간합계 최대값은 20 이다.
+
+
+
