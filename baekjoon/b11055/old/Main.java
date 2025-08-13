@@ -1,22 +1,22 @@
-package baekjoon.b11055;
+package baekjoon.b11055.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main1a {
+public class Main {
     static final int MAX_VALUE = 1000;
     static int N;
     static int[][] DP;
     static int[] A;
 
-    static int 증가부분수열_최대길이(int index, int previous) {
+    static int 증가부분수열_최대합(int index, int previous) {
         if (index >= N) return 0;
         if (DP[index][previous] > -1) return DP[index][previous];
         int r1 = 0, r2 = 0;
-        if (A[index] > previous) r1 = 1 + 증가부분수열_최대길이(index + 1, A[index]);
-        r2 = 증가부분수열_최대길이(index + 1, previous);
+        if (A[index] > previous) r1 = A[index] + 증가부분수열_최대합(index + 1, A[index]);
+        r2 = 증가부분수열_최대합(index + 1, previous);
         return DP[index][previous] = Math.max(r1, r2);
     }
 
@@ -30,6 +30,6 @@ public class Main1a {
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
         for (int i = 0; i < N; ++i)
             A[i] = Integer.parseInt(tokenizer.nextToken());
-        System.out.println(증가부분수열_최대길이(0, 0));
+        System.out.println(증가부분수열_최대합(0, 0));
     }
 }
