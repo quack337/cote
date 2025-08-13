@@ -1,4 +1,4 @@
-package baekjoon.b2293;
+package baekjoon.b2293.old;
 import java.util.Arrays;
 import java.util.Scanner;
 
