@@ -1,3 +1,4 @@
+// 답이지만 js로는 메모리 부족을 피할 수 없다
 let IN=require('fs').readFileSync(0).toString().split(/\s/).map(e=>+e);
 let [N,K] = IN;
 let A = IN.slice(2);

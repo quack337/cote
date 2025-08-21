@@ -1,9 +1,8 @@
-// 답
 package baekjoon.b2293;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main1 {
   public static void main(String[] args) throws Exception {
     var br = new BufferedReader(new InputStreamReader(System.in));
     var tk = new StringTokenizer(br.readLine());
