@@ -1,10 +1,9 @@
-package baekjoon.b1309;
+package baekjoon.b1309.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-    static int MOD = 9901;
+public class Main2 {
     static int N;
     static int[][] DP;
 
@@ -12,10 +11,10 @@ public class Main {
         if (index == N) return 1;
         if (DP[index][previous] > 0) return DP[index][previous];
         int count = 0;
-        count = (count + 경우의수(index + 1, 0)) % MOD;
-        if (previous != 1) count = (count + 경우의수(index + 1, 1)) % MOD;
-        if (previous != 2) count = (count + 경우의수(index + 1, 2)) % MOD;
-        return DP[index][previous] = count % MOD;
+        count += 경우의수(index + 1, 0);
+        if (previous != 1) count += 경우의수(index + 1, 1);
+        if (previous != 2) count += 경우의수(index + 1, 2);
+        return DP[index][previous] = count;
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
