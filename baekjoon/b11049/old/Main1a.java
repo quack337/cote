@@ -1,4 +1,4 @@
-package baekjoon.b11049;
+package baekjoon.b11049.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
