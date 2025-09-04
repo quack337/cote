@@ -1,17 +1,16 @@
 let N = +require('fs').readFileSync(0).toString();
-let M = [];
-//console.log(DFS(N,0));
+let M = [], MIN = Infinity;
+console.log(DFS(N,0));
 
-for (let i=1; i<=N; ++i)
-  console.log(i, DFS(i,0));
-
-function DFS(n,cnt) {
+function DFS(n,depth) {
   if (n==0) return 0;
-  if (cnt > 4) return Infinity;
+  if (depth >= MIN) return Infinity;
   if (M[n] != undefined) return M[n];
   let e = Math.floor(Math.sqrt(n));
   let r = Infinity;
-  for (let i=1; i<=e; ++i)
-    r = Math.min(r, DFS(n - i*i, cnt+1) + 1);
+  for (let i=e; i>0; --i) {
+    r = Math.min(r, DFS(n - i*i, depth+1) + 1);
+    if (depth==0) MIN = Math.min(MIN, r);
+  }
   return M[n] = r;
 }
