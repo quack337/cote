@@ -1,3 +1,4 @@
+// 답
 let N = +require('fs').readFileSync(0).toString();
 let M = [], MIN = Infinity;
 console.log(DFS(N,0));
