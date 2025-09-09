@@ -1,3 +1,5 @@
+// 장 순서 상관없이 합쳐도 된다면, 이 구현이 맞다.
+// 그러나 1,2,3 장 순서를 유지하며 합쳐야 한다.
 package baekjoon.b11066;
 
 import java.util.*;
@@ -12,6 +14,7 @@ public class Main1 {
       int c = a + b;
       result += c;
       queue.add(c);
+      System.out.printf("%d %d %d\n", a, b, c);
     }
     return result;
   }
@@ -27,8 +30,10 @@ public class Main1 {
       var queue = new PriorityQueue<Integer>();
       for (int i=0; i < N; ++i) {
         tk.nextToken(); 
+        System.out.printf("%d ", (int)tk.nval);
         queue.add((int)tk.nval);
       }
+      System.out.println();
       builder.append(sol(queue)).append('\n');
     }
     System.out.println(builder.toString());
