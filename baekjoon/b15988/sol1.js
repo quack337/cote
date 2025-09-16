@@ -1,3 +1,5 @@
+for (let i=1; i<=20; ++i)
+  console.log(i, DFS(i));
 
 function DFS(n) {
   if (n<0) return 0;
