@@ -1,4 +1,4 @@
-package baekjoon.b1937;
+package baekjoon.b1937.old;
 import java.io.*;
 import java.util.*;
 
