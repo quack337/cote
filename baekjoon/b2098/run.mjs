@@ -28,37 +28,33 @@ async function testSS(inputString, outputString) {
 
 await testSS(`2
 0 1
-2 0`, '1')
+2 0`, '3')
 await testSS(`3
 0 1 2
 2 0 1
-2 2 0`, '2')
+2 2 0`, '4')
 await testSS(`3
 0 2 3
 3 0 2
-3 3 0`, '4')
+3 3 0`, '7')
 await testSS(`3
 0 2 3
 3 0 2
-3 3 0`, '4')
-await testSS(`3
-0 1 0
-0 0 2
-0 0 0`, '3')
+3 3 0`, '7')
+await testSS(`4
+0 14 0 4
+0 0 7 3
+14 2 0 0
+9 10 7 0`, '35')
 
 
 await testSS(`4
-0 0 0 0
-0 0 0 0
-0 0 0 0
-0 0 0 0`, 'Infinity')
+0 5 3 2
+0 0 2 5
+2 1 0 1
+3 0 2 0`, '11')
 await testSS(`4
-0 0 2 0
-0 0 0 0
-0 3 0 0
-1 0 0 0`, '6')
-await testSS(`4
-0 3 2 0
-3 0 3 0
-0 3 0 3
-1 0 3 0`, '6')
+0 83 0 88
+0 0 20 97
+73 39 0 0
+36 0 76 0`, '329')
