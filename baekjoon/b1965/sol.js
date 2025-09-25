@@ -1,8 +1,7 @@
 let IN=require('fs').readFileSync(0).toString().split('\n');
-let N=IN[0];
+let N=+IN[0];
 let A=IN[1].split(' ').map(e=>+e);
 let M=Array(N).fill().map(_=>[]);
-console.log(M)
 console.log(DFS(0, 0));
 
 function DFS(n, prev) {
