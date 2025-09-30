@@ -1,4 +1,4 @@
-package baekjoon.b2631;
+package baekjoon.b2631.old;
 import java.util.Scanner;
 
 public class Main1a {
