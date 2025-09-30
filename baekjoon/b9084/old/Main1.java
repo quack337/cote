@@ -1,21 +1,15 @@
-package baekjoon.b9084;
+package baekjoon.b9084.old;
 import java.util.Scanner;
 
-public class Main3 {
-
-    static int sol(int 목표금액, int[] 동전목록) {
-        System.out.println(목표금액);
-        if (목표금액 == 0) return 1;
-        int count = 0;
-        for (int i = 0; i < 동전목록.length; ++i)
-            if (목표금액 >= 동전목록[i])
-                count += sol(목표금액 - 동전목록[i], 동전목록);
-        return count;
-    }
+public class Main1 {
 
     static void sol(int[] 동전목록, int 금액) {
-        int count = sol(금액, 동전목록);
-        System.out.println(count);
+        int[] DP = new int[금액 + 1];
+        DP[0] = 1;
+        for (int 동전 : 동전목록)
+            for (int i = 동전; i < DP.length; ++i)
+                DP[i] = DP[i] + DP[i - 동전];
+        System.out.println(DP[금액]);
     }
 
     public static void main(String[] args) {
