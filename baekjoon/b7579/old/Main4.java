@@ -1,16 +1,16 @@
-package baekjoon.b7579;
+package baekjoon.b7579.old;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main3 {
+public class Main4 {
     static int N, M;
     static int[] 메모리, 비용;
     static Integer[][] DP = new Integer[100][10_000];
 
     static int 메모리확보최대값(int index, int 남은비용) {
-        if (index == N || 남은비용 == 0) return 0;
+        if (index == N) return 0;
         if (DP[index][남은비용] != null) return DP[index][남은비용];
         int 메모리1 = 0, 메모리2 = 0;
         메모리1 = 메모리확보최대값(index + 1, 남은비용);
