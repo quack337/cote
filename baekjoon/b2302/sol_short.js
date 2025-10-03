@@ -1,0 +1,11 @@
+D=(require('fs').readFileSync(0)+'').split('\n').map(e=>+e)
+let[N,M]=D
+V=[]
+for(i=0;i<M;++i)V[D[i+2]-1]=1
+P=Array(N+1).fill().map(_=>[0,0])
+P[N]=[1,1]
+for(n=N-1;n>=0;--n){
+ P[n][0]=P[n+1][0]+(n&&!V[n-1]&&!V[n]?P[n+1][1]:0)
+ P[n][1]=P[n+1][0]
+}
+console.log(P[0][0])
