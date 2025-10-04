@@ -1,0 +1,9 @@
+A=(require('fs').readFileSync(0)+'').split(/\s/).map(e=>+e)
+N=A.shift()
+P=[1]
+Q=[1]
+for(i=1;i<N;++i){
+ P[i]=A[i]>=A[i-1]?P[i-1]+1:1
+ Q[i]=A[i]<=A[i-1]?Q[i-1]+1:1
+}
+console.log(Math.max(...P,...Q))
