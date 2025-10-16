@@ -1,0 +1,24 @@
+n에서 그냥 1을 뺄 수도 있다.
+1 = 1
+2 = 2
+3 = 3
+4 = 4
+5 = 5
+6 = 6
+
+n에서 3이상의 정수를 뺄 수도 있다.
+3  acv = *2 ok
+4  acvv = *3 ok
+5  acvvv = *4 ok
+6  acvvvv = *5 ok
+7  acvvvvv = *6 ok
+8  acvvvvvv = *7 ok
+9  acvvvvvvv = *8 ok
+10 acvvvvvvvv = *9
+
+n에서 3의 배수를 뺄 수도 있고
+3  acv = *2
+6  acvacv = *4
+9  acvacvacv = *8
+12 acvacvacvacv = *16
+

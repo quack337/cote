@@ -1,2 +1,2 @@
-D=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.split(' ').map(e=>+e));
-N=D[0][0];
+let A=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.split(' ').map(e=>+e));
+let A=(require('fs').readFileSync(0)+'').split(/\s/).map(e=>+e);
