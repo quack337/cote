@@ -1,11 +1,11 @@
-for (N=2; N<=6; ++N) {
+for (N=1; N<=11; ++N) {
   S=[]; T=[];
   console.log(N, BT(0));
 }
 
 function BT(n) {
   if (n==N) {
-    console.log(T);
+    //console.log(T.join(''));
     return 1;
   }
   let r=0;
