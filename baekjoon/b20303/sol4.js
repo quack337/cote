@@ -1,5 +1,3 @@
-// 재귀호출을 보고 점화식을 구현하니, 아주 쉽게 구현햇지만
-// 오히려 sol2.보다 3배 더 느리다.
 let D=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.split(' ').map(e=>+e));
 let [N,M,K]=D[0];
 let A=D[1];
@@ -16,12 +14,13 @@ for(let i=0;i<N;++i)
     B.push(b);C.push(c);
   }
 N=B.length;
-let P=Array(N+1).fill().map(_=>[]);
-P[N]=Array(K).fill(0);
-for (let n=N-1; n>=0; --n)
-  for (let k=0; k<K; ++k)
-    P[n][k]=Math.max(P[n+1][k], k>=B[n] ? P[n+1][k-B[n]]+C[n] : 0);
-console.log(Math.max(...P[0]));
+let P=Array(K).fill(0);
+for (let i=0; i<N; ++i){
+  let b=B[i], c=C[i];
+  for (let j=K-1; j>=b; --j)
+    P[j] = Math.max(P[j], P[j-b]+c);
+}
+console.log(Math.max(...P));
 
 function DFS1(n){
   V[n]=1;++b;c+=A[n];
