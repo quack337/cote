@@ -1,0 +1,1 @@
+console.log([,0,1,3,6,10,15,21,28,36,45][+(require('fs').readFileSync(0)+'')])
