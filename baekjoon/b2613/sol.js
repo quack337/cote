@@ -17,11 +17,18 @@ BT=(n,m)=>{
 P=Array(N).fill().map(_=>[]);
 x=BT(0,M);
 X=[];
-s=p=0;
-for(let i=0;i<N;++i)
-  if((s+=A[i])>x){
-    X.push(i-p);
-    s=A[i];p=i;
+BR=(n,m)=>{
+  if(m==1) {
+    if(P[n][m]){ X.push(N-n); return true; }
+    else return false;
   }
-X.push(N-p);
+  for (let i=n;i<=N-m;++i)
+    if(P[n][m] >= P[i+1][m-1]){
+      X.push(i-n+1);
+      if (BR(i+1,m-1)) return true;
+      X.pop();
+    }
+  return false;
+}
+BR(0,M);
 console.log(x+'\n'+X.join(' '))
