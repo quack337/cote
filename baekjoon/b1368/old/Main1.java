@@ -1,4 +1,4 @@
-package baekjoon.b1368;
+package baekjoon.b1368.old;
 // 메모리 초과
 import java.io.*;
 import java.util.*;
