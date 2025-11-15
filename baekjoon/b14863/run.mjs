@@ -3,7 +3,7 @@ import util from 'util';
 import child_prcess from 'child_process';
 let exec = util.promisify(child_prcess.exec);
 
-let command = "node sol1.js"
+let command = "node sol2.js"
 let inputCount = 1;
 
 async function testFS(inputFile, outputString) {
@@ -64,3 +64,39 @@ await testSS(
 50 200 20 100
 80 370 30 120
 70 250 30 90`, '660');
+
+await testSS(
+`3 150
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '570');
+
+await testSS(
+`3 140
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '560');
+
+await testSS(
+`3 120
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '470');
+
+await testSS(
+`3 110
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '410');
+
+await testSS(
+`3 100
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '310');
+
+await testSS(
+`3 80
+50 200 20 100
+80 370 30 120
+70 250 30 90`, '310');
