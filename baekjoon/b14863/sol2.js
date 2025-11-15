@@ -1,3 +1,4 @@
+// 오답..
 A=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.split(' ').map(e=>+e));
 [N,K]=A.shift();
 Q=Array(K+1).fill(0);
