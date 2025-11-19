@@ -26,6 +26,18 @@ async function testS(inputString, output) {
   await testF("data_temp", output);
 }
 
-await testF('data2', 1.0)
+await testF('data1', 0.3333333333333333);
+await testF('data2', 1.0);
+await testF('data3', 0.4642857142857143);
+await testF('data4', 0.7571428571428571);
 
 await testS('2 1 1', 0.5);
+
+await testS('3 1 1', 0.3333333333333333);
+await testS('3 2 1', 1);
+await testS('3 2 2', 0.3333333333333333);
+
+await testS('4 1 1', 0.25);
+await testS('4 2 1', 0.8333333333333333);
+await testS('4 2 2', 0.1666666666666666);
+await testS('4 3 1', 1);
