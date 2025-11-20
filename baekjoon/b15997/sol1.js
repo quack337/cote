@@ -1,13 +1,10 @@
 D=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.split(' '));
 [a,b,c,d]=D[0];
 I={[a]:0,[b]:1,[c]:2,[d]:3};
-A=[[],[],[],[]];
 G=[];
 for(let i=1;i<7;++i){
  [a,b,w,d,l]=D[i];a=I[a];b=I[b];
- G.push([a,b])
- A[a][b]=[+w,+d,+l];
- A[b][a]=[+l,+d,+w];
+ G.push([a,b,+w,+d,+l]);
 }
 S=[];
 P=0;
@@ -25,18 +22,12 @@ B2=_=>{
       case 1:i=j=1;  J[a][1]++;J[b][1]++;break;
       case 2:i=2;j=0;J[b][1]+=3;break;
     }
-    p*=A[a][b][i]*A[b][a][j];
+    p*=G[g][i+2];
   }
   P+=p;
-  J.sort((a,b)=>a[1]-b[1]);
-  let d=0,_j=-1;
-  while(J.length){
-    let[i,j]=J.pop();
-    if(j!=_j){_j=j;if(++d>2)break;}
-    X[i]+=p;
-  }
+  let a=J.map(j=>j[1]), j1=Math.max(...a), j2=Math.max(...a.map(j=>j==j1?0:j));
+  let c1=a.reduce((c,j)=>j==j1?c+1:c,0), c2=a.reduce((c,j)=>j==j2?c+1:c,0);
+  J.forEach(([i,j])=>X[i] += j==j1 ? p/(c1>1?2/c1:1) : j==j2&&c1==1? p/c2 : 0);
 }
 B1(0);
-console.log(P,X)
-console.log(X.map(x=>x/P))
-console.log(A)
+console.log(X.join('\n'))
