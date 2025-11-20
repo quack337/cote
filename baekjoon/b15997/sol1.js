@@ -27,7 +27,8 @@ B2=_=>{
   P+=p;
   let a=J.map(j=>j[1]), j1=Math.max(...a), j2=Math.max(...a.map(j=>j==j1?0:j));
   let c1=a.reduce((c,j)=>j==j1?c+1:c,0), c2=a.reduce((c,j)=>j==j2?c+1:c,0);
-  J.forEach(([i,j])=>X[i] += j==j1 ? p/(c1>1?2/c1:1) : j==j2&&c1==1? p/c2 : 0);
+  J.forEach(([i,j])=>X[i] += j==j1?p/(c1>1?c1/2:1) : j==j2&&c1==1?p/c2 : 0);
 }
 B1(0);
-console.log(X.join('\n'))
+console.log(P, X);
+console.log(X.map(x=>x/P).join('\n'))
