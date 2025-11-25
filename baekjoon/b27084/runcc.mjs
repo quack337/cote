@@ -20,13 +20,13 @@ async function testCCF(cmd1, cmd2, file) {
   }
 }
 
-async function testCCS(cmd1, cmd2, file) {
+async function testCCS(cmd1, cmd2, inputString) {
   fs.writeFileSync("data_temp", inputString);
-  testCCF("data_temp", cmd1, cmd2, file);
+  testCCF(cmd1, cmd2, "data_temp");
 }
 
 let cmd1 = "node sol1.js"
-let cmd2 = "node sol2_short.js"
+let cmd2 = "node sol3.js"
 
 for (let i=1; i<20; ++i) {
   let file = "data"+i;
@@ -34,4 +34,15 @@ for (let i=1; i<20; ++i) {
     await testCCF(cmd1, cmd2, file);
 }
 
-//await testCCF(cmd1, cmd2, "data2");
+let N=20
+for(let t=0;t<10;++t){
+  for(let i=1;i<=N;++i){
+    let X=[]
+    for(let j=0;j<N;++j){
+      let x=Math.floor(Math.random()*i+1);
+      X.push(x);
+    }
+    //console.log(X);
+    testCCS(cmd1, cmd2, N+'\n'+X.join(' '));
+  }
+}

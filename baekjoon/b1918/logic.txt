@@ -1,6 +1,14 @@
-= 괄호로 묶기
-예: A*B+C*D/E-C
-- 수식의 각 항목을 노드 목록으로 변환한다
-   연산자 노드: {val:연산자, left, right}
-- 2진트리로 바꾸기. 리프는 ab 노드는 op
-- 목록을 스캔하며 *,/ 연산자를 노드로 
+expr =>
+  (expr) |
+  alpa
+  alpa * expr |
+  alpa / expr |
+  alpa + expr |
+  alpa - expr;
+
+AST
+  중간 노드는 op
+  leaf는 alpha
+
+A+B-C
+A+B*C

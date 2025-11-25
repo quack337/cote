@@ -7,4 +7,4 @@ for(let i=0;i<N;++i){let c=BigInt(C[i]);
   if(c>1){H+=c;J*=c+1n}else if(c==1)++F;
 }
 H=1n<<H;J<<1n;F=1n<<F;
-console.log(((1n<<BigInt(N))-1n-F*(H-J))%1000000007n+'')
+console.log(((1n<<BigInt(N))-1n-F*(H-J))%1_000_000_007n+'')
