@@ -9,7 +9,10 @@ CK =_=> {
 }
 BT = n => {
   if(n==N) {
-    if(S.length && CK()) ++X;
+    if(S.length && CK()) {
+      ++X;
+      //console.log(S.join(' '));
+    }
     return;
   }
   BT(n+1);

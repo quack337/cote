@@ -10,23 +10,23 @@ async function getStdout(cmd) {
 
 async function testCCF(cmd1, cmd2, file) {
   let out1 = (await exec(cmd1 + " < " + file)).stdout.trim();
-  let out2 = (await exec(cmd2 + " < " + file)).stdout.trim()
+  let out2 = (await exec(cmd2 + " < " + file)).stdout.trim();
   let label = "run with " + file;
   if (out1 == out2)
     console.log(label, true);
   else {
-    console.log(label, false);
+    console.log(label, false, out1, out2, cmd1, cmd2);
     process.exit(1);
   }
 }
 
 async function testCCS(cmd1, cmd2, inputString) {
   fs.writeFileSync("data_temp", inputString);
-  testCCF(cmd1, cmd2, "data_temp");
+  await testCCF(cmd1, cmd2, "data_temp");
 }
 
 let cmd1 = "node sol1.js"
-let cmd2 = "node sol3.js"
+let cmd2 = "node sol4.js"
 
 for (let i=1; i<20; ++i) {
   let file = "data"+i;
@@ -34,7 +34,7 @@ for (let i=1; i<20; ++i) {
     await testCCF(cmd1, cmd2, file);
 }
 
-let N=20
+let N=20;
 for(let t=0;t<10;++t){
   for(let i=1;i<=N;++i){
     let X=[]
@@ -43,6 +43,6 @@ for(let t=0;t<10;++t){
       X.push(x);
     }
     //console.log(X);
-    testCCS(cmd1, cmd2, N+'\n'+X.join(' '));
+    await testCCS(cmd1, cmd2, N+'\n'+X.join(' '));
   }
 }
