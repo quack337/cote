@@ -1,7 +1,7 @@
 D=(require('fs').readFileSync(0)+'').split('\n').map(s=>s.trim().split(' ').map(e=>+e));
 F=(a,b)=>{
  let l=a.length;
- if(l<2) return l&&[,a[0]];
+ if(l<2)return l&&[,a[0]];
  let r=a[0],n=b.indexOf(r);
  return [F(a.slice(1,n+1),b.slice(0,n)),r,F(a.slice(n+1),b.slice(n+1))];
 }
