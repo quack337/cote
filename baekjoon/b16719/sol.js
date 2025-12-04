@@ -1,13 +1,9 @@
-S=(require('fs').readFileSync(0)+'').trim();
+S=(require('fs').readFileSync(0)+'').trim();N=S.length;
 X=[];V=[];
-F2=n=>{V[n]=1;X.push(V.map((v,i)=>v?S[i]:'').join(''))}
-F1=(n,c)=>{
-  if(!V[n]&&S[n]==c)F2();
-  F1(n+1,c);
-}
-for(let i=65;i<91;++i){
- for(let j=0;j<S.length;++j)
-  if(S.charCodeAt(j)<=i)A.push(S[j]);
- if(A.length>P.length)X.push(P=A.join(''));
-}
+F=n=>{for(;;){
+ let c='a',j=-1;
+ for(let i=n;i<N;++i)if(!V[i]&&S[i]<c)c=S[j=i];
+ if(j==-1)return;
+ V[j]=1;X.push(V.reduce((a,v,i)=>v?a+S[i]:a,''));if(j<N-1)F(j+1)}}
+F(0);
 console.log(X.join('\n'))
