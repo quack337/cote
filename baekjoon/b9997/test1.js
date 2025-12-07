@@ -1,0 +1,14 @@
+D=(require('fs').readFileSync(0)+'').split('\n');
+N=+D[0];A=[];
+for(i=0;i<N;++i){
+ w=D[i+1];x=0;
+ for(j=0;j<w.length;++j)x|=1<<(w[j].charCodeAt(0)-97);
+ A.push(x);
+}
+for(i=0;i<N;++i){
+  b=A[i];
+  w=[];
+  for(j=0;j<26;++j)
+    if(b&(1<<j))w.push(String.fromCharCode(97+j));
+  console.log(w.join(''))
+}

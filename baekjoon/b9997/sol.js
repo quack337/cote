@@ -1,0 +1,16 @@
+D=(require('fs').readFileSync(0)+'').split('\n');
+N=+D[0];A=[];
+for(i=0;i<N;++i){
+ w=D[i+1];x=0;
+ for(j=0;j<w.length;++j)x|=1<<(w[j].charCodeAt(0)-97);
+ A.push(x);
+}
+X=0;
+F=(n,w)=>{
+ if(n==N){
+  X+=((w==(2**26)-1)?1:0);
+ }else{
+ F(n+1,w);
+ F(n+1,w|A[n])}}
+F(0,0);
+console.log(X)
