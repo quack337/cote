@@ -3,7 +3,7 @@ import util from 'util';
 import child_prcess from 'child_process';
 let exec = util.promisify(child_prcess.exec);
 
-let command = "node sol1.js"
+let command = "node sol3.js"
 let inputCount = 1;
 
 async function testF(inputFile, output, off=1e-9) {
