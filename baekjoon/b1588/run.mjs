@@ -3,7 +3,7 @@ import util from 'util';
 import child_prcess from 'child_process';
 let exec = util.promisify(child_prcess.exec);
 
-let command = "node sol2.js"
+let command = "node sol1.js"
 let inputCount = 1;
 
 async function testF(inputFile, output, off=1e-9) {
@@ -32,7 +32,49 @@ await testF('data1', '0 4 1');
 await testF('data2', '1 1 1');
 await testF('data3', '2 1 1');
 await testF('data4', '2 4 3');
-await testS('1\n0\n2\n1', '1 1 1');
+
 await testS('1\n0\n0\n0', '1 0 0');
 await testS('2\n0\n0\n0', '0 1 0');
 await testS('3\n0\n0\n0', '0 0 1');
+
+await testS('1\n0\n2\n1', '1 1 1');
+await testS('1\n0\n0\n1', '1 0 0');
+await testS('1\n0\n1\n1', '1 0 1');
+
+await testS('2\n0\n0\n1', '0 1 0');
+await testS('2\n0\n1\n1', '1 1 0');
+await testS('2\n0\n2\n1', '2 1 0');
+
+await testS('3\n0\n0\n1', '0 1 0');
+await testS('3\n0\n1\n1', '0 1 1');
+await testS('3\n0\n2\n1', '0 2 1');
+
+await testS('1\n0\n0\n2', '1 0 0');
+await testS('1\n0\n1\n2', '1 0 1');
+await testS('1\n0\n2\n2', '1 1 1');
+await testS('1\n0\n3\n2', '1 2 1');
+await testS('1\n0\n4\n2', '1 2 2');
+await testS('1\n0\n5\n2', '1 3 2');
+await testS('1\n0\n6\n2', '1 4 2');
+await testS('1\n0\n7\n2', '2 4 2');
+await testS('1\n0\n8\n2', '3 4 2');
+
+await testS('2\n0\n0\n2', '0 1 0');
+await testS('2\n0\n1\n2', '1 1 0');
+await testS('2\n0\n2\n2', '2 1 0');
+await testS('2\n0\n3\n2', '3 1 0');
+await testS('2\n0\n4\n2', '3 1 1');
+await testS('2\n0\n5\n2', '3 2 1');
+await testS('2\n0\n6\n2', '4 2 1');
+await testS('2\n0\n7\n2', '4 2 2');
+await testS('2\n0\n8\n2', '4 3 2');
+
+await testS('3\n0\n0\n2', '0 1 0');
+await testS('3\n0\n1\n2', '1 1 0');
+await testS('3\n0\n2\n2', '2 1 0');
+await testS('3\n0\n3\n2', '2 2 0');
+await testS('3\n0\n4\n2', '2 2 1');
+await testS('3\n0\n5\n2', '2 3 1');
+await testS('3\n0\n6\n2', '2 4 1');
+await testS('3\n0\n7\n2', '3 4 1');
+await testS('3\n0\n8\n2', '4 4 1');
