@@ -1,6 +1,6 @@
 fs=require('fs');
 
-N=100;
+N=100000;
 A=[];
 for(let i=1;i<=N;++i)A.push(i);
 for(let i=0;i<N;++i){
