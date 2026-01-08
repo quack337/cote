@@ -28,4 +28,9 @@ async function testS(inputString, output) {
   await testF("data_temp", output);
 }
 
+async function testFF(inputFile, outputFile) {
+  let out = fs.readFileSync(outputFile).toString();
+  testF(inputFile, out);
+}
+
 await testF('data1', '2 4 1 3\n5 8 4 6 2 1 7 3');

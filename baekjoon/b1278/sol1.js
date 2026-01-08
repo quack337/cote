@@ -1,0 +1,10 @@
+N=+(require('fs').readFileSync(0)+'');
+X=[1,2,1,2];
+BT=i=>{
+ if(i==2)return;
+ BT(i-1);
+ X[X.length-1]=i;
+ X.push(...X);
+}
+BT(N);
+console.log((X.length-1)+'\n'+X.join('\n'))
