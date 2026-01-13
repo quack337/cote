@@ -1,4 +1,5 @@
 S='(--R+(P*Q))';I=0;
+//S='(-1+(((---P+Q)*(--Q+---R))*(-R+-P)))';I=0;
 FO=get();
 console.log(JSON.stringify(FO));
 
