@@ -1,0 +1,10 @@
+ eincne,ab 
+ einnce,b 
+ einnec,b 
+ enicne,a 
+ ineecn,ab
+ ineenc,a
+ inenec,a 
+ neicne,a
+ neiecn,b 
+ nieecn,b
