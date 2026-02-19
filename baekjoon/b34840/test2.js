@@ -2,8 +2,12 @@
 function dfs(n) {
   if (n>N) {
     ++C;
+    let x = 0;
     for (let i=0; i<N-1; ++i)
-      if (S[i]>S[i+1]) ++X;
+      for (let j=i+1; j<N; ++j)
+        if (S[i]>S[j]) ++x;
+    X += x;
+    console.log(S, x);
     return;
   }
   for (let i=1; i<=N; ++i)
@@ -14,8 +18,8 @@ function dfs(n) {
     } 
 }
 
-for (N=2;N<12;++N) {
+for (N=3;N<=3;++N) {
   S=[];V=[];X=0;C=0;
   dfs(1);
-  console.log(N, X/C);
+  console.log("N:%d X:%d C:%d X/C:%f", N, X, C, X/C);
 }
