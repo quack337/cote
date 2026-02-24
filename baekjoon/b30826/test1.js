@@ -4,5 +4,5 @@ for(let i=3;;++i){
   Q[i]=10*Q[i-2];
   if(P[i]>1e16)break;
 }
-console.log(P);
-console.log(P.length);
+console.log(P, P.length);
+console.log(Q, Q.length);

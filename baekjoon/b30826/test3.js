@@ -4,13 +4,11 @@ for(let i=3;;++i){
   Q[i]=10*Q[i-2];
   if(P[i]>1e16)break;
 }
-N=25;
+N=(25-1); // 0부터 시작
 for(d=1;;++d)
-  if(N>=P[d]) N-=P[d];
+  if(N>=(P[d]*d)) N-=(P[d]*d);
   else break;
-console.log("d:%d N:%d", d, N);
-console.log("1자리 9개, 2자리 9개, N=25-9-9=7, d=3자리 목록에서 7번째는?");
-e1=N/d|0,e2=N%d;
-console.log("e1=N/d=%d e2=N%%d=%d", e1, e2);
-console.log("%d자리수 목록에서 e1=%d개는 제외하고, e1+1=%d번째 %d자리 수에서 e2=%d번째 문자는?", 
-  d, e1, e1+1, d, e2);
+console.log(`${d} 자리 수들이 붙어있는 목록에서 ${N} 위치 문자`);
+n = (N/d)|0;
+i = N%d;
+console.log(`${d} 자리 수들 중에서 ${n+1} 번째 수의 ${i} 위치 문자`);
